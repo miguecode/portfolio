@@ -1,0 +1,45 @@
+---
+import Badge from "./Badge.astro";
+import SocialLink from "./SocialLink.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+import MailIcon from "../icons/Mail.astro";
+const { data } = Astro.props;
+---
+
+<img
+  src={data.perfilImage}
+  class="rounded-full shadow-lg size-16 mb-5"
+  alt="Foto de perfil"
+/>
+<h1
+  class="text-3xl md:text-4xl lg:text-5xl text-gray-800 dark:text-white font-bold flex flex-row gap-x-4 pb-6 lg:pb-7"
+>
+  {data.title}
+  <a
+    class="flex items-center transition md:justify-center md:hover:scale-105"
+    href={data.linkedinLink}
+  >
+    <Badge>{data.badge}</Badge>
+  </a>
+</h1>
+<h2
+  class="text-[1.35rem] text-wrap max-w-[650px] text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
+>
+  {data.subTitle}
+</h2>
+
+<nav class="flex gap-4 mt-8 flex-wrap">
+  <SocialLink href={data.linkedinLink}>
+    <LinkedInIcon class="size-4 md:size-6 inline" />
+    LinkedIn
+  </SocialLink>
+  <SocialLink href={data.githubLink}>
+    <GitHubIcon class="size-4 md:size-6 inline" />
+    GitHub
+  </SocialLink>
+  <SocialLink href="">
+    <MailIcon class="size-4 md:size-6 inline" />
+    Contáctame
+  </SocialLink>
+</nav>
