@@ -19,8 +19,6 @@ export const data = {
 };
 
 // Technology's icons
-
-// Technology's icons
 import html from "../icons/technologys/HTML.astro";
 import css from "../icons/technologys/CSS.astro";
 import javascript from "../icons/technologys/JavaScript.astro";

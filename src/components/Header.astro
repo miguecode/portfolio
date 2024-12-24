@@ -1,5 +1,5 @@
 ---
-import ThemeToggle from './ThemeToggle.astro'
+import ThemeToggle from "./ThemeToggle.astro";
 
 const navItems = [
   {
@@ -18,14 +18,14 @@ const navItems = [
     href: "#proyectos",
   },
   {
+    title: "Sobre Mí",
+    label: "sobre-mi",
+    href: "#sobre-mi",
+  },
+  {
     title: "Contacto",
     label: "contacto",
     href: "#contacto",
-  },
-  {
-    title: "Sobre Mí",
-    label: "sobre-mi",
-    href: "/#sobre-mi",
   },
 ];
 ---
@@ -34,82 +34,94 @@ const navItems = [
   class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
 >
   <nav
-    class="px-12 gap-4 mt-2 min-w-fit flex justify-center items-center font-medium rounded-full text-gray-600 dark:text-gray-200 "
+    class="px-12 gap-4 mt-2 min-w-fit flex justify-center items-center font-bold rounded-2xl text-gray-600 dark:text-gray-200"
   >
-  {
-    navItems.map((link) => (
-      <a
-        class="relative block px-2 py-2 transition hover:text-blue-500 dark:hover:text-blue-500"
-        aria-label={link.label}
-        href={link.href}
-      >
-        {link.title}
-      </a>
-    ))
-  }
+    {
+      navItems.map((link) => (
+        <a
+          class="relative block px-2 py-2 transition hover:text-navbar-primary dark:hover:text-navbar-secondary"
+          aria-label={link.label}
+          href={link.href}
+        >
+          {link.title}
+        </a>
+      ))
+    }
     <ThemeToggle />
   </nav>
 </header>
 
+<!-- Navbar color change function -->
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
+  // Intersection Observer API to change the color of the navbar links
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("header nav a");
 
-    const callback = (entries: any[]) => {
+    // Function to change the color of the navbar items
+    const changeColor = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-blue-500")
+              item.classList.add(
+                "text-navbar-primary",
+                "dark:text-navbar-secondary"
+              );
             } else {
-              item.classList.remove("text-blue-500")
+              item.classList.remove(
+                "text-navbar-primary",
+                "dark:text-navbar-secondary"
+              );
             }
-          })
+          });
         }
-      })
-    }
+      });
+    };
 
-    const observer = new IntersectionObserver(callback, {
+    // Create an observer with a callback "changeColor" function
+    const observer = new IntersectionObserver(changeColor, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.3,
-    })
+      threshold: 0.8, // When the section is 80% visible
+    });
 
+    // Observe each section of the page
     sections.forEach((section) => {
-      observer.observe(section)
-    })
+      observer.observe(section);
+    });
 
-    // Cleanup function
+    // Optimization function (stop observing when the tab is not visible)
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
-        observer.disconnect()
+        observer.disconnect();
       } else {
         sections.forEach((section) => {
-          observer.observe(section)
-        })
+          observer.observe(section);
+        });
       }
-    }
-  })
+    };
+  });
 </script>
 
+<!-- Shading Navbar Animation -->
 <style>
   nav {
-    animation: nav-shadown 1s linear both;
+    animation: nav-shadown 2s both;
     animation-timeline: scroll();
     animation-range: 0 100px;
   }
 
   nav {
-    @apply dark:bg-[#212031] bg-white/90;
+    @apply bg-white/90 dark:bg-navbar-dark-bg;
   }
 
   @keyframes nav-shadown {
     0% {
-      @apply dark:bg-gray-800/0 bg-white/0;
+      @apply bg-white/0 dark:bg-gray-800/0;
     }
     to {
-      @apply shadow-lg ring-1 backdrop-blur ring-white/10;
+      @apply shadow-lg backdrop-blur;
     }
   }
 </style>

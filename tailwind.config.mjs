@@ -5,7 +5,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary
+        "navbar-primary": "#2557fc",
+        "navbar-secondary": "#6796fc",
+        "navbar-dark-bg": "#212031",
+        // Technology's Primary colors
         "html-primary": "#f06b51",
         "css-primary": "#0396DE",
         "javascript-primary": "#f0db4f",
@@ -18,7 +21,7 @@ export default {
         "php-primary": "#7B7FB5",
         "nodejs-primary": "#6da565",
         "ionic-primary": "#3880FF",
-        // Secondary
+        // Technology's Secondary colors
         "html-secondary": "#a04231",
         "css-secondary": "#c9d1e2",
         "javascript-secondary": "#f0db4f",
