@@ -18,7 +18,7 @@ export default {
         "bootstrap-primary": "#8b6bba",
         "firebase-primary": "#FFCD32",
         "astro-primary": "#ccd9ff",
-        "php-primary": "#7B7FB5",
+        "php-primary": "#a6a9c4",
         "nodejs-primary": "#6da565",
         "ionic-primary": "#3880FF",
         // Technology's Secondary colors

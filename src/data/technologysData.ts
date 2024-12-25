@@ -1,22 +1,4 @@
-// Website data
-export const metaData = {
-  title: "Miguel Ángel Gil - Desarrollador Frontend",
-  description:
-    "Portfolio de Miguel Ángel Gil, Desarrollador Frontend con formación universitaria en programación y experiencia en tecnologías web modernas.",
-};
-
-// Person data
-export const data = {
-  title: "Hola, soy Miguel",
-  subTitle:
-    "Desarrollador Frontend con formación Universitaria en Programación y conocimientos en tecnologías web modernas.",
-  perfilImage: "../../src/assets/astro.svg",
-  badge: "¡Disponible para trabajar!",
-  mail: "junmigue7@gmail.com",
-  cvPdf: "#",
-  linkedinLink: "https://www.linkedin.com/in/miguel-ángel-gil-989237244",
-  githubLink: "https://github.com/Leumig",
-};
+// Technoloy's data (for skills and projects)
 
 // Technology's icons
 import html from "../icons/technologys/HTML.astro";
@@ -35,8 +17,6 @@ import sql from "../icons/technologys/SQL.astro";
 import php from "../icons/technologys/PHP.astro";
 import nodejs from "../icons/technologys/Nodejs.astro";
 import ionic from "../icons/technologys/Ionic.astro";
-
-// Technoloy's data (for skills and projects)
 
 // First group of technology's
 export const technologysDataOne = [
@@ -67,7 +47,7 @@ export const technologysDataOne = [
   {
     name: "Angular",
     class:
-      "bg-black/10 border-transparent text-red-700 dark:text-angular-primary",
+      "bg-gray-300/60 border-transparent text-red-700 dark:text-angular-primary",
     icon: angular,
   },
   {
@@ -93,7 +73,7 @@ export const technologysDataOne = [
 export const technologysDataTwo = [
   {
     name: "Git",
-    class: "bg-black/10 border-transparent text-dark dark:text-white",
+    class: "bg-gray-300/60 border-transparent text-dark dark:text-white",
     icon: git,
   },
   {
@@ -124,35 +104,7 @@ export const technologysDataThree = [
   },
   {
     name: "Ionic",
-    class: "bg-black/10 border-transparent dark:text-white",
+    class: "bg-gray-300/60 border-transparent dark:text-white",
     icon: ionic,
-  },
-];
-
-// Projects data
-export const projectsData = [
-  {
-    title: "Proyecto 1",
-    description: "Esta es la descripción del proyecto 1",
-    link: "#",
-    github: "#",
-    image: "#",
-    tags: ["tag1", "tag2", "tag3"],
-  },
-  {
-    title: "Proyecto 2",
-    description: "Esta es la descripción del proyecto 2",
-    link: "#",
-    github: "#",
-    image: "#",
-    tags: ["tag1", "tag2", "tag3"],
-  },
-  {
-    title: "Proyecto 3",
-    description: "Esta es la descripción del proyecto 3",
-    link: "#",
-    github: "#",
-    image: "#",
-    tags: ["tag1", "tag2", "tag3"],
   },
 ];

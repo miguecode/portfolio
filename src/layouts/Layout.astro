@@ -22,13 +22,14 @@ const { title, description } = Astro.props;
       dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
     -->
     <div
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-neutral-950
+    bg-[radial-gradient(ellipse_80%_120%_at_50%_-30%,#CCD9FF,rgba(255,255,255,0.9))]
+    dark:bg-[radial-gradient(ellipse_50%_170%_at_50%_-50%,rgba(120,119,198,0.3),rgba(0,0,0,0.1))]"
     >
     </div>
-    <Header />
-    <slot />
-    <Footer />
-  </body>
+  </body><Header />
+  <slot />
+  <Footer />
 </html>
 
 <style>
@@ -36,7 +37,7 @@ const { title, description } = Astro.props;
     color-scheme: light dark;
 
     /* Default variables for the text selection color */
-    --selection-bg: #23262F;
+    --selection-bg: #23262f;
     --selection-color: #fff;
 
     /* Change the text selection color */
@@ -49,7 +50,7 @@ const { title, description } = Astro.props;
   .dark {
     /* Variables for the dark selection color */
     --selection-bg: #b3c7ff;
-    --selection-color: #23262F;
+    --selection-color: #23262f;
   }
 
   html {
@@ -58,7 +59,7 @@ const { title, description } = Astro.props;
   }
 
   body {
-    background-color: #212031;
+    /* background-color: #212031; */
     color: #1f2937;
     display: flex;
     flex-direction: column;

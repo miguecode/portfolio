@@ -6,7 +6,7 @@ import Skills from "../components/Skills.astro";
 import Projects from "../components/Projects.astro";
 import CodeIcon from "../icons/Code.astro";
 import SkillIcon from "../icons/Skill.astro";
-import { data, metaData, projectsData } from "../data/portfolioData.ts";
+import { data, metaData } from "../data/personalData.ts";
 ---
 
 <Layout title={metaData.title} description={metaData.description}>
@@ -37,7 +37,51 @@ import { data, metaData, projectsData } from "../data/portfolioData.ts";
         <CodeIcon class="size-8" />
         Proyectos
       </h2>
-      <Projects projects={projectsData} />
+      <Projects />
+    </SectionContainer>
+
+    <!-- SECTION PROJECTS -->
+    <SectionContainer id="proyectos">
+      <h2
+        class="text-3xl text-gray-800 dark:text-white font-semibold mb-6 flex gap-x-3 items-center"
+      >
+        <CodeIcon class="size-8" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+
+    <!-- SECTION PROJECTS -->
+    <SectionContainer id="proyectos">
+      <h2
+        class="text-3xl text-gray-800 dark:text-white font-semibold mb-6 flex gap-x-3 items-center"
+      >
+        <CodeIcon class="size-8" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+
+    <!-- SECTION PROJECTS -->
+    <SectionContainer id="proyectos">
+      <h2
+        class="text-3xl text-gray-800 dark:text-white font-semibold mb-6 flex gap-x-3 items-center"
+      >
+        <CodeIcon class="size-8" />
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+
+    <!-- SECTION PROJECTS -->
+    <SectionContainer id="proyectos">
+      <h2
+        class="text-3xl text-gray-800 dark:text-white font-semibold mb-6 flex gap-x-3 items-center"
+      >
+        <CodeIcon class="size-8" />
+        Proyectos
+      </h2>
+      <Projects />
     </SectionContainer>
   </div>
 </Layout>

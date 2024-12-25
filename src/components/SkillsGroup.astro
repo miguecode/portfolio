@@ -16,7 +16,7 @@ const { skills, title } = Astro.props;
   {
     skills.map((skill: Skill) => (
       <span
-        class={`flex justify-center items-center w-[10.2rem] py-2 text-1xl font-bold dark:font-semibold border border-gray-400 dark:border-white/10 dark:bg-transparent rounded-2xl hover:scale-105 transition-all duration-100 ease-in-out ${skill.class}`}
+        class={`flex justify-center items-center w-[10.2rem] py-2 text-1xl font-bold dark:font-semibold border border-gray-400 dark:border-white/10 dark:bg-black/10 rounded-2xl hover:scale-105 transition-all duration-100 ease-in-out ${skill.class}`}
       >
         <skill.icon class="w-8 h-8 mr-1" />
         {skill.name}
