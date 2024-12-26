@@ -1,4 +1,4 @@
-// Technoloy's data (for skills and projects)
+// Technoloy's data (for Skills and Projects)
 
 // Technology's icons
 import html from "../icons/technologys/HTML.astro";
@@ -23,48 +23,48 @@ export const technologysDataOne = [
   {
     name: "HTML",
     class:
-      "bg-orange-200 border-transparent text-html-secondary dark:text-html-primary",
+      "bg-orange-200 text-html-secondary dark:text-html-primary",
     icon: html,
   },
   {
     name: "CSS",
     class:
-      "bg-css-secondary border-transparent text-blue-900 dark:text-css-primary",
+      "bg-css-secondary text-blue-900 dark:text-css-primary",
     icon: css,
   },
   {
     name: "JavaScript",
     class:
-      "text-gray-800 bg-javascript-primary border-transparent text-black dark:text-javascript-primary",
+      "text-gray-800 bg-javascript-primary text-black dark:text-javascript-primary",
     icon: javascript,
   },
   {
     name: "TypeScript",
     class:
-      "bg-typescript-secondary border-transparent text-blue-900 dark:text-typescript-primary",
+      "bg-typescript-secondary text-blue-900 dark:text-typescript-primary",
     icon: typescript,
   },
   {
     name: "Angular",
     class:
-      "bg-gray-300/60 border-transparent text-red-700 dark:text-angular-primary",
+      "bg-gray-300/60 text-red-700 dark:text-angular-primary",
     icon: angular,
   },
   {
     name: "Astro",
-    class: "bg-astro-primary border-transparent text-black dark:text-white",
+    class: "bg-astro-primary text-black dark:text-white",
     icon: astro,
   },
   {
     name: "TailwindCSS",
     class:
-      "bg-tailwind-secondary border-transparent text-gray-800 dark:text-tailwind-primary",
+      "bg-tailwind-secondary text-gray-800 dark:text-tailwind-primary",
     icon: tailwindcss,
   },
   {
     name: "Bootstrap",
     class:
-      "bg-bootstrap-secondary border-transparent text-purple-900 dark:text-bootstrap-primary",
+      "bg-bootstrap-secondary text-purple-900 dark:text-bootstrap-primary",
     icon: bootstrap,
   },
 ];
@@ -73,18 +73,18 @@ export const technologysDataOne = [
 export const technologysDataTwo = [
   {
     name: "Git",
-    class: "bg-gray-300/60 border-transparent text-dark dark:text-white",
+    class: "bg-gray-300/60 text-dark dark:text-white",
     icon: git,
   },
   {
     name: "Firebase",
     class:
-      "bg-yellow-200 border-transparent text-firebase-secondary dark:text-firebase-primary",
+      "bg-yellow-200 text-firebase-secondary dark:text-firebase-primary",
     icon: firebase,
   },
   {
     name: "SQL",
-    class: "bg-orange-300 border-transparent text-black dark:text-orange-500",
+    class: "bg-orange-300 text-black dark:text-orange-500",
     icon: sql,
   },
 ];
@@ -94,17 +94,17 @@ export const technologysDataThree = [
   {
     name: "PHP",
     class:
-      "bg-php-secondary border-transparent text-blue-900 dark:text-php-primary",
+      "bg-php-secondary text-blue-900 dark:text-php-primary",
     icon: php,
   },
   {
     name: "Node.js",
-    class: "bg-green-200 border-transparent text-green-900 dark:text-nodejs-primary",
+    class: "bg-green-200 text-green-900 dark:text-nodejs-primary",
     icon: nodejs,
   },
   {
     name: "Ionic",
-    class: "bg-gray-300/60 border-transparent dark:text-white",
+    class: "bg-gray-300/60 dark:text-white",
     icon: ionic,
   },
 ];
