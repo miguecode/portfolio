@@ -16,24 +16,22 @@ const { title, description } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="relative">
-    <!-- 
-      class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-    -->
+    <!-- Gradient Background -->
     <div
       class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-neutral-950
     bg-[radial-gradient(ellipse_80%_120%_at_50%_-30%,#CCD9FF,rgba(255,255,255,0.9))]
     dark:bg-[radial-gradient(ellipse_50%_170%_at_50%_-50%,rgba(120,119,198,0.3),rgba(0,0,0,0.1))]"
     >
     </div>
-  </body><Header />
+  </body>
+  <Header />
   <slot />
   <Footer />
 </html>
 
 <style>
   :root {
+    /* Indicate the website allowed themes */
     color-scheme: light dark;
 
     /* Default variables for the text selection color */
@@ -47,8 +45,8 @@ const { title, description } = Astro.props;
     }
   }
 
+  /* Variables for the dark selection color */
   .dark {
-    /* Variables for the dark selection color */
     --selection-bg: #b3c7ff;
     --selection-color: #23262f;
   }
@@ -59,57 +57,18 @@ const { title, description } = Astro.props;
   }
 
   body {
-    /* background-color: #212031; */
+    background-color: #212031;
     color: #1f2937;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
 
-  /* Deshabilitar animación si el usuario lo prefiere */
+  /* Disable the animation if the user prefers */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
-    }
-  }
-
-  @keyframes blur {
-    to {
-      backdrop-filter: blur(20px);
-      border-width: 1px;
-      border-color: rgba(0, 0, 0);
-      padding: 0.25rem 0.75rem;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: rgb(229, 229, 229);
-      border-radius: 9999px;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    @keyframes blur {
-      from {
-        border: 0px;
-      }
-      to {
-        box-shadow:
-          0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-          0px 0px 0 1px rgba(0, 0, 0, 0.3);
-        background: rgba(0, 0, 0, 0.3);
-        backdrop-filter: blur(20px);
-        border-width: 1px;
-        border-color: rgba(0, 0, 0);
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
-        padding-top: 0.25rem;
-        padding-bottom: 0.25rem;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.3);
-        border-radius: 9999px;
-      }
+      transition: none;
     }
   }
 </style>

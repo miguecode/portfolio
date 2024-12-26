@@ -1,5 +1,5 @@
 // Projects data
-export const projectsData = [
+export const projects = [
   {
     title: "Proyecto 1",
     description: "Esta es la descripción del proyecto 1",

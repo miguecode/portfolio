@@ -6,7 +6,7 @@ export default {
     extend: {
       colors: {
         "navbar-primary": "#2557fc",
-        "navbar-secondary": "#6796fc",
+        "navbar-secondary": "#67a2ea",
         "navbar-dark-bg": "#212031",
         // Technology's Primary colors
         "html-primary": "#f06b51",
