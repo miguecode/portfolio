@@ -4,9 +4,9 @@ import MoonIcon from "../icons/Moon.astro";
 import SystemIcon from "../icons/System.astro";
 
 const themes = [
-  { id: "light", label: "Claro" },
-  { id: "dark", label: "Oscuro" },
-  { id: "system", label: "Sistema" },
+  { id: "light", label: "Claro", icon: SunIcon },
+  { id: "dark", label: "Oscuro", icon: MoonIcon },
+  { id: "system", label: "Sistema", icon: SystemIcon },
 ];
 ---
 
@@ -39,11 +39,13 @@ const themes = [
         themes.map((theme) => (
           <li
             class="themes-menu-option
+            flex justify-between text-start space-x-2
             px-2 py-1.5 
           hover:text-navbar-primary dark:hover:text-navbar-secondary
           cursor-default hover:bg-gray-300 dark:hover:bg-gray-600/10 rounded-sm"
             data-theme={theme.id}
           >
+            <theme.icon />
             {theme.label}
           </li>
         ))
@@ -74,8 +76,13 @@ const themes = [
 
 <!-- Toggle Theme functionality -->
 <script is:inline>
+  // Get the system preference with the matchMedia API
   const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
+
+  // Get the themes menu reference
   const themesMenu = document.getElementById("themes-menu");
+
+  // Remove the event listener when the theme is updated
   let remove = null;
 
   // Get the theme preference from localStorage or System
@@ -86,9 +93,7 @@ const themes = [
     }
 
     // If localStorage is not available, return the system preference
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light";
+    return matchMedia.matches ? "dark" : "light";
   };
 
   // Update the current theme icon
@@ -100,17 +105,20 @@ const themes = [
 
   // Function to update the theme
   const updateTheme = () => {
+    // If 'remove' is a function, call it to remove the event listener
     if (remove != null) {
       remove();
     }
 
-    const themePreference = getThemePreference();
-
-    matchMedia.addEventListener("change", updateTheme);
-
+    // Remove will be a function to remove the event listener
     remove = () => {
       matchMedia.removeEventListener("change", updateTheme);
     };
+
+    const themePreference = getThemePreference();
+
+    // Add the event listener to update the theme when the system preference changes
+    matchMedia.addEventListener("change", updateTheme);
 
     const isDark =
       themePreference === "dark" ||
@@ -120,13 +128,12 @@ const themes = [
     document.documentElement.classList[isDark ? "add" : "remove"]("dark");
   };
 
-  updateTheme();
-
   // Close the theme's menu when clicked outside
   document.addEventListener("click", () => themesMenu.classList.remove("open"));
 
   // Open or close the theme's menu when the theme toggle button is clicked
   document.getElementById("theme-toggle-btn").addEventListener("click", (e) => {
+    // Prevent the event from bubbling up to the document and closing the menu
     e.stopPropagation();
     const isClosed = !themesMenu.classList.contains("open");
     themesMenu.classList[isClosed ? "add" : "remove"]("open");
@@ -148,4 +155,7 @@ const themes = [
     updateTheme();
     window.scrollTo({ left: 0, top: 0, behavior: "instant" });
   });
+
+  // Initialize the theme
+  updateTheme();
 </script>

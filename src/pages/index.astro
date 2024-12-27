@@ -1,11 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 import Profile from "../components/Profile.astro";
 import Skills from "../components/Skills.astro";
 import Projects from "../components/Projects.astro";
-import CodeIcon from "../icons/Code.astro";
+import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
+
 import SkillIcon from "../icons/Skill.astro";
+import CodeIcon from "../icons/Code.astro";
+import UserIcon from "../icons/User.astro";
+import BookIcon from "../icons/Book.astro";
+
 import { data, metaData } from "../data/personalData.ts";
 ---
 
@@ -20,23 +27,36 @@ import { data, metaData } from "../data/personalData.ts";
   <div class="space-y-24">
     <!-- SECTION SKILLS -->
     <SectionContainer id="habilidades" class="pt-20">
-      <h2
-        class="text-3xl text-gray-800 dark:text-white font-semibold mb-3 flex gap-x-3 items-center"
-      >
+      <SectionTitle>
         <SkillIcon class="size-8" />
         Habilidades
-      </h2>
+      </SectionTitle>
       <Skills />
     </SectionContainer>
 
     <!-- SECTION PROJECTS -->
     <SectionContainer id="proyectos" class="pt-20">
-      <h2
-        class="text-3xl text-gray-800 dark:text-white font-semibold mb-3 flex gap-x-3 items-center"
-      >
+      <SectionTitle>
         <CodeIcon class="size-8" />
         Proyectos
-      </h2>
+      </SectionTitle>
       <Projects />
     </SectionContainer>
+
+    <!-- SECTION ABOUT ME -->
+    <SectionContainer id="sobre-mi" class="pt-20">
+      <SectionTitle>
+        <UserIcon class="size-8" />
+        Sobre mí
+      </SectionTitle>
+    </SectionContainer>
+
+    <!-- SECTION CONTACT -->
+    <SectionContainer id="contacto" class="pt-20">
+      <SectionTitle>
+        <BookIcon class="size-8" />
+        Contacto
+      </SectionTitle>
+    </SectionContainer>
+  </div>
 </Layout>
