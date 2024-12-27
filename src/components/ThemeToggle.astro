@@ -3,12 +3,15 @@ import SunIcon from "../icons/Sun.astro";
 import MoonIcon from "../icons/Moon.astro";
 import SystemIcon from "../icons/System.astro";
 
-const themes = ["Light", "Dark", "System"];
+const themes = [
+  { id: "light", label: "Claro" },
+  { id: "dark", label: "Oscuro" },
+  { id: "system", label: "Sistema" },
+];
 ---
 
 <div class="relative ml-1 mr-1">
   <button
-    transition:persist
     id="theme-toggle-btn"
     class="border-none flex hover:scale-125 transition"
   >
@@ -23,7 +26,6 @@ const themes = ["Light", "Dark", "System"];
     />
   </button>
   <div
-    transition:persist
     id="themes-menu"
     class="absolute hidden
     min-w-[8rem] scale-80 top-8 right-0
@@ -36,11 +38,13 @@ const themes = ["Light", "Dark", "System"];
       {
         themes.map((theme) => (
           <li
-            class="themes-menu-option px-2 py-1.5 
+            class="themes-menu-option
+            px-2 py-1.5 
           hover:text-navbar-primary dark:hover:text-navbar-secondary
-          cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/10 rounded-sm"
+          cursor-default hover:bg-gray-300 dark:hover:bg-gray-600/10 rounded-sm"
+            data-theme={theme.id}
           >
-            {theme}
+            {theme.label}
           </li>
         ))
       }
@@ -52,7 +56,7 @@ const themes = ["Light", "Dark", "System"];
 <style>
   #themes-menu.open {
     display: inline;
-    animation: scale-up-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: scale-up-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   @keyframes scale-up-center {
@@ -68,37 +72,46 @@ const themes = ["Light", "Dark", "System"];
   }
 </style>
 
+<!-- Toggle Theme functionality -->
 <script is:inline>
-  let remove = null;
   const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
   const themesMenu = document.getElementById("themes-menu");
+  let remove = null;
 
+  // Get the theme preference from localStorage or System
   const getThemePreference = () => {
+    // Check if localStorage is available and return his value
     if (typeof localStorage !== "undefined") {
       return localStorage.getItem("theme") ?? "system";
     }
 
+    // If localStorage is not available, return the system preference
     return window.matchMedia("(prefers-color-scheme: dark)").matches
       ? "dark"
       : "light";
   };
 
+  // Update the current theme icon
   const updateIcon = (themePreference) => {
     document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
       element.style.scale = element.id === themePreference ? "1" : "0";
     });
   };
 
+  // Function to update the theme
   const updateTheme = () => {
     if (remove != null) {
       remove();
     }
+
+    const themePreference = getThemePreference();
+
     matchMedia.addEventListener("change", updateTheme);
+
     remove = () => {
       matchMedia.removeEventListener("change", updateTheme);
     };
 
-    const themePreference = getThemePreference();
     const isDark =
       themePreference === "dark" ||
       (themePreference === "system" && matchMedia.matches);
@@ -109,21 +122,28 @@ const themes = ["Light", "Dark", "System"];
 
   updateTheme();
 
+  // Close the theme's menu when clicked outside
   document.addEventListener("click", () => themesMenu.classList.remove("open"));
 
+  // Open or close the theme's menu when the theme toggle button is clicked
   document.getElementById("theme-toggle-btn").addEventListener("click", (e) => {
     e.stopPropagation();
     const isClosed = !themesMenu.classList.contains("open");
     themesMenu.classList[isClosed ? "add" : "remove"]("open");
   });
 
+  // Change the theme when a theme option is clicked
   document.querySelectorAll(".themes-menu-option").forEach((element) => {
     element.addEventListener("click", (e) => {
-      localStorage.setItem("theme", e.target.innerText.toLowerCase().trim());
+      localStorage.setItem(
+        "theme",
+        e.target.dataset.theme.toLowerCase().trim()
+      );
       updateTheme();
     });
   });
 
+  // Update the theme when the Astro app swaps pages
   document.addEventListener("astro:after-swap", () => {
     updateTheme();
     window.scrollTo({ left: 0, top: 0, behavior: "instant" });
