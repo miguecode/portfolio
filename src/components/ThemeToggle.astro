@@ -39,14 +39,14 @@ const themes = [
         themes.map((theme) => (
           <li
             class="themes-menu-option
-            flex justify-between text-start space-x-2
+            flex justify-between
             px-2 py-1.5 
           hover:text-navbar-primary dark:hover:text-navbar-secondary
-          cursor-default hover:bg-gray-300 dark:hover:bg-gray-600/10 rounded-sm"
+            cursor-default hover:bg-gray-200 dark:hover:bg-gray-600/10 rounded-sm"
             data-theme={theme.id}
           >
-            <theme.icon />
             {theme.label}
+            <theme.icon />
           </li>
         ))
       }
@@ -142,10 +142,12 @@ const themes = [
   // Change the theme when a theme option is clicked
   document.querySelectorAll(".themes-menu-option").forEach((element) => {
     element.addEventListener("click", (e) => {
-      localStorage.setItem(
-        "theme",
-        e.target.dataset.theme.toLowerCase().trim()
-      );
+      console.log("Se activó el evento!!");
+
+      console.log(element);
+      console.log(e.target.dataset.theme);
+
+      localStorage.setItem("theme", e.target.dataset.theme.trim());
       updateTheme();
     });
   });

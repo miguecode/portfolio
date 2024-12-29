@@ -56,7 +56,7 @@ export const technologysDataOne = [
     icon: astro,
   },
   {
-    name: "TailwindCSS",
+    name: "Tailwind CSS",
     class:
       "bg-tailwind-secondary text-gray-800 dark:text-tailwind-primary",
     icon: tailwindcss,

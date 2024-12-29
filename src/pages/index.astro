@@ -19,14 +19,14 @@ import { data, metaData } from "../data/personalData.ts";
 <Layout title={metaData.title} description={metaData.description}>
   <main class="px-4">
     <!-- SECTION HOME -->
-    <SectionContainer id="inicio" class="py-56">
+    <SectionContainer id="inicio" class="py-56 lg:w-[41rem]">
       <Profile data={data} />
     </SectionContainer>
   </main>
 
   <div class="space-y-24">
     <!-- SECTION SKILLS -->
-    <SectionContainer id="habilidades" class="pt-20">
+    <SectionContainer id="habilidades" class="pt-20 lg:w-[57rem]">
       <SectionTitle>
         <SkillIcon class="size-8" />
         Habilidades
@@ -35,7 +35,7 @@ import { data, metaData } from "../data/personalData.ts";
     </SectionContainer>
 
     <!-- SECTION PROJECTS -->
-    <SectionContainer id="proyectos" class="pt-20">
+    <SectionContainer id="proyectos" class="pt-20 lg:w-[57rem]">
       <SectionTitle>
         <CodeIcon class="size-8" />
         Proyectos
@@ -44,19 +44,21 @@ import { data, metaData } from "../data/personalData.ts";
     </SectionContainer>
 
     <!-- SECTION ABOUT ME -->
-    <SectionContainer id="sobre-mi" class="pt-20">
+    <SectionContainer id="sobre-mi" class="pt-20 lg:w-[57rem]">
       <SectionTitle>
         <UserIcon class="size-8" />
         Sobre mí
       </SectionTitle>
+      <About />
     </SectionContainer>
 
     <!-- SECTION CONTACT -->
-    <SectionContainer id="contacto" class="pt-20">
+    <SectionContainer id="contacto" class="pt-20 lg:w-[57rem]">
       <SectionTitle>
         <BookIcon class="size-8" />
         Contacto
       </SectionTitle>
+      <Contact />
     </SectionContainer>
   </div>
 </Layout>
