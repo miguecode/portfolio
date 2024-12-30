@@ -2,22 +2,21 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "@fontsource-variable/onest";
-const { title, description } = Astro.props;
+import { metaData } from "../data/personalData";
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <meta name="description" content={metaData.description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{metaData.title}</title>
   </head>
   <body class="relative">
     <!-- Gradient Background -->
-    <!-- #CCD9FF -->
     <div
       class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-neutral-950
     bg-[radial-gradient(ellipse_50%_170%_at_50%_-50%,#dbd0ef,rgba(255,255,255,0.9))]

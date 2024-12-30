@@ -3,7 +3,7 @@ import Badge from "./Badge.astro";
 import SocialLink from "./SocialLink.astro";
 import LinkedInIcon from "../icons/LinkedIn.astro";
 import GitHubIcon from "../icons/GitHub.astro";
-import MailIcon from "../icons/Mail.astro";
+import BookIcon from "../icons/Book.astro";
 const { data } = Astro.props;
 ---
 
@@ -18,7 +18,7 @@ const { data } = Astro.props;
   {data.title}
   <a
     class="flex items-center transition md:justify-center md:hover:scale-105"
-    href={data.linkedinLink}
+    href={data.linkedInLink}
   >
     <Badge>{data.badge}</Badge>
   </a>
@@ -30,16 +30,16 @@ const { data } = Astro.props;
 </h2>
 
 <nav class="flex gap-4 mt-8 flex-wrap">
-  <SocialLink href={data.linkedinLink}>
-    <LinkedInIcon class="size-4 md:size-6 inline" />
+  <SocialLink href={data.linkedInLink}>
+    <LinkedInIcon class="size-7 inline" />
     LinkedIn
   </SocialLink>
   <SocialLink href={data.githubLink}>
-    <GitHubIcon class="size-4 md:size-6 inline" />
+    <GitHubIcon class="size-6 inline" />
     GitHub
   </SocialLink>
   <SocialLink href="">
-    <MailIcon class="size-4 md:size-6 inline" />
+    <BookIcon class="size-7 inline" />
     Contáctame
   </SocialLink>
 </nav>

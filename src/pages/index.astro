@@ -13,10 +13,10 @@ import CodeIcon from "../icons/Code.astro";
 import UserIcon from "../icons/User.astro";
 import BookIcon from "../icons/Book.astro";
 
-import { data, metaData } from "../data/personalData.ts";
+import { data } from "../data/personalData.ts";
 ---
 
-<Layout title={metaData.title} description={metaData.description}>
+<Layout>
   <main class="px-4">
     <!-- SECTION HOME -->
     <SectionContainer id="inicio" class="py-56 lg:w-[41rem]">
@@ -53,12 +53,12 @@ import { data, metaData } from "../data/personalData.ts";
     </SectionContainer>
 
     <!-- SECTION CONTACT -->
-    <SectionContainer id="contacto" class="pt-20 lg:w-[57rem]">
+    <SectionContainer id="contacto" class="pt-20 pb-20 lg:w-[57rem]">
       <SectionTitle>
         <BookIcon class="size-8" />
         Contacto
       </SectionTitle>
-      <Contact />
+      <Contact data={data} />
     </SectionContainer>
   </div>
 </Layout>

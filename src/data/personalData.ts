@@ -12,9 +12,9 @@ export const data = {
     "Desarrollador Frontend con formación Universitaria en Programación y conocimientos en tecnologías web modernas.",
   perfilImage: "../../src/assets/astro.svg",
   badge: "¡Disponible para trabajar!",
-  mail: "junmigue7@gmail.com",
+  email: "junmigue7@gmail.com",
   cvPdf: "#",
-  linkedinLink: "https://www.linkedin.com/in/miguel-ángel-gil-989237244",
+  linkedInLink: "https://www.linkedin.com/in/miguel-ángel-gil-989237244",
   githubLink: "https://github.com/Leumig",
 };
 
@@ -27,9 +27,4 @@ export const aboutMeData = {
   thirdParagraph:
     "En 2024 obtuve mi título como Técnico Universitario en Programación. Actualmente, estoy trabajando en nuevos proyectos los cuales son sitios web relacionados a una de mis pasiones, el fútbol. Mi objetivo es mejorar en el desarrollo Frontend mientras me preparo para contribuir de forma profesional.",
   image: "",
-  // formation: {
-  //   label: "Título",
-  //   title: "Técnico Universitario en Programación",
-  //   university: "Universidad Tecnológica Nacional",
-  // },
 };
