@@ -46,7 +46,7 @@ const themes = [
             data-theme={theme.id}
           >
             {theme.label}
-            <theme.icon />
+            <theme.icon data-theme={theme.id} />
           </li>
         ))
       }
@@ -149,6 +149,24 @@ const themes = [
 
       localStorage.setItem("theme", e.target.dataset.theme.trim());
       updateTheme();
+    });
+  });
+
+  // Change the theme when a theme option is clicked
+  document.querySelectorAll(".themes-menu-option").forEach((element) => {
+    element.addEventListener("click", (e) => {
+      // Get the <li> container to avoid errors when clicking the icon or text
+      const optionElement = e.target.closest(".themes-menu-option");
+
+      // If there is no <li>, do nothing
+      if (!optionElement) return;
+
+      const theme = optionElement.dataset.theme;
+
+      if (theme) {
+        localStorage.setItem("theme", theme.trim());
+        updateTheme();
+      }
     });
   });
 

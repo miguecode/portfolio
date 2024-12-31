@@ -3,24 +3,28 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="opacity-80 m-4 min-[375px]:pl-4 md:pl-0 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center"
+  class="opacity-80 m-4 min-[375px]:pl-4 md:pl-0 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center font-bold dark:font-semibold text-gray-950 dark:text-zinc-100/90"
 >
   <div
-    class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
+    class="rounded-lg mt-9 w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
   >
-    <span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90"
-      >© {currentYear} Miguel Ángel Gil. No tantos derechos reservados.
+    <span class="text-sm sm:text-center"
+      >© {currentYear} Miguel Ángel Gil. Hecho con Astro y Tailwind.
     </span>
     <ul
-      class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0"
+      class="flex flex-wrap justify-center gap-x-6 mt-3 text-sm sm:mt-0"
     >
       <li>
-        <a href="/#sobre-mi" class="hover:underline me-4 md:me-6">Sobre mí</a>
+        <a href="/#inicio" class="hover:underline">Inicio</a>
       </li>
       <li>
-        <a id="contacto" href="mailto:miduga@gmail.com" class="hover:underline"
-          >Contacto</a
-        >
+        <a href="/#habilidades" class="hover:underline">Habilidades</a>
+      </li>
+      <li>
+        <a href="/#proyectos" class="hover:underline">Proyectos</a>
+      </li>
+      <li>
+        <a href="/#sobre-mi" class="hover:underline">Sobre Mí</a>
       </li>
     </ul>
   </div>

@@ -22,7 +22,7 @@ const { email, linkedInLink } = Astro.props.data;
 
     <button
       id="copy-button"
-      class="w-32 flex justify-center items-center gap-x-1 py-1 px-2
+      class="w-36 flex justify-center items-center gap-x-1 py-2 px-2
     bg-gray-200 dark:bg-black/20
     text-gray-900 dark:text-purple-200
       border rounded-lg border-gray-400 dark:border-gray-700
@@ -30,19 +30,28 @@ const { email, linkedInLink } = Astro.props.data;
       transition"
     >
       <div
-        id="default-message"
-        class="flex w-full justify-center items-center gap-x-1 text-sm font-semibold"
+        class="relative
+        w-full h-full
+        flex justify-center items-center
+        text-sm font-semibold py-1.5 px-2"
       >
-        <CopyIcon class="size-4" />
-        <span>Copiar</span>
-      </div>
+        <div
+          id="default-message"
+          class="absolute flex w-full justify-center items-center gap-x-1
+          opacity-100 transition-all duration-300 ease-in-out"
+        >
+          <CopyIcon class="size-4" />
+          <span>Copiar</span>
+        </div>
 
-      <div
-        id="success-message"
-        class="hidden w-full justify-center items-center gap-x-1 text-sm font-semibold"
-      >
-        <CopiedIcon class="size-4" />
-        <span>¡Copiado!</span>
+        <div
+          id="success-message"
+          class="absolute flex w-full justify-center items-center gap-x-1
+          opacity-0 transition-all duration-300 ease-in-out"
+        >
+          <CopiedIcon class="size-4" />
+          <span>¡Copiado!</span>
+        </div>
       </div>
     </button>
 
@@ -95,14 +104,14 @@ const { email, linkedInLink } = Astro.props.data;
 
     copyButton.addEventListener("click", () => {
       navigator.clipboard.writeText(emailString.textContent).then(() => {
-        // Change the copy button content
-        defaultMessage.classList.add("hidden");
-        successMessage.classList.replace("hidden", "flex");
+        // Change the copy button content using opacity
+        defaultMessage.classList.replace("opacity-100", "opacity-0");
+        successMessage.classList.replace("opacity-0", "opacity-100");
 
-        // After a few seconds, set the default content again
+        // Reset the copy button content after a few seconds
         setTimeout(() => {
-          successMessage.classList.replace("flex", "hidden");
-          defaultMessage.classList.remove("hidden");
+          successMessage.classList.replace("opacity-100", "opacity-0");
+          defaultMessage.classList.replace("opacity-0", "opacity-100");
         }, 1850);
       });
     });
