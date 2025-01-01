@@ -10,7 +10,7 @@ export const projects = [
     image: "#",
     link: "#",
     github: "#",
-    tags: [technologysDataOne[4], technologysDataTwo[1]]
+    tags: [technologysDataOne[4], technologysDataTwo[2]]
   },
   {
     title: "Proyecto 2",
@@ -18,7 +18,7 @@ export const projects = [
     image: "#",
     link: "#",
     github: "#",
-    tags: [technologysDataOne[4], technologysDataTwo[1]]
+    tags: [technologysDataOne[4], technologysDataTwo[2]]
   },
   {
     title: "Proyecto 3",
@@ -26,6 +26,6 @@ export const projects = [
     image: "#",
     link: "#",
     github: "#",
-    tags: [technologysDataOne[4], technologysDataTwo[1]]
+    tags: [technologysDataOne[4], technologysDataTwo[2]]
   },
 ];

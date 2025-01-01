@@ -12,8 +12,8 @@ import bootstrap from "../icons/technologys/Bootstrap.astro";
 
 // Other technology's icons
 import git from "../icons/technologys/Git.astro";
-import firebase from "../icons/technologys/Firebase.astro";
 import sql from "../icons/technologys/SQL.astro";
+import firebase from "../icons/technologys/Firebase.astro";
 import php from "../icons/technologys/PHP.astro";
 import nodejs from "../icons/technologys/Nodejs.astro";
 import ionic from "../icons/technologys/Ionic.astro";
@@ -77,15 +77,15 @@ export const technologysDataTwo = [
     icon: git,
   },
   {
+    name: "SQL",
+    class: "bg-orange-300 text-black dark:text-orange-500",
+    icon: sql,
+  },
+  {
     name: "Firebase",
     class:
       "bg-yellow-200 text-firebase-secondary dark:text-firebase-primary",
     icon: firebase,
-  },
-  {
-    name: "SQL",
-    class: "bg-orange-300 text-black dark:text-orange-500",
-    icon: sql,
   },
 ];
 
