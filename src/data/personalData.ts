@@ -9,8 +9,9 @@ export const metaData = {
 export const data = {
   title: "Hola, soy Miguel",
   subTitle:
-    "Desarrollador Frontend con formación Universitaria en Programación y conocimientos en tecnologías web modernas.",
-  perfilImage: "../../src/assets/astro.svg",
+     "<span class='highlight-1'>Desarrollador Frontend</span> con formación Universitaria en Programación y conocimientos en tecnologías web modernas.",
+    // "<code><pre>Desarrollador Frontend</pre></code> con formación Universitaria en Programación y conocimientos en tecnologías web modernas.",
+  perfilImage: "../../src/assets/profile-pic.webp",
   badge: "¡Disponible para trabajar!",
   email: "junmigue7@gmail.com",
   cvPdf: "#",
@@ -26,5 +27,5 @@ export const aboutMeData = {
     "Durante mi formación y práctica, he trabajado en el desarrollo web, tanto del lado del cliente como del servidor. También experimenté en aplicaciones móviles usando Ionic, trabajando tanto de manera individual como en equipo, lo que me hizo mejorar en habilidades de colaboración y comunicación.",
   thirdParagraph:
     "En 2024 obtuve mi título como Técnico Universitario en Programación. Actualmente, estoy trabajando en nuevos proyectos los cuales son sitios web relacionados a una de mis pasiones, el fútbol. Mi objetivo es mejorar en el desarrollo Frontend mientras me preparo para contribuir de forma profesional.",
-  image: "",
+  image: "../../src/assets/profile-pic.webp",
 };
