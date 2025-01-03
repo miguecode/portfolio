@@ -1,32 +1,35 @@
 ---
+// Icon
 import ArrowIcon from "../icons/Arrow.astro";
 
+// Current Year
 const currentYear = new Date().getFullYear();
 ---
 
-<!-- class="flex justify-center opacity-80 m-4 min-[375px]:pl-4 md:pl-0 mt-16 w-full mx-auto lg:max-w-4xl md:max-w-2xl mb-10 font-bold dark:font-semibold text-gray-950 dark:text-zinc-100/90" -->
 <footer
   class="flex flex-col justify-center items-center mt-5
-  w-full mx-auto lg:max-w-4xl md:max-w-2xl
-  opacity-90 m-auto
-text-gray-950 dark:text-zinc-100/90 font-bold dark:font-semibold"
+    w-full lg:max-w-4xl md:max-w-2xl m-auto
+    opacity-90
+    font-bold dark:font-semibold
+  text-gray-950 dark:text-zinc-100/90"
 >
-    <a
-      href="/#inicio"
-      class="flex flex-col justify-center items-center gap-y-1 mb-4
-       hover:text-purple-700 dark:hover:text-purple-400 transition
-      "
-    >
-      <ArrowIcon />
-      Volver a Inicio
-    </a>
+  <a
+    href="/#inicio"
+    class="flex flex-col justify-center items-center gap-y-1 mb-4
+       hover:text-purple-700 dark:hover:text-purple-400 transition"
+  >
+    <ArrowIcon />
+    Volver a Inicio
+  </a>
   <div
-    class="rounded-lg mt-9 w-full max-w-screen-xl mx-auto flex justify-between items-center py-4 mb-5"
+    class="flex justify-between items-center
+      w-full max-w-screen-xl mx-auto py-4 mb-5 mt-9
+      rounded-lg"
   >
     <span class="text-sm sm:text-center"
       >© {currentYear}. Hecho por Miguel Ángel Gil.
     </span>
-    <ul class="flex flex-wrap justify-center gap-x-4 mt-3 text-sm sm:mt-0">
+    <ul class="flex flex-wrap justify-center gap-x-4 mt-3 sm:mt-0 text-sm">
       <li>
         <a href="/#habilidades" class="hover:underline">Habilidades</a>
       </li>

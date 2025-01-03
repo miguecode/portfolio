@@ -1,8 +1,10 @@
 ---
+// Icons
 import SunIcon from "../icons/Sun.astro";
 import MoonIcon from "../icons/Moon.astro";
 import SystemIcon from "../icons/System.astro";
 
+// Themes
 const themes = [
   { id: "light", label: "Claro", icon: SunIcon },
   { id: "dark", label: "Oscuro", icon: MoonIcon },
@@ -28,21 +30,23 @@ const themes = [
   <div
     id="themes-menu"
     class="absolute hidden
-    min-w-[8rem] scale-80 top-8 right-0
-    text-sm p-1 rounded-md
-    border border-gray-100 dark:border-gray-500/20
+      min-w-[8rem] scale-80 top-8 right-0 p-1
+      text-sm
+      border rounded-md
     bg-white/90 dark:bg-navbar-dark-bg
-    shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
+    border-gray-100 dark:border-gray-500/20
+      shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
   >
     <ul>
       {
         themes.map((theme) => (
           <li
-            class="themes-menu-option
+            class="themes-menu-option cursor-default
             flex justify-between
+            rounded-sm
             px-2 py-1.5 
-          hover:text-navbar-primary dark:hover:text-navbar-secondary
-            cursor-default hover:bg-gray-200 dark:hover:bg-gray-600/10 rounded-sm"
+          hover:bg-gray-200 dark:hover:bg-gray-600/10
+          hover:text-navbar-primary dark:hover:text-navbar-secondary"
             data-theme={theme.id}
           >
             {theme.label}
@@ -143,9 +147,6 @@ const themes = [
   document.querySelectorAll(".themes-menu-option").forEach((element) => {
     element.addEventListener("click", (e) => {
       console.log("Se activó el evento!!");
-
-      console.log(element);
-      console.log(e.target.dataset.theme);
 
       localStorage.setItem("theme", e.target.dataset.theme.trim());
       updateTheme();

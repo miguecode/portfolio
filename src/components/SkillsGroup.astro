@@ -8,7 +8,7 @@ interface Skill {
 const { skills, title } = Astro.props;
 ---
 
-<h3 class="text-2xl ml-8 font-semibold text-gray-800 dark:text-gray-300">
+<h3 class="text-2xl ml-8 font-semibold text-gray-800 dark:text-slate-200">
   {title}
 </h3>
 
@@ -16,10 +16,10 @@ const { skills, title } = Astro.props;
   {
     skills.map((skill: Skill) => (
       <span
-        class={`flex justify-center items-center w-[11.2rem] py-2 
+        class={`flex justify-center items-center w-44 py-2 
           text-1xl font-bold dark:font-semibold 
           rounded-2xl border border-transparent dark:border-white/10 
-          dark:bg-black/10  hover:scale-105
+          dark:bg-black/10 hover:scale-110
           transition-all duration-100 ease-in-out ${skill.class}`}
       >
         <skill.icon class="w-8 h-8 mr-1" />

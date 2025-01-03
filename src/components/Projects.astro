@@ -21,13 +21,16 @@ interface Project {
 ---
 
 <div
-  class="flex flex-col mt-6 gap-y-6 py-5 px-3 justify-center border border-gray-400 dark:border-gray-700 rounded-xl"
+  class="flex flex-col justify-center mt-6 gap-y-6 py-5 px-3 border-highlight rounded-xl"
 >
   {
     projects.map((project) => (
       <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
         <div class="w-full md:w-1/2">
-          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+          <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 
+          transition duration-500 ease-in-out transform shadow-xl overflow-clip 
+          rounded-xl sm:rounded-xl  md:group-hover:-translate-y-1 md:group-hover:shadow-2xl 
+          lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
             <img
               alt="Imagen del Proyecto Uno"
               class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
@@ -43,13 +46,15 @@ interface Project {
           </h3>
 
           <div class="flex flex-wrap mt-2">
-            <ul class="flex flex-row mb-2 gap-x-2">
+            <ul class="flex flex-row gap-x-2 mb-2">
               {project.tags.map((tag) => (
                 <li>
                   <span
-                    class={`flex justify-center items-center gap-x-1 rounded-full text-sm font-bold dark:font-semibold
-                    border border-transparent dark:border-white/10 
-                    dark:bg-black/10 py-1 px-2 ${tag.class}`}
+                    class={`flex justify-center items-center gap-x-1 py-1 px-3
+                      text-sm font-bold dark:font-semibold
+                      border rounded-full border-transparent dark:border-white/10 
+                    dark:bg-black/10 
+                      ${tag.class}`}
                   >
                     <tag.icon class="size-4" />
                     {tag.name}

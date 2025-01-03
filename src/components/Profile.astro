@@ -7,22 +7,19 @@ import GitHubIcon from "../icons/GitHub.astro";
 import BookIcon from "../icons/Book.astro";
 import CurriculumIcon from "../icons/Curriculum.astro";
 
-// Styles
-import "../styles/global.css";
-
 // Data
 const { data } = Astro.props;
 ---
 
 <img
   src={data.perfilImage}
-  class="rounded-full shadow-xl size-32 mb-6"
+  class="size-32 mb-6 rounded-full shadow-xl"
   alt="Foto de perfil"
 />
-<h1 class="mainTitle">
+<h1 class="title">
   {data.title}
   <a
-    class="flex items-center transition md:justify-center md:hover:scale-105"
+    class="flex justify-center items-center hover:scale-105 transition"
     href={data.linkedInLink}
     target="_blank"
     rel="noopener noreferrer"
@@ -33,11 +30,12 @@ const { data } = Astro.props;
 </h1>
 
 <h2
-  class="text-[1.35rem] text-wrap max-w-[650px] text-gray-800 dark:text-gray-200"
+  class="max-w-[650px] text-wrap text-[1.35rem]
+  text-gray-800 dark:text-gray-200"
   set:html={data.subTitle}
 />
 
-<nav class="flex w-full gap-4 mt-8 flex-wrap">
+<nav class="flex flex-wrap w-full gap-4 mt-8">
   <SocialLink>
     <CurriculumIcon class="size-7 inline" />
     Curriculum

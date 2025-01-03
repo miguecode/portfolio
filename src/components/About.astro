@@ -1,26 +1,25 @@
 ---
+// Data
 import { aboutMeData } from "../data/personalData";
-// import Card from "./Card.astro";
 ---
 
 <article
-  class="mt-6 gap-y-6 py-5 px-3 justify-center
-    border rounded-xl border-gray-400 dark:border-gray-700
+  class="justify-center mt-6 py-5 px-3 gap-y-6
+    border-highlight
   text-gray-700 dark:text-gray-300"
 >
-  <div class="flex gap-4 w-full">
-    <div
-      class="w-[70%]
-      [&>p]:mb-4 [&>p>strong]:text-yellow-500 dark:[&>p>strong]:text-yellow-100
-      [&>p>strong]:font-normal [&>p>strong]:font-mono text-pretty text-gray-950 dark:text-gray-100"
-    >
-      <p>{aboutMeData.firstParagraph}</p>
-      <p>{aboutMeData.secondParagraph}</p>
-      <p>{aboutMeData.thirdParagraph}</p>
+  <div class="flex w-full gap-4">
+    <div class="w-[70%] text-pretty text-gray-950 dark:text-gray-100">
+      <p set:html={aboutMeData.firstParagraph} />
+      <p set:html={aboutMeData.secondParagraph} />
+      <p set:html={aboutMeData.thirdParagraph} />
     </div>
     <div class="flex flex-col justify-center">
-      <!-- <Card data={aboutMeData} /> -->
-      <img src={aboutMeData.image} class="rounded-full shadow-xl size-36 " alt="Foto de la sección Sobre Mí" />
+      <img
+        src={aboutMeData.image}
+        class="size-36 rounded-full shadow-xl"
+        alt="Foto de la sección Sobre Mí"
+      />
     </div>
   </div>
 </article>

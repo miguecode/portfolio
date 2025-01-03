@@ -1,4 +1,5 @@
 ---
+// Props
 const { href } = Astro.props;
 ---
 
@@ -7,17 +8,17 @@ const { href } = Astro.props;
   href={href}
   role="link"
   class="inline-flex items-center justify-center group
-        gap-2 px-3 py-2 space-x-2 max-w-fit
-      bg-gray-100 dark:bg-transparent
-        text-base font-semibold text-gray-800 dark:text-white
-        border rounded-xl border-gray-400 dark:border-gray-700
-      hover:bg-gray-800 dark:hover:text-purple-400
-      hover:text-white hover:border-gray-800
-        focus-visible:outline-none focus-visible:ring-yellow-500/80
-        focus-visible:ring-white focus-visible:ring-offset-2
-        focus:outline-none focus-visible:ring
-        active:bg-gray-700
-        transition"
+    gap-2 px-3 py-2 space-x-2 max-w-fit
+    text-base font-semibold text-gray-800 dark:text-white
+    border rounded-xl border-gray-400 dark:border-gray-700
+  bg-gray-100 dark:bg-transparent
+  hover:bg-gray-800 dark:hover:text-purple-400
+  hover:text-white hover:border-gray-800
+    focus-visible:outline-none focus-visible:ring-yellow-500/80
+  focus-visible:ring-white focus-visible:ring-offset-2
+    focus:outline-none focus-visible:ring
+  active:bg-gray-700
+    transition"
 >
   <slot />
 </a>
