@@ -86,25 +86,41 @@ const navItems = [
       });
     };
 
-    // Create an observer with a callback "changeColor" function
-    const observer = new IntersectionObserver(changeColor, {
+    // Create an observer for general sections
+    const generalObserver = new IntersectionObserver(changeColor, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.8, // When the section is 80% visible
+      threshold: 0.7, // 80% visibility required
     });
 
-    // Observe each section of the page
+    // Create a specific observer for the "Contacto" section
+    const contactoObserver = new IntersectionObserver(changeColor, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1, // 100% visibility required
+    });
+
+    // Attach the appropriate observer to each section
     sections.forEach((section) => {
-      observer.observe(section);
+      if (section.id === "contacto") {
+        contactoObserver.observe(section);
+      } else {
+        generalObserver.observe(section);
+      }
     });
 
     // Optimization function (stop observing when the tab is not visible)
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
-        observer.disconnect();
+        generalObserver.disconnect();
+        contactoObserver.disconnect();
       } else {
         sections.forEach((section) => {
-          observer.observe(section);
+          if (section.id === "contacto") {
+            contactoObserver.observe(section);
+          } else {
+            generalObserver.observe(section);
+          }
         });
       }
     };

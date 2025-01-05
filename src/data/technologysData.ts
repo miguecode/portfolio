@@ -23,7 +23,7 @@ export const technologysDataOne = [
   {
     name: "HTML",
     class:
-      "bg-html-primary text-white dark:text-html-primary",
+      "bg-orange-200 text-orange-600 dark:text-html-primary",
     icon: html,
   },
   {
@@ -78,7 +78,7 @@ export const technologysDataTwo = [
   },
   {
     name: "SQL",
-    class: "bg-orange-400 text-black dark:text-orange-500",
+    class: "bg-orange-400/80 text-black dark:text-orange-500",
     icon: sql,
   },
   {
