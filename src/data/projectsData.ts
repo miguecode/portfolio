@@ -5,27 +5,27 @@ import { technologysDataThree } from "../data/technologysData";
 // Projects data
 export const projects = [
   {
-    title: "Proyecto 1",
-    description: "Esta es la descripción del proyecto 1",
+    title: "La Clínica Online",
+    description: "Sitio web que simula ser una clínica online con sistema de login. Los usuarios tienen distintos roles, y la idea principal es que un paciente solicite sus turnos, y que los especialistas los lleven a cabo.",
     image: "#",
-    link: "#",
-    github: "#",
-    tags: [technologysDataOne[4], technologysDataTwo[2]]
+    link: "https://clinica-online-f6245.web.app/",
+    github: "https://github.com/Leumig/clinica-online-angular",
+    tags: [technologysDataOne.Angular, technologysDataTwo.Firebase]
   },
   {
-    title: "Proyecto 2",
-    description: "Esta es la descripción del proyecto 2",
+    title: "Playroom MG",
+    description: "Sitio web de juegos sencillos. Los usuarios pueden iniciar sesión o ingresar como invitados, enviar mensajes en el chat global y acceder al ranking.",
     image: "#",
-    link: "#",
-    github: "#",
-    tags: [technologysDataOne[4], technologysDataTwo[2]]
+    link: "https://sala-de-juegos-82d5a.web.app/",
+    github: "https://github.com/Leumig/playroom-angular/",
+    tags: [technologysDataOne.Angular, technologysDataTwo.Firebase]
   },
   {
-    title: "Proyecto 3",
-    description: "Esta es la descripción del proyecto 3",
+    title: "Messi Perfect Shots",
+    description: "Bot de Twitter/X que se dedica a publicar fotos de Lionel Messi diariamente. Fue creado con la API de Twitter/X, y cuenta con +4.000 seguidores.",
     image: "#",
-    link: "#",
-    github: "#",
-    tags: [technologysDataOne[4], technologysDataTwo[2]]
+    link: "https://x.com/MessiPF/",
+    github: "https://github.com/Leumig/bot-twitter/",
+    tags: [technologysDataThree.Node, technologysDataOne.JavaScript]
   },
 ];

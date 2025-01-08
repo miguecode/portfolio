@@ -19,92 +19,84 @@ import nodejs from "../icons/technologys/Nodejs.astro";
 import ionic from "../icons/technologys/Ionic.astro";
 
 // First group of technology's
-export const technologysDataOne = [
-  {
+export const technologysDataOne = {
+  HTML: {
     name: "HTML",
-    class:
-      "bg-orange-200 text-orange-600 dark:text-html-primary",
+    class: "bg-orange-200 text-orange-600 dark:text-html-primary",
     icon: html,
   },
-  {
+  CSS: {
     name: "CSS",
-    class:
-      "bg-css-secondary text-blue-600 dark:text-css-primary",
+    class: "bg-css-secondary text-blue-600 dark:text-css-primary",
     icon: css,
   },
-  {
+  JavaScript: {
     name: "JavaScript",
     class:
       "text-gray-800 bg-javascript-primary text-black dark:text-javascript-primary",
     icon: javascript,
   },
-  {
+  TypeScript: {
     name: "TypeScript",
-    class:
-      "bg-typescript-secondary text-blue-900 dark:text-typescript-primary",
+    class: "bg-typescript-secondary text-blue-900 dark:text-typescript-primary",
     icon: typescript,
   },
-  {
+  Angular: {
     name: "Angular",
-    class:
-      "bg-gray-200/90 text-angular-primary dark:text-angular-primary",
+    class: "bg-gray-200/90 text-angular-primary dark:text-angular-primary",
     icon: angular,
   },
-  {
+  Astro: {
     name: "Astro",
     class: "bg-astro-primary text-black dark:text-white",
     icon: astro,
   },
-  {
+  TailwindCSS: {
     name: "Tailwind CSS",
-    class:
-      "bg-tailwind-secondary text-gray-800 dark:text-tailwind-primary",
+    class: "bg-tailwind-secondary text-gray-800 dark:text-tailwind-primary",
     icon: tailwindcss,
   },
-  {
+  Bootstrap: {
     name: "Bootstrap",
-    class:
-      "bg-bootstrap-secondary text-purple-900 dark:text-bootstrap-primary",
+    class: "bg-bootstrap-secondary text-purple-900 dark:text-bootstrap-primary",
     icon: bootstrap,
   },
-];
+};
 
 // Second group of technology's
-export const technologysDataTwo = [
-  {
+export const technologysDataTwo = {
+  Git: {
     name: "Git",
     class: "bg-gray-200/90 text-dark dark:text-white",
     icon: git,
   },
-  {
+  SQL: {
     name: "SQL",
     class: "bg-orange-400/80 text-black dark:text-orange-500",
     icon: sql,
   },
-  {
+  Firebase: {
     name: "Firebase",
-    class:
-      "bg-yellow-300 text-firebase-secondary dark:text-firebase-primary",
+    class: "bg-yellow-300 text-firebase-secondary dark:text-firebase-primary",
     icon: firebase,
   },
-];
+};
 
 // Third group of technology's
-export const technologysDataThree = [
-  {
+export const technologysDataThree = {
+  PHP: {
     name: "PHP",
-    class:
-      "bg-php-secondary text-blue-900 dark:text-php-primary",
+    class: "bg-php-secondary text-blue-900 dark:text-php-primary",
     icon: php,
   },
-  {
+  Node: {
     name: "Node.js",
     class: "bg-green-400 text-black dark:text-nodejs-primary",
     icon: nodejs,
   },
-  {
+  Ionic: {
     name: "Ionic",
     class: "bg-gray-200/90 dark:text-white",
     icon: ionic,
   },
-];
+};

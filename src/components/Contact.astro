@@ -32,14 +32,14 @@ const { email, linkedInLink } = Astro.props.data;
     >
       <div
         class="relative
-        w-full h-full
-        flex justify-center items-center
-        text-sm font-semibold py-1.5 px-2"
+          w-full h-full
+          flex justify-center items-center
+          text-sm font-semibold py-1.5 px-2"
       >
         <div
           id="default-message"
           class="absolute flex w-full justify-center items-center gap-x-1
-          opacity-100 transition-all duration-300 ease-in-out"
+            opacity-100 transition-all duration-300 ease-in-out"
         >
           <CopyIcon class="size-4" />
           <span>Copiar</span>
@@ -48,7 +48,7 @@ const { email, linkedInLink } = Astro.props.data;
         <div
           id="success-message"
           class="absolute flex w-full justify-center items-center gap-x-1
-          opacity-0 transition-all duration-300 ease-in-out"
+            opacity-0 transition-all duration-300 ease-in-out"
         >
           <CopiedIcon class="size-4" />
           <span>¡Copiado!</span>
@@ -59,12 +59,12 @@ const { email, linkedInLink } = Astro.props.data;
     <a
       href={`mailto:${email}`}
       class="cursor-pointer w-36 flex justify-center items-center gap-x-1 py-1 px-2
-    bg-gray-200 dark:bg-black/20
-    text-gray-900 dark:text-purple-200
-      border rounded-lg border-gray-400 dark:border-gray-700
-    hover:bg-violet-200 dark:hover:bg-violet-950/30
-    active:bg-violet-500/30 dark:active:bg-violet-800/30
-      transition"
+      bg-gray-200 dark:bg-black/20
+      text-gray-900 dark:text-purple-200
+        border rounded-lg border-gray-400 dark:border-gray-700
+      hover:bg-violet-200 dark:hover:bg-violet-950/30
+      active:bg-violet-500/30 dark:active:bg-violet-800/30
+        transition"
     >
       <OpenMailIcon class="size-4" />
       <span class="text-sm font-semibold">Abrir Correo</span>
@@ -84,12 +84,12 @@ const { email, linkedInLink } = Astro.props.data;
       role="link"
       href={linkedInLink}
       class="cursor-pointer flex justify-center items-center w-36 gap-x-1 py-1 px-2
-    bg-gray-200 dark:bg-black/20
-    text-gray-900 dark:text-purple-200
-      border rounded-lg border-gray-400 dark:border-gray-700
-    hover:bg-violet-200 dark:hover:bg-violet-950/30
-    active:bg-violet-500/30 dark:active:bg-violet-800/30
-      transition"
+      bg-gray-200 dark:bg-black/20
+      text-gray-900 dark:text-purple-200
+        border rounded-lg border-gray-400 dark:border-gray-700
+      hover:bg-violet-200 dark:hover:bg-violet-950/30
+      active:bg-violet-500/30 dark:active:bg-violet-800/30
+        transition"
     >
       <OpenMailIcon class="size-4" />
       <span class="text-sm font-semibold">Abrir LinkedIn</span>

@@ -6,6 +6,7 @@ interface Skill {
 }
 
 const { skills, title } = Astro.props;
+const skillsArray: Skill[] = Object.values(skills);
 ---
 
 <h3 class="text-2xl ml-8 font-semibold text-gray-800 dark:text-slate-200">
@@ -14,12 +15,12 @@ const { skills, title } = Astro.props;
 
 <div class="flex flex-wrap gap-x-4 gap-y-3 justify-center">
   {
-    skills.map((skill: Skill) => (
+    skillsArray.map((skill: Skill) => (
       <span
         class={`flex justify-center items-center w-44 py-2 
           text-1xl font-bold dark:font-semibold 
           rounded-2xl border border-transparent dark:border-white/10 
-          dark:bg-black/10 hover:scale-110
+        dark:bg-black/10 hover:scale-110
           transition-all duration-100 ease-in-out ${skill.class}`}
       >
         <skill.icon class="w-8 h-8 mr-1" />

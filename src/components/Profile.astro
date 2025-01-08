@@ -36,9 +36,14 @@ const { data } = Astro.props;
 />
 
 <nav class="flex flex-wrap w-full gap-4 mt-8">
-  <SocialLink>
+  <SocialLink
+    href={data.cvPdf}
+    target="_blank"
+    rel="noopener noreferrer"
+    role="link"
+  >
     <CurriculumIcon class="size-7 inline" />
-    Curriculum
+    Currículum
   </SocialLink>
   <SocialLink href="/#contacto">
     <BookIcon class="size-7 inline" />
