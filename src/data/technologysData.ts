@@ -22,12 +22,12 @@ import ionic from "../icons/technologys/Ionic.astro";
 export const technologysDataOne = {
   HTML: {
     name: "HTML",
-    class: "bg-orange-200 text-orange-600 dark:text-html-primary",
+    class: "bg-orange-300 text-orange-950 dark:text-html-primary",
     icon: html,
   },
   CSS: {
     name: "CSS",
-    class: "bg-css-secondary text-blue-600 dark:text-css-primary",
+    class: "bg-css-secondary text-blue-700 dark:text-css-primary",
     icon: css,
   },
   JavaScript: {
@@ -77,7 +77,7 @@ export const technologysDataTwo = {
   },
   Firebase: {
     name: "Firebase",
-    class: "bg-yellow-300 text-firebase-secondary dark:text-firebase-primary",
+    class: "bg-yellow-300 text-yellow-900 dark:text-firebase-primary",
     icon: firebase,
   },
 };

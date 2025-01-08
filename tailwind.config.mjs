@@ -29,7 +29,6 @@ export default {
         "bootstrap-primary": "#8b6bba",
         "bootstrap-secondary": "#ccadff",
         "firebase-primary": "#FFCD32",
-        "firebase-secondary": "#915900",
         "astro-primary": "#ccd9ff",
         "php-primary": "#a6a9c4",
         "php-secondary": "#ccd3e8",
