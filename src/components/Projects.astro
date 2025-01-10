@@ -7,6 +7,9 @@ import LinkButton from "./LinkButton.astro";
 // Data
 import { projects } from "../data/projectsData";
 
+//Components
+import Image from "astro/components/Image.astro";
+
 // Interfaces
 interface Project {
   title: string;
@@ -40,6 +43,8 @@ interface Skill {
             border-gray-400 dark:border-gray-800
             group-hover:border-gray-500 group-hover:dark:border-gray-700"
         >
+
+
           <img
             alt="Imagen del Proyecto Uno"
             class="object-cover object-top w-full transition duration-500 h-56 scale-110 group-hover:scale-105"
