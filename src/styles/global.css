@@ -4,10 +4,11 @@
   @apply flex flex-col items-center gap-y-5 w-max
     md:flex md:flex-row md:gap-x-4 pb-6 
     text-5xl font-bold
-    bg-gradient-to-r 
-  from-slate-800 via-slate-600
-  dark:from-white dark:via-fuchsia-200
-    bg-clip-text text-transparent;
+  text-slate-800 dark:text-slate-300
+    md:bg-gradient-to-r 
+  md:from-slate-800 via-slate-400 md:via-slate-700
+  md:dark:from-white dark:via-white md:dark:via-fuchsia-200
+    md:bg-clip-text md:text-transparent;
 }
 
 .highlight-1 {
