@@ -2,6 +2,10 @@
 // Component
 import ThemeToggle from "./ThemeToggle.astro";
 
+// Icon
+import HamburgerIcon from "../icons/Hamburger.astro";
+import CloseIcon from "../icons/Close.astro";
+
 // Navbar items
 const navItems = [
   {
@@ -35,8 +39,63 @@ const navItems = [
 <header
   class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
 >
+  <!-- Hamburger Menu -->
+  <nav class="md:hidden border border-red-500 w-full mr-5">
+    <div class="relative flex justify-end">
+      <div
+        id="hamburger-icon"
+        class="cursor-pointer
+          bg-slate-100 dark:bg-navbar-dark-bg
+          border-highlight shadow-[0_3px_10px_rgb(0,0,0,0.2)]
+          p-2
+        text-slate-800 dark:text-slate-300"
+      >
+        <HamburgerIcon class="size-8" />
+      </div>
+    </div>
+    <!-- ml-[70%] sm:ml-[75%] w-max -->
+    <div
+      id="menu-links"
+      class="hidden flex-col items-center
+        border rounded-md
+        absolute scale-80 top-0 right-0 mr-5
+      bg-white/90 dark:bg-navbar-dark-bg
+      border-gray-100 dark:border-gray-500/20
+        shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
+    >
+      <div
+        id="close-icon"
+        class="cursor-pointer
+        p-2 mb-2
+      text-slate-800 dark:text-slate-300
+        self-end"
+      >
+        <CloseIcon class="size-8" />
+      </div>
+      {
+        navItems.map((link) => (
+          <a
+            class="px-8 py-2 
+            rounded-lg
+            flex justify-start text-start
+          hover:text-navbar-primary dark:hover:text-navbar-secondary
+            font-bold
+            transition"
+            aria-label={link.label}
+            href={link.href}
+          >
+            {link.title}
+          </a>
+        ))
+      }
+      <ThemeToggle />
+    </div>
+  </nav>
+
+  <!-- Desktop Navbar -->
   <nav
-    class="flex justify-center items-center min-w-fit
+    id="desktop-navbar"
+    class="hidden md:flex justify-center items-center min-w-fit
       px-12 gap-4 mt-2 rounded-2xl
       font-bold
     text-gray-600 dark:text-gray-200"
@@ -124,12 +183,31 @@ const navItems = [
         });
       }
     };
+
+    // Open or close the Hamburger Menu (Mobile Navbar)
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+    const menuLinks = document.getElementById("menu-links");
+
+    const showMenu = () => {
+      hamburgerIcon?.classList.add("hidden");
+      menuLinks?.classList.remove("hidden");
+      menuLinks?.classList.add("flex");
+    };
+
+    const hideMenu = () => {
+      hamburgerIcon?.classList.remove("hidden");
+      menuLinks?.classList.add("hidden");
+    };
+
+    hamburgerIcon?.addEventListener("click", showMenu);
+    closeIcon?.addEventListener("click", hideMenu);
   });
 </script>
 
 <!-- Shading Navbar Animation -->
 <style>
-  nav {
+  #desktop-navbar {
     @apply bg-white/90 dark:bg-navbar-dark-bg;
 
     animation: nav-shadown 2s linear both;
@@ -143,6 +221,24 @@ const navItems = [
     }
     100% {
       @apply shadow-lg backdrop-blur;
+    }
+  }
+
+
+  #menu.links {
+    display: inline;
+    animation: scale-up-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  @keyframes scale-up-center {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 </style>
