@@ -9,7 +9,10 @@ const { skills, title } = Astro.props;
 const skillsArray: Skill[] = Object.values(skills);
 ---
 
-<h3 class="text-2xl ml-5 font-semibold text-gray-800 dark:text-slate-200">
+<h3
+  class="flex justify-center sm:justify-start sm:ml-5
+    text-2xl font-semibold text-gray-800 dark:text-slate-200"
+>
   {title}
 </h3>
 
