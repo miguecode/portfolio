@@ -4,22 +4,19 @@ import { aboutMeData } from "../data/personalData";
 ---
 
 <article
-  class="justify-center mt-6 py-6 px-6
+  class="flex flex-col md:flex-row items-center justify-center
+    mt-6 py-6 px-6 gap-5 md:gap-11
     border-highlight
   text-gray-700 dark:text-gray-300"
 >
-  <div class="flex w-full gap-4">
-    <div class="text-pretty text-gray-950 dark:text-gray-100">
-      <p class="mb-6" set:html={aboutMeData.firstParagraph} />
-      <p class="mb-6" set:html={aboutMeData.secondParagraph} />
-      <p set:html={aboutMeData.thirdParagraph} />
-    </div>
-    <div class="flex flex-col justify-center w-full">
-      <img
-        src={aboutMeData.image}
-        class="size-36 rounded-full shadow-xl m-auto"
-        alt="Foto de la sección Sobre Mí"
-      />
-    </div>
+  <div class="text-pretty text-gray-950 dark:text-gray-100 order-2 md:order-1">
+    <p class="mb-6" set:html={aboutMeData.firstParagraph} />
+    <p class="mb-6" set:html={aboutMeData.secondParagraph} />
+    <p set:html={aboutMeData.thirdParagraph} />
   </div>
+  <img
+    src={aboutMeData.image}
+    class="object-cover w-56 h-full rounded-full order-1 md:order-2"
+    alt="Foto de la sección Sobre Mí"
+  />
 </article>
