@@ -11,7 +11,7 @@ import CurriculumIcon from "../icons/Curriculum.astro";
 const { data } = Astro.props;
 ---
 
-<div class="flex flex-col items-center lg:items-start">
+<div class="flex flex-col items-center">
   <img
     src={data.perfilImage}
     class="size-32 mb-6 rounded-full shadow-xl"
@@ -33,7 +33,7 @@ const { data } = Astro.props;
 
 <div class="flex flex-col flex-wrap items-center md:items-center">
   <h2
-    class="text-wrap text-2xl text-center lg:text-start
+    class="text-wrap text-2xl text-center
   text-gray-800 dark:text-gray-200"
     set:html={data.subTitle}
   />
