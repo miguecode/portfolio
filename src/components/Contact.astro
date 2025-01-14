@@ -1,123 +1,53 @@
 ---
 // Icons
-import CopyIcon from "../icons/Copy.astro";
-import CopiedIcon from "../icons/Copied.astro";
 import MailIcon from "../icons/Mail.astro";
 import LinkedInIcon from "../icons/LinkedIn.astro";
 import OpenMailIcon from "../icons/OpenMail.astro";
+
+// Buttons
+import ContactButton from "./ContactButton.astro";
+import CopyButton from "./CopyButton.astro";
 
 // Props
 const { email, linkedInLink } = Astro.props.data;
 ---
 
-<div class="flex flex-col items-center w-full gap-x-2 mt-6 border-highlight">
-  <div class="flex items-center w-full gap-x-2 px-8 py-5">
-    <MailIcon class="size-[1.7rem] ml-3 dark:text-purple-400" />
-    <p
-      id="email-string"
-      class="text-[1.2rem] font-bold text-navbar-primary dark:text-gray-200/90"
-    >
-      {email}
-    </p>
-
-    <button
-      id="copy-button"
-      class="flex justify-center items-center w-36 gap-x-1 py-2 px-2
-        border rounded-lg border-gray-400 dark:border-gray-700
-      bg-gray-200 dark:bg-black/20
-      text-gray-900 dark:text-purple-200
-      hover:bg-violet-200 dark:hover:bg-violet-950/30
-      active:bg-violet-500/30 dark:active:bg-violet-800/30
-        transition"
-    >
-      <div
-        class="relative
-          w-full h-full
-          flex justify-center items-center
-          text-sm font-semibold py-1.5 px-2"
+<div class="flex flex-col mt-6 border-highlight">
+  <div class="flex flex-col items-center md:flex-row flex-wrap gap-2 md:pl-8 py-5">
+    <div class="flex gap-2 flex-wrap">
+      <MailIcon class="size-[1.7rem] dark:text-purple-400" />
+      <span
+        id="email-string"
+        class="text-[1.2rem] font-bold text-navbar-primary dark:text-gray-200/90"
       >
-        <div
-          id="default-message"
-          class="absolute flex w-full justify-center items-center gap-x-1
-            opacity-100 transition-all duration-300 ease-in-out"
-        >
-          <CopyIcon class="size-4" />
-          <span>Copiar</span>
-        </div>
+        {email}
+      </span>
+    </div>
 
-        <div
-          id="success-message"
-          class="absolute flex w-full justify-center items-center gap-x-1
-            opacity-0 transition-all duration-300 ease-in-out"
-        >
-          <CopiedIcon class="size-4" />
-          <span>¡Copiado!</span>
-        </div>
-      </div>
-    </button>
+    <CopyButton />
 
-    <a
-      href={`mailto:${email}`}
-      class="cursor-pointer w-36 flex justify-center items-center gap-x-1 py-1 px-2
-      bg-gray-200 dark:bg-black/20
-      text-gray-900 dark:text-purple-200
-        border rounded-lg border-gray-400 dark:border-gray-700
-      hover:bg-violet-200 dark:hover:bg-violet-950/30
-      active:bg-violet-500/30 dark:active:bg-violet-800/30
-        transition"
-    >
+    <ContactButton href={`mailto:${email}`} textButton="Abrir Correo">
       <OpenMailIcon class="size-4" />
-      <span class="text-sm font-semibold">Abrir Correo</span>
-    </a>
+    </ContactButton>
   </div>
 
-  <div class="w-full flex items-center gap-x-2 px-8 py-5">
-    <LinkedInIcon class="dark:text-purple-400 size-[1.8rem] ml-3" />
-    <span
-      class="text-[1.2rem] font-bold text-navbar-primary dark:text-gray-200/90"
-    >
-      Miguel Ángel Gil
-    </span>
-    <a
+  <div class="flex flex-col items-center md:flex-row flex-wrap gap-2 md:pl-8 py-5">
+    <div class="flex gap-2 flex-wrap">
+      <LinkedInIcon class="dark:text-purple-400 size-[1.8rem]" />
+      <span
+        class="text-[1.2rem] font-bold text-navbar-primary dark:text-gray-200/90"
+      >
+        Miguel Ángel Gil
+      </span>
+    </div>
+    <ContactButton
       target="_blank"
       rel="noopener noreferrer"
       role="link"
       href={linkedInLink}
-      class="cursor-pointer flex justify-center items-center
-        w-36 gap-x-1 py-1 px-2
-      bg-gray-200 dark:bg-black/20
-      text-gray-900 dark:text-purple-200
-        border rounded-lg border-gray-400 dark:border-gray-700
-      hover:bg-violet-200 dark:hover:bg-violet-950/30
-      active:bg-violet-500/30 dark:active:bg-violet-800/30
-        transition"
+      textButton="Abrir LinkedIn"
     >
       <OpenMailIcon class="size-4" />
-      <span class="text-sm font-semibold">Abrir LinkedIn</span>
-    </a>
+    </ContactButton>
   </div>
 </div>
-
-<!-- Copy email function -->
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const emailString: any = document.getElementById("email-string");
-    const copyButton: any = document.getElementById("copy-button");
-    const defaultMessage: any = document.getElementById("default-message");
-    const successMessage: any = document.getElementById("success-message");
-
-    copyButton.addEventListener("click", () => {
-      navigator.clipboard.writeText(emailString.textContent).then(() => {
-        // Change the copy button content using opacity
-        defaultMessage.classList.replace("opacity-100", "opacity-0");
-        successMessage.classList.replace("opacity-0", "opacity-100");
-
-        // Reset the copy button content after a few seconds
-        setTimeout(() => {
-          successMessage.classList.replace("opacity-100", "opacity-0");
-          defaultMessage.classList.replace("opacity-0", "opacity-100");
-        }, 1850);
-      });
-    });
-  });
-</script>
