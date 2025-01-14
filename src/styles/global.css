@@ -1,7 +1,8 @@
 /* Global styles for highlight text classes */
 
 .title {
-  @apply flex flex-col items-center gap-y-5 w-max
+  @apply flex flex-col items-center gap-y-5
+    text-wrap text-center
     md:flex md:flex-row md:gap-x-4 pb-6 
     text-5xl font-bold
     md:bg-gradient-to-r 
