@@ -16,6 +16,7 @@ const { data } = Astro.props;
     src={data.perfilImage}
     class="w-32 h-full mb-6 rounded-full shadow-xl"
     alt="Foto de perfil"
+    loading="lazy"
   />
   <h1 class="title flex flex-col">
     {data.title}
