@@ -183,18 +183,36 @@ const navItems = [
       });
     };
 
+    // Threshold values
+    let thresholdValue = 0.7;
+    let thresholdContactValue = 1;
+
+    // Configure threshold values ​​depending on resolution
+    if (window.innerHeight < 980) thresholdValue = 0.5;
+
+    if (window.innerHeight < 700) thresholdValue = 0.2;
+
+    if (window.innerHeight < 500) {
+      thresholdValue = 0.01;
+      thresholdContactValue = 0.4;
+    }
+
+    if (window.innerWidth < 500) thresholdValue = 0.4;
+
+    if (window.innerWidth < 400) thresholdValue = 0.2;
+
     // Create an observer for general sections
     const generalObserver = new IntersectionObserver(changeColor, {
       root: null,
       rootMargin: "0px",
-      threshold: 0.7, // 80% visibility required
+      threshold: thresholdValue, // x% Visibility required
     });
 
     // Create a specific observer for the "Contacto" section
     const contactoObserver = new IntersectionObserver(changeColor, {
       root: null,
       rootMargin: "0px",
-      threshold: 1, // 100% visibility required
+      threshold: thresholdContactValue, // x% Visibility required
     });
 
     // Attach the appropriate observer to each section
