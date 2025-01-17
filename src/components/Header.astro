@@ -187,42 +187,72 @@ const navItems = [
     let thresholdValue = 0.7;
     let thresholdContactValue = 1;
 
-    // Configure threshold values ​​depending on resolution
-    if (window.innerHeight < 800) thresholdValue = 0.5;
-
-    if (window.innerHeight < 700) thresholdValue = 0.2;
-
-    if (window.innerHeight < 500) {
-      thresholdValue = 0.01;
-      thresholdContactValue = 0.4;
-    }
-
-    if (window.innerWidth < 500) thresholdValue = 0.4;
-
-    if (window.innerWidth < 400) thresholdValue = 0.2;
-
     // Create an observer for general sections
-    const generalObserver = new IntersectionObserver(changeColor, {
+    let generalObserver = new IntersectionObserver(changeColor, {
       root: null,
       rootMargin: "0px",
       threshold: thresholdValue, // x% Visibility required
     });
 
     // Create a specific observer for the "Contacto" section
-    const contactoObserver = new IntersectionObserver(changeColor, {
+    let contactoObserver = new IntersectionObserver(changeColor, {
       root: null,
       rootMargin: "0px",
       threshold: thresholdContactValue, // x% Visibility required
     });
 
-    // Attach the appropriate observer to each section
-    sections.forEach((section) => {
-      if (section.id === "contacto") {
-        contactoObserver.observe(section);
-      } else {
-        generalObserver.observe(section);
+    // Update threshold values ​​depending on resolution
+    function updateThresholdValues() {
+      thresholdValue = 0.7;
+      thresholdContactValue = 1;
+
+      if (window.innerHeight < 820) thresholdValue = 0.4;
+      
+      if (window.innerWidth < 769) thresholdValue = 0.4;
+      
+      if (window.innerWidth < 400) thresholdValue = 0.2;
+      
+      if (window.innerHeight < 500) {
+        thresholdValue = 0.01;
+        thresholdContactValue = 0.4;
       }
-    });
+
+      updateObservers();
+    }
+
+    // Update general and contact observers with new threshold values
+    function updateObservers() {
+      // Disconnect existing observers if they exist
+      if (generalObserver)generalObserver.disconnect();
+      if (contactoObserver) contactoObserver.disconnect();
+
+      // Create new observers with updated threshold values 
+      generalObserver = new IntersectionObserver(changeColor, {
+        root: null,
+        rootMargin: "0px",
+        threshold: thresholdValue,
+      });
+      contactoObserver = new IntersectionObserver(changeColor, {
+        root: null,
+        rootMargin: "0px",
+        threshold: thresholdContactValue,
+      });
+
+      // Attach the appropriate observer to each section
+      sections.forEach((section) => {
+        if (section.id === "contacto") {
+          contactoObserver.observe(section);
+        } else {
+          generalObserver.observe(section);
+        }
+      });
+    }
+
+    // Initialize threshold values and observers
+    updateThresholdValues();
+
+    // Listen to the resize event to update the threshold values dynamically
+    window.addEventListener("resize", updateThresholdValues);
 
     // Optimization function (stop observing when the tab is not visible)
     document.onvisibilitychange = () => {
@@ -230,13 +260,7 @@ const navItems = [
         generalObserver.disconnect();
         contactoObserver.disconnect();
       } else {
-        sections.forEach((section) => {
-          if (section.id === "contacto") {
-            contactoObserver.observe(section);
-          } else {
-            generalObserver.observe(section);
-          }
-        });
+        updateThresholdValues();
       }
     };
 
