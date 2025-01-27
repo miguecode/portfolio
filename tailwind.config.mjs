@@ -4,6 +4,10 @@ export default {
   content: ["./src/**/*.{astro,html,js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        xxs: "360px",
+        xs: "460px",
+      },
       colors: {
         // Blue Theme
         // "navbar-primary": "#2557fc",
