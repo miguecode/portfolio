@@ -25,12 +25,12 @@
     bg-clip-text text-transparent font-bold;
 }
 
-/* Section container borders */
+/* Section container styles */
 
-.border-highlight {
-  @apply border rounded-lg border-gray-400 dark:border-gray-700;
+.container-highlight {
+  @apply border rounded-xl border-gray-300 dark:border-gray-700
+    bg-[rgba(0,0,0,0.011)] dark:bg-[rgba(255,255,255,0.03)] shadow-md;
 }
-
 
 /* Accessibility focus */
 

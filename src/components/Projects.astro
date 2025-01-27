@@ -25,7 +25,7 @@ interface Skill {
 ---
 
 <div
-  class="flex flex-col mt-6 gap-y-16 md:gap-y-10 py-5 px-3 border-highlight"
+  class="flex flex-col mt-6 gap-y-16 md:gap-y-10 py-5 px-3 container-highlight"
 >
   {
     projects.map((project: Project) => (
@@ -61,7 +61,7 @@ interface Skill {
               {project.tags.map((tag: Skill) => (
                 <li>
                   <span
-                    class={`flex justify-center items-center gap-x-1 py-1 px-3
+                    class={`select-none flex justify-center items-center gap-x-1 py-1 px-3
                       text-sm font-bold dark:font-semibold
                       border rounded-full border-transparent dark:border-white/10 
                     dark:bg-black/10 
