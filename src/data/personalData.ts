@@ -8,8 +8,10 @@ export const metaData = {
 // Personal data
 export const data = {
   title: "Hola, soy Miguel",
+  // subTitle:
+  //   "<span class='highlight-1'>Desarrollador Frontend</span>. Técnico Universitario en Programación con conocimientos en tecnologías web modernas.",
   subTitle:
-     "<span class='highlight-1'>Desarrollador Frontend</span> con formación Universitaria en Programación y conocimientos en tecnologías web modernas.",
+    "<span class='highlight-1'>Desarrollador Frontend</span> con formación Universitaria en Programación y conocimientos en tecnologías web modernas.",
   perfilImage: "/images/profile-pic.webp",
   badge: "¡Disponible para trabajar!",
   email: "junmigue7@gmail.com",
