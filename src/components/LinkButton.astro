@@ -12,9 +12,10 @@ const { href } = Astro.props;
     text-base font-semibold text-gray-800 dark:text-white
     border rounded-xl border-gray-400 dark:border-gray-700
     bg-transparent
-  hover:bg-gray-800 dark:hover:text-purple-400
-  hover:text-white hover:border-gray-800
-  active:bg-gray-700 active:dark:bg-gray-800
+    hover:bg-gray-800 hover:dark:bg-transparent
+    hover:text-white dark:hover:text-purple-400
+    hover:border-gray-800
+    active:bg-gray-700 active:dark:bg-gray-800 
     transition"
 >
   <slot />
