@@ -20,7 +20,6 @@ export default {
 
         // Technology's colors
         "html-primary": "#f06b51",
-        "html-secondary": "#c95d36",
         "css-primary": "#0396DE",
         "css-secondary": "#b7ddf7",
         "javascript-primary": "#f0db4f",
