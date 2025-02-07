@@ -61,7 +61,7 @@ const navItems = [
       id="menu-links"
       class="hidden flex-col items-center
         border rounded-md
-        absolute scale-80 top-0 right-0 mr-5
+        absolute top-0 right-0 mr-5
       bg-white/90 dark:bg-navbar-dark-bg
       border-gray-100 dark:border-gray-500/20
         shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
@@ -69,10 +69,10 @@ const navItems = [
       <div
         id="close-icon"
         class="cursor-pointer
-        p-2 mb-2 self-end
-      text-slate-800 dark:text-slate-400
-      hover:text-slate-500 dark:hover:text-slate-300
-        transition"
+          p-2 mb-2 self-end
+        text-slate-800 dark:text-slate-400
+        hover:text-slate-500 dark:hover:text-slate-300
+          transition"
       >
         <CloseIcon class="size-8" />
       </div>
@@ -80,11 +80,10 @@ const navItems = [
         navItems.map((link) => (
           <a
             class="px-8 py-2 
-            rounded-lg
-            flex justify-start text-start
-          hover:text-navbar-primary dark:hover:text-navbar-secondary
-            font-bold
-            "
+              rounded-lg
+              flex justify-start text-start
+            hover:text-navbar-primary dark:hover:text-navbar-secondary
+              font-bold"
             aria-label={link.label}
             href={link.href}
           >
@@ -120,27 +119,30 @@ const navItems = [
   </nav>
 </header>
 
-<!-- Shading Navbar Animation -->
 <style>
+  /* Navbar animation */
+
   #desktop-navbar {
     @apply bg-white/90 dark:bg-navbar-dark-bg;
 
     animation: nav-shadown 2s linear both;
-    animation-timeline: scroll();
+    animation-timeline: scroll(root block);
     animation-range: 0 100px;
   }
 
   @keyframes nav-shadown {
     0% {
-      @apply bg-white/0 dark:bg-gray-800/0;
+      @apply bg-transparent;
     }
     100% {
       @apply shadow-lg backdrop-blur;
     }
   }
 
+  /* Hamburger Menu Links Animation */
+
   #menu-links {
-    animation: scale-up-center 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    animation: scale-up-center .1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   @keyframes scale-up-center {
@@ -156,7 +158,7 @@ const navItems = [
   }
 </style>
 
-<!-- Navbar color change, hamburger menu functions and toggle theme container position -->
+<!-- Navbar items color change, hamburger menu functions and toggle theme container position -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll<HTMLElement>("section");
