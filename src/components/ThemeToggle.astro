@@ -1,0 +1,182 @@
+---
+// Icons
+import SunIcon from "../icons/Sun.astro";
+import MoonIcon from "../icons/Moon.astro";
+import SystemIcon from "../icons/System.astro";
+
+// Themes
+const themes = [
+  { id: "light", label: "Claro", icon: SunIcon },
+  { id: "dark", label: "Oscuro", icon: MoonIcon },
+  { id: "system", label: "Sistema", icon: SystemIcon },
+];
+---
+
+<div id="theme-toggle-component" class="relative ml-1 mr-1">
+  <button
+    id="theme-toggle-btn"
+    class="border-none flex hover:scale-125 transition p-2"
+    aria-label="Cambiar el tema (Claro, Oscuro o Sistema)"
+  >
+    <SunIcon id="light" class="theme-toggle-icon size-5 transition-all" />
+    <MoonIcon
+      id="dark"
+      class="theme-toggle-icon absolute size-5 transition-all"
+    />
+    <SystemIcon
+      id="system"
+      class="theme-toggle-icon absolute size-5 transition-all"
+    />
+  </button>
+  <div
+    id="themes-menu"
+    class="absolute hidden
+      min-w-[8rem] scale-80 top-8 right-0 p-1
+      text-sm font-semibold
+      border rounded-md
+    bg-white dark:bg-navbar-dark-bg
+    border-gray-100 dark:border-gray-500/20
+      shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
+  >
+    <ul>
+      {
+        themes.map((theme) => (
+          <li
+            class="themes-menu-option cursor-pointer
+            flex justify-between
+            rounded-sm
+            px-2 py-1.5
+          hover:bg-gray-100 dark:hover:bg-gray-600/10
+          hover:text-navbar-primary dark:hover:text-navbar-secondary
+            transition"
+            data-theme={theme.id}
+          >
+            {theme.label}
+            <theme.icon data-theme={theme.id} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<!-- Show the theme's menu -->
+<style>
+  #themes-menu.open {
+    display: inline;
+    animation: scale-up-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  @keyframes scale-up-center {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+</style>
+
+<!-- Toggle Theme functionality -->
+<script is:inline>
+  // Get the system preference with the matchMedia API
+  const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
+
+  // Get the themes menu reference
+  const themesMenu = document.getElementById("themes-menu");
+
+  // Remove the event listener when the theme is updated
+  let remove = null;
+
+  // Get the theme preference from localStorage or System
+  const getThemePreference = () => {
+    // Check if localStorage is available and return his value
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("theme") ?? "system";
+    }
+
+    // If localStorage is not available, return the system preference
+    return matchMedia.matches ? "dark" : "light";
+  };
+
+  // Update the current theme icon
+  const updateIcon = (themePreference) => {
+    document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
+      element.style.scale = element.id === themePreference ? "1" : "0";
+    });
+  };
+
+  // Function to update the theme
+  const updateTheme = () => {
+    // If 'remove' is a function, call it to remove the event listener
+    if (remove != null) {
+      remove();
+    }
+
+    // Remove will be a function to remove the event listener
+    remove = () => {
+      matchMedia.removeEventListener("change", updateTheme);
+    };
+
+    const themePreference = getThemePreference();
+
+    // Add the event listener to update the theme when the system preference changes
+    matchMedia.addEventListener("change", updateTheme);
+
+    const isDark =
+      themePreference === "dark" ||
+      (themePreference === "system" && matchMedia.matches);
+
+    updateIcon(themePreference);
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+  };
+
+  // Close the theme's menu when clicked outside
+  document.addEventListener("click", () => themesMenu.classList.remove("open"));
+
+  // Open or close the theme's menu when the theme toggle button is clicked
+  document.getElementById("theme-toggle-btn").addEventListener("click", (e) => {
+    // Prevent the event from bubbling up to the document and closing the menu
+    e.stopPropagation();
+    const isClosed = !themesMenu.classList.contains("open");
+    themesMenu.classList[isClosed ? "add" : "remove"]("open");
+  });
+
+  // Change the theme when a theme option is clicked
+  document.querySelectorAll(".themes-menu-option").forEach((element) => {
+    element.addEventListener("click", (e) => {
+      localStorage.setItem("theme", e.target.dataset.theme.trim());
+      updateTheme();
+    });
+  });
+
+  // Change the theme when a theme option is clicked
+  document.querySelectorAll(".themes-menu-option").forEach((element) => {
+    element.addEventListener("click", (e) => {
+      // Get the <li> container to avoid errors when clicking the icon or text
+      const optionElement = e.target.closest(".themes-menu-option");
+
+      // If there is no <li>, do nothing
+      if (!optionElement) return;
+
+      const theme = optionElement.dataset.theme;
+
+      if (theme) {
+        localStorage.setItem("theme", theme.trim());
+        updateTheme();
+      }
+    });
+  });
+
+  // Update the theme when the Astro app swaps pages
+  document.addEventListener("astro:after-swap", () => {
+    updateTheme();
+    window.scrollTo({ left: 0, top: 0, behavior: "instant" });
+  });
+
+  // Initialize the theme
+  updateTheme();
+</script>

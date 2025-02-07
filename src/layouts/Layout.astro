@@ -1,0 +1,87 @@
+---
+// Icons
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { metaData } from "../data/personalData";
+
+// Font
+import "@fontsource-variable/onest";
+
+// Styles
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={metaData.description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{metaData.title}</title>
+  </head>
+  <body class="relative">
+    <!-- Gradient Background -->
+    <div
+      class="absolute top-0 bottom-0 z-[-2]
+        w-full min-h-screen
+      bg-gray-50 dark:bg-neutral-950
+        bg-[radial-gradient(ellipse_50%_170%_at_50%_-50%,#dbd0ef,rgba(255,255,255,0.9))]
+        dark:bg-[radial-gradient(ellipse_50%_170%_at_50%_-50%,rgba(120,119,198,0.3),rgba(0,0,0,0.1))]"
+    >
+    </div>
+  </body>
+  <Header />
+  <slot />
+  <Footer />
+</html>
+
+<style>
+  :root {
+    /* Indicate the website allowed themes */
+    color-scheme: light dark;
+
+    /* Default variables for the text selection color */
+    --selection-bg: #7d53c5;
+    --selection-color: #fff;
+
+    /* Change the text selection color */
+    ::selection {
+      background-color: var(--selection-bg);
+      color: var(--selection-color);
+    }
+  }
+
+  /* Variables for the dark selection color */
+  .dark {
+    --selection-bg: #cfb3ff;
+    --selection-color: #23262f;
+  }
+
+  html {
+    font-family: "Onest Variable", sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #212031;
+    color: #1f2937;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Dark mode styles */
+  .dark body {
+    color: #fae9ff; /* Dark mode text color */
+  }
+
+  /* Disable the animation if the user prefers */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+      transition: none;
+    }
+  }
+</style>

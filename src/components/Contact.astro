@@ -1,0 +1,53 @@
+---
+// Icons
+import MailIcon from "../icons/Mail.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import OpenMailIcon from "../icons/OpenMail.astro";
+
+// Buttons
+import ContactButton from "./ContactButton.astro";
+import CopyButton from "./CopyButton.astro";
+
+// Props
+const { email, linkedInLink } = Astro.props.data;
+---
+
+<div class="flex flex-col mt-6 container-highlight">
+  <div class="flex flex-col items-center md:flex-row flex-wrap gap-2 md:pl-8 py-5">
+    <div class="flex gap-2 flex-wrap">
+      <MailIcon class="size-[1.7rem] dark:text-purple-400" />
+      <span
+        id="email-string"
+        class="text-[1.2rem] font-bold text-navbar-primary dark:text-gray-200/90"
+      >
+        {email}
+      </span>
+    </div>
+
+    <CopyButton />
+
+    <ContactButton href={`mailto:${email}`} textButton="Abrir Correo">
+      <OpenMailIcon class="size-4" />
+    </ContactButton>
+  </div>
+
+  <div class="flex flex-col items-center md:flex-row flex-wrap gap-2 md:pl-8 py-5">
+    <div class="flex gap-2 flex-wrap">
+      <LinkedInIcon class="dark:text-purple-400 size-[1.8rem]" />
+      <span
+        class="text-[1.2rem] font-bold text-navbar-primary dark:text-gray-200/90"
+      >
+        Miguel Ángel Gil
+      </span>
+    </div>
+    <ContactButton
+      target="_blank"
+      rel="noopener noreferrer"
+      role="link"
+      href={linkedInLink}
+      textButton="Abrir LinkedIn"
+    >
+      <OpenMailIcon class="size-4" />
+    </ContactButton>
+  </div>
+</div>

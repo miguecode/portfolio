@@ -1,0 +1,67 @@
+---
+// Components
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Profile from "../components/Profile.astro";
+import Skills from "../components/Skills.astro";
+import Projects from "../components/Projects.astro";
+import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
+
+// Icons
+import SkillIcon from "../icons/Skill.astro";
+import CodeIcon from "../icons/Code.astro";
+import UserIcon from "../icons/User.astro";
+import BookIcon from "../icons/Book.astro";
+
+// Data
+import { data } from "../data/personalData.ts";
+---
+
+<Layout>
+  <main class="px-4">
+    <!-- SECTION PROFILE -->
+    <SectionContainer id="inicio" class="py-28 md:py-44 lg:w-[48rem]">
+      <Profile data={data} />
+    </SectionContainer>
+  </main>
+
+  <div class="space-y-24">
+    <!-- SECTION SKILLS -->
+    <SectionContainer id="habilidades" class="pt-20">
+      <SectionTitle>
+        <SkillIcon class="size-8" />
+        Habilidades
+      </SectionTitle>
+      <Skills />
+    </SectionContainer>
+
+    <!-- SECTION PROJECTS -->
+    <SectionContainer id="proyectos" class="pt-20">
+      <SectionTitle>
+        <CodeIcon class="size-8" />
+        Proyectos
+      </SectionTitle>
+      <Projects />
+    </SectionContainer>
+
+    <!-- SECTION ABOUT ME -->
+    <SectionContainer id="sobre-mi" class="pt-20">
+      <SectionTitle>
+        <UserIcon class="size-8" />
+        Sobre mí
+      </SectionTitle>
+      <About />
+    </SectionContainer>
+
+    <!-- SECTION CONTACT -->
+    <SectionContainer id="contacto" class="pt-20 pb-20">
+      <SectionTitle>
+        <BookIcon class="size-8" />
+        Contacto
+      </SectionTitle>
+      <Contact data={data} />
+    </SectionContainer>
+  </div>
+</Layout>

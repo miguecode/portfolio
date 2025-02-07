@@ -1,0 +1,99 @@
+---
+// Icons
+import GitHub from "../icons/GitHub.astro";
+import Link from "../icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
+
+// Data
+import { projects } from "../data/projectsData";
+
+// Interfaces
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  github: string;
+  tags: Skill[];
+}
+
+interface Skill {
+  name: string;
+  class: string;
+  icon: any;
+}
+---
+
+<div
+  class="flex flex-col mt-6 gap-y-16 md:gap-y-10 py-5 px-3 container-highlight"
+>
+  {
+    projects.map((project: Project) => (
+      <article class="flex flex-col self-center group space-x-0 space-y-4
+      w-5/6 md:w-full md:flex-row md:space-x-8 md:space-y-0">
+
+        {/* Image Container */}
+        <div
+          class="w-full md:w-1/2 flex items-center
+            transition duration-500 ease-in-out transform shadow-xl overflow-clip 
+            group-hover:-translate-y-1 group-hover:shadow-2xl
+            border rounded-xl
+          border-gray-400 dark:border-gray-800
+          group-hover:border-gray-500 group-hover:dark:border-gray-700"
+        >
+          <img
+            alt="Imagen del Proyecto"
+            class="object-cover object-top w-full transition duration-500 
+            h-56 lg:h-52 md:scale-110 lg:group-hover:scale-105"
+            src={project.image}
+            loading="lazy"
+          />
+        </div>
+
+        {/* Title, description and links */}
+        <div class="w-full text-center sm:text-left md:w-1/2 py-0">
+          <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            {project.title}
+          </h3>
+
+          <div class="flex flex-wrap justify-center sm:justify-start mt-2">
+            <ul class="flex justify-center flex-wrap gap-2">
+              {project.tags.map((tag: Skill) => (
+                <li>
+                  <span
+                    class={`select-none flex justify-center items-center gap-x-1 py-1 px-3
+                      text-sm font-bold dark:font-semibold
+                      border rounded-full border-transparent dark:border-white/10 
+                    dark:bg-black/10 
+                      ${tag.class}`}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="mt-2 text-gray-700 dark:text-gray-300">
+              {project.description}
+            </div>
+            <footer class="flex flex-wrap justify-center sm:justify-start mt-3 md:mt-6 gap-2 sm:gap-4">
+              {project.link && (
+                <LinkButton href={project.link}>
+                  <Link class="size-4" />
+                  Demo
+                </LinkButton>
+              )}
+              {project.github && (
+                <LinkButton href={project.github}>
+                  <GitHub class="size-6" />
+                  Código
+                </LinkButton>
+              )}
+            </footer>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>
