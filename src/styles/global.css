@@ -32,6 +32,7 @@
     bg-[rgba(0,0,0,0.011)] dark:bg-[rgba(255,255,255,0.03)] shadow-md;
 }
 
+
 /* Accessibility focus */
 
 button:focus-visible,
@@ -41,24 +42,27 @@ a:focus-visible {
   border-radius: 8px;
 }
 
-/* Scroll Reveal Animations */
 
-section {
-  animation: reveal ease-out both;
-  animation-timeline: view();
-  animation-range: entry 20% cover 22%;
+/* First Reveal Animation */
+
+header, section {
+  animation: first-reveal 0.5s ease-in-out both;
+  animation-timeline: auto;
 }
 
-@keyframes reveal {
+@keyframes first-reveal {
   0% {
     opacity: 0;
-    /* scale: .96; */
-    /* translate: 0 100px; */
+    scale: 0;
+  }
+
+  10% {
+    opacity: 0;
+    scale: 0.8;
   }
 
   100% {
     opacity: 1;
-    /* scale: 1; */
-    /* translate: 0 0; */
+    scale: 1;
   }
 }
