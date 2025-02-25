@@ -37,41 +37,41 @@ const { data } = Astro.props;
   text-gray-800 dark:text-gray-200"
     set:html={data.subTitle}
   />
-  <nav class="flex flex-wrap justify-center lg:justify-start w-full gap-4 mt-8 ">
-   <div class="flex flex-wrap justify-center gap-4">
-    <SocialLink
-      href={data.cvPdf}
-      target="_blank"
-      rel="noopener noreferrer"
-      role="link"
-    >
-      <CurriculumIcon class="size-7 inline" />
-      Currículum
-    </SocialLink>
-    <SocialLink href="/#contacto">
-      <BookIcon class="size-7 inline" />
-      Contacto
-    </SocialLink>
-   </div>
-   <div class="flex flex-wrap justify-center gap-4">
-    <SocialLink
-      href={data.linkedInLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      role="link"
-    >
-      <LinkedInIcon class="size-7 inline" />
-      LinkedIn
-    </SocialLink>
-    <SocialLink
-      href={data.githubLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      role="link"
-    >
-      <GitHubIcon class="size-6 inline" />
-      GitHub
-    </SocialLink>
-   </div>
+  <nav class="flex flex-wrap justify-center lg:justify-start w-full gap-4 mt-8">
+    <div class="buttons-first flex flex-wrap justify-center gap-4">
+      <SocialLink
+        href={data.cvPdf}
+        target="_blank"
+        rel="noopener noreferrer"
+        role="link"
+      >
+        <CurriculumIcon class="size-7 inline" />
+        Currículum
+      </SocialLink>
+      <SocialLink href="/#contacto">
+        <BookIcon class="size-7 inline" />
+        Contacto
+      </SocialLink>
+    </div>
+    <div class="buttons-second flex flex-wrap justify-center gap-4">
+      <SocialLink
+        href={data.linkedInLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        role="link"
+      >
+        <LinkedInIcon class="size-7 inline" />
+        LinkedIn
+      </SocialLink>
+      <SocialLink
+        href={data.githubLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        role="link"
+      >
+        <GitHubIcon class="size-6 inline" />
+        GitHub
+      </SocialLink>
+    </div>
   </nav>
 </div>

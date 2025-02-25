@@ -1,4 +1,7 @@
-/* Global styles for highlight text classes */
+/* Global Styles */
+
+
+/* Highlight text classes */
 
 .title {
   @apply flex flex-col items-center gap-y-5
@@ -25,6 +28,7 @@
     bg-clip-text text-transparent font-bold;
 }
 
+
 /* Section container styles */
 
 .container-highlight {
@@ -38,19 +42,20 @@
 button:focus-visible,
 a:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px #BE82F9;
+  box-shadow: 0 0 0 4px #be82f9;
   border-radius: 8px;
 }
 
 
-/* First Reveal Animation */
+/* First Reveal Animations */
 
-header, section {
-  animation: first-reveal 0.5s ease-in-out both;
-  animation-timeline: auto;
+/* Sections Reveal Animation */
+
+section {
+  animation: general-reveal 0.5s ease-in-out both;
 }
 
-@keyframes first-reveal {
+@keyframes general-reveal {
   0% {
     opacity: 0;
     scale: 0;
@@ -64,5 +69,73 @@ header, section {
   100% {
     opacity: 1;
     scale: 1;
+  }
+}
+
+/* Profile Buttons Reveal Animation */
+
+.buttons-first a,
+.buttons-second a {
+  animation: buttons-reveal 0.5s ease both;
+}
+
+.buttons-first a:nth-child(1) { animation-delay: 0.15s; }
+.buttons-first a:nth-child(2) { animation-delay: 0.25s; }
+
+.buttons-second a:nth-child(1) { animation-delay: 0.35s; }
+.buttons-second a:nth-child(2) { animation-delay: 0.45s; }
+
+@keyframes buttons-reveal {
+  0% {
+    opacity: 0;
+    scale: 0;
+    translate: 0 50px;
+  }
+
+  10% {
+    opacity: 0;
+    scale: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+    transform: 0 0;
+  }
+}
+
+
+/* Navbar Reveal Animation */
+
+#desktop-navbar a {
+  animation: navbar-reveal 0.5s ease both;
+}
+
+#desktop-navbar a:nth-child(1) { animation-delay: 0.05s; }
+#desktop-navbar a:nth-child(2) { animation-delay: 0.10s; }
+#desktop-navbar a:nth-child(3) { animation-delay: 0.15s; }
+#desktop-navbar a:nth-child(4) { animation-delay: 0.20s; }
+#desktop-navbar a:nth-child(5) { animation-delay: 0.25s; }
+
+#desktop-navbar .theme-toggle {
+  animation: navbar-reveal 0.5s 0.35s ease-in-out both;
+}
+
+@keyframes navbar-reveal {
+  0% {
+    opacity: 0;
+    scale: 0;
+    translate: 0 -50px;
+  }
+
+  10% {
+    opacity: 0;
+    scale: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
   }
 }
