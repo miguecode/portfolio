@@ -51,7 +51,7 @@ a:focus-visible {
 
 /* Sections Reveal Animation */
 
-section {
+.section-child {
   animation: general-reveal 0.5s ease-in-out both;
 }
 
@@ -145,7 +145,7 @@ section {
 
 @media screen and (width >= 768px) {
 	.tracking-in-expand {
-    animation: tracking-in-expand 0.6s 
+    animation: tracking-in-expand 1.06s 
     cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
   }
   
@@ -160,5 +160,25 @@ section {
     100% {
       opacity: 1;
     }
+  }
+}
+
+
+/* Badge Reveal Animation */
+
+.badge {
+  animation: tracking-in-expand-two 1.07s 0.04s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+@keyframes tracking-in-expand-two {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
