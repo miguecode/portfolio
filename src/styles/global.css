@@ -49,28 +49,54 @@ a:focus-visible {
 
 /* First Reveal Animations */
 
-/* Sections Reveal Animation */
+/* Sections Reveal Animation (No Mobile) */
 
-.section-child {
-  animation: general-reveal 0.5s ease-in-out both;
+@media (width >= 360px) {
+  .section-child {
+    animation: general-reveal 0.5s ease-in-out both;
+  }
+  
+  @keyframes general-reveal {
+    0% {
+      opacity: 0;
+      scale: 0;
+    }
+  
+    10% {
+      opacity: 0;
+      scale: 0.8;
+    }
+  
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
 }
 
-@keyframes general-reveal {
-  0% {
-    opacity: 0;
-    scale: 0;
-  }
 
-  10% {
-    opacity: 0;
-    scale: 0.8;
-  }
+/* Animation for Section Titles (No Mobile) */
 
-  100% {
-    opacity: 1;
-    scale: 1;
+@media (width >= 768px) {
+  .tracking-in-expand {
+    animation: tracking-in-expand 1.06s 
+    cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  }
+  
+  @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
+
 
 /* Profile Buttons Reveal Animation */
 
@@ -137,29 +163,6 @@ a:focus-visible {
     opacity: 1;
     scale: 1;
     translate: 0 0;
-  }
-}
-
-
-/* Little animation for section titles (No Mobile) */
-
-@media screen and (width >= 768px) {
-	.tracking-in-expand {
-    animation: tracking-in-expand 1.06s 
-    cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-  }
-  
-  @keyframes tracking-in-expand {
-    0% {
-      letter-spacing: -0.5em;
-      opacity: 0;
-    }
-    40% {
-      opacity: 0.6;
-    }
-    100% {
-      opacity: 1;
-    }
   }
 }
 
