@@ -28,10 +28,10 @@ export const data = {
 // About me data
 export const aboutMeData = {
   firstParagraph:
-    "Me llamo Miguel Ángel Gil, tengo 23 años y vivo en Buenos Aires, Argentina. <span class='highlight-2'>Empecé en la programación en 2021</span>, cuando me inscribí en la Tecnicatura Universitaria en Programación en la UTN. Con el tiempo, decidí enfocarme al <span class='highlight-2'>desarrollo Frontend</span> y es en lo que me especializo actualmente.",
+    "Me llamo Miguel Ángel Gil, tengo 23 años y vivo en Buenos Aires, Argentina. <strong class='highlight-2'>Empecé en la programación en 2021</strong>, cuando me inscribí en la Tecnicatura Universitaria en Programación en la UTN. Con el tiempo, decidí enfocarme al <strong class='highlight-2'>desarrollo Frontend</strong> y es en lo que me especializo actualmente.",
   secondParagraph:
-    "Durante mi formación y práctica, he trabajado en el desarrollo web, <span class='highlight-2'>tanto del lado del cliente como del servidor</span>. También experimenté en aplicaciones móviles, <span class='highlight-2'>trabajando de manera individual y en equipo</span>, lo que me hizo mejorar en habilidades de colaboración y comunicación.",
+    "Durante mi formación y práctica, he trabajado en el desarrollo web, <strong class='highlight-2'>tanto del lado del cliente como del servidor</strong>. También experimenté en aplicaciones móviles, <strong class='highlight-2'>trabajando de manera individual y en equipo</strong>, lo que me hizo mejorar en habilidades de colaboración y comunicación.",
   thirdParagraph:
-    "<span class='highlight-2'>En 2024 obtuve mi título como Técnico Universitario en Programación</span>. Actualmente, estoy trabajando en nuevos proyectos relacionados a una de mis pasiones, el fútbol. Mi objetivo es <span class='highlight-2'>contribuir de forma profesional</span> para brindar soluciones y encarar nuevos desafíos.",
+    "<strong class='highlight-2'>En 2024 obtuve mi título como Técnico Universitario en Programación</strong>. Actualmente, estoy trabajando en nuevos proyectos relacionados a una de mis pasiones, el fútbol. Mi objetivo es <strong class='highlight-2'>contribuir de forma profesional</strong> para brindar soluciones y encarar nuevos desafíos.",
   image: "/images/profile-pic.webp",
 };
