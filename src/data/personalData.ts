@@ -3,6 +3,11 @@ export const metaData = {
   title: "Miguel Ángel Gil - Desarrollador Frontend",
   description:
     "Portfolio de Miguel Ángel Gil, Desarrollador Frontend con formación universitaria en programación y experiencia en tecnologías web modernas.",
+  keyWords: "Desarrollo, Frontend, Desarrollador, Web, Programación, Programador, Portfolio, Miguel Ángel Gil, Argentina",
+  author: "Miguel Ángel Gil",
+  themeColor: "#2C243D",
+  image: "/images/profile-pic.webp",
+  url: "https://miguel-angel-gil.netlify.app",
 };
 
 // Personal data
@@ -12,7 +17,7 @@ export const data = {
   //   "<span class='highlight-1'>Desarrollador Frontend</span>. Técnico Universitario en Programación con conocimientos en tecnologías web modernas.",
   subTitle:
     "<span class='highlight-1'>Desarrollador Frontend</span> con formación Universitaria en Programación y conocimientos en tecnologías web modernas.",
-  perfilImage: "/images/profile-pic.webp",
+  profileImage: "/images/profile-pic.webp",
   badge: "¡Disponible para trabajar!",
   email: "junmigue7@gmail.com",
   cvPdf: "/pdf/curriculum-miguel-angel-gil.pdf",

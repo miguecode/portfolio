@@ -15,11 +15,19 @@ import "../styles/global.css";
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={metaData.description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{metaData.title}</title>
+    <meta name="description" content={metaData.description} />
+    <meta name="keywords" content={metaData.keyWords} />
+    <meta name="theme-color" content={metaData.themeColor}>
+    <meta name="author" content={metaData.author}>
+    <meta property="og:title" content={metaData.title} />
+    <meta property="og:description" content={metaData.description} />
+    <meta property="og:image" content={metaData.image} />
+    <meta property="og:url" content={metaData.url} />
+    <meta property="og:type" content="website" />
   </head>
   <body class="relative">
     <!-- Gradient Background -->
