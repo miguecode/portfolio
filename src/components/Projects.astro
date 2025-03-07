@@ -35,7 +35,7 @@ interface Skill {
         {/* Image Container */}
         <div
           class="w-full md:w-1/2 flex items-center
-            transition duration-500 ease-in-out transform shadow-xl overflow-clip 
+            transition duration-500 ease-in-out shadow-xl overflow-clip 
             group-hover:-translate-y-1 group-hover:shadow-2xl
             border rounded-xl
           border-gray-400 dark:border-gray-800
@@ -74,9 +74,9 @@ interface Skill {
               ))}
             </ul>
 
-            <div class="mt-2 text-gray-700 dark:text-gray-300">
+            <p class="mt-2 text-gray-700 dark:text-gray-300 text-pretty">
               {project.description}
-            </div>
+            </p>
             <footer class="flex flex-wrap justify-center sm:justify-start mt-3 md:mt-6 gap-2 sm:gap-4">
               {project.link && (
                 <LinkButton href={project.link}>

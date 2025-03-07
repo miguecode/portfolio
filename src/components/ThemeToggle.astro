@@ -38,25 +38,25 @@ const themes = [
     border-gray-100 dark:border-gray-500/20
       shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
   >
-    <ul>
-      {
-        themes.map((theme) => (
-          <li
-            class="themes-menu-option cursor-pointer
-            flex justify-between
-            rounded-sm
-            px-2 py-1.5
-          hover:bg-gray-100 dark:hover:bg-gray-600/10
-          hover:text-navbar-primary dark:hover:text-navbar-secondary
-            transition"
-            data-theme={theme.id}
-          >
-            {theme.label}
-            <theme.icon data-theme={theme.id} />
-          </li>
-        ))
-      }
-    </ul>
+    {
+      themes.map((theme) => (
+        <button
+          class="themes-menu-option cursor-pointer
+          w-full
+          flex justify-between
+          rounded-sm
+          px-2 py-1.5
+        hover:bg-gray-100 dark:hover:bg-gray-600/10
+        hover:text-navbar-primary dark:hover:text-navbar-secondary
+          transition"
+          data-theme={theme.id}
+          tabindex="0"
+        >
+          {theme.label}
+          <theme.icon data-theme={theme.id} />
+        </button>
+      ))
+    }
   </div>
 </div>
 
