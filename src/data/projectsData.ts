@@ -25,7 +25,7 @@ export const projects = [
     description: "Bot de Twitter/X que se dedica a publicar fotos de Lionel Messi diariamente. Fue creado con la API de Twitter/X, y cuenta con +4.000 seguidores.",
     image: "/projects/bot-project.webp",
     link: "https://x.com/MessiPF/",
-    github: "https://github.com/Leumig/bot-twitter/",
-    tags: [technologysDataThree.Node, technologysDataOne.JavaScript]
+    github: "https://github.com/Leumig/messi-perfect-shots/",
+    tags: [technologysDataThree.Node, technologysDataOne.TypeScript]
   },
 ];
