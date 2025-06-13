@@ -22,12 +22,12 @@ import ionic from "../icons/technologys/Ionic.astro";
 export const technologysDataOne = {
   HTML: {
     name: "HTML",
-    class: "bg-orange-300 text-orange-950 dark:text-html-primary",
+    class: "bg-orange-200/60 text-orange-600 dark:text-html-primary",
     icon: html,
   },
   CSS: {
     name: "CSS",
-    class: "bg-css-secondary text-blue-700 dark:text-css-primary",
+    class: "bg-purple-300 text-css-secondary dark:text-css-primary",
     icon: css,
   },
   JavaScript: {
@@ -38,12 +38,12 @@ export const technologysDataOne = {
   },
   TypeScript: {
     name: "TypeScript",
-    class: "bg-typescript-secondary text-blue-900 dark:text-typescript-primary",
+    class: "bg-blue-200/60 text-typescript-secondary dark:text-typescript-primary",
     icon: typescript,
   },
   Angular: {
     name: "Angular",
-    class: "bg-gray-200/90 text-angular-primary dark:text-angular-primary",
+    class: "bg-red-300/30 text-angular-primary dark:text-angular-primary",
     icon: angular,
   },
   Astro: {
@@ -67,12 +67,12 @@ export const technologysDataOne = {
 export const technologysDataTwo = {
   Git: {
     name: "Git",
-    class: "bg-gray-200/90 text-dark dark:text-white",
+    class: "bg-gray-300/40 text-dark dark:text-white",
     icon: git,
   },
   SQL: {
     name: "SQL",
-    class: "bg-orange-400/80 text-black dark:text-orange-500",
+    class: "bg-orange-300/80 text-black dark:text-orange-500",
     icon: sql,
   },
   Firebase: {
@@ -96,7 +96,7 @@ export const technologysDataThree = {
   },
   Ionic: {
     name: "Ionic",
-    class: "bg-gray-200/90 dark:text-white",
+    class: "bg-gray-300/40 dark:text-white",
     icon: ionic,
   },
 };
