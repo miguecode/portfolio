@@ -1,3 +1,3 @@
 # Mi Portfolio
 
-Readme por completar
+Readme por completar.
