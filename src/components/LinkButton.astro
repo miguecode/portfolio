@@ -1,14 +1,14 @@
 ---
 // Props
-const { href } = Astro.props;
+const { href, target = "_blank", ...rest } = Astro.props;
 ---
 
 <a
-  target="_blank"
   href={href}
+  target={target}
   role="link"
   class="inline-flex items-center justify-center group
-    gap-2 px-3 py-2 space-x-2 w-32
+    gap-2 sm:py-2 py-4 space-x-2 sm:w-32 w-full
     text-base font-semibold text-gray-800 dark:text-white
     border rounded-xl border-gray-400 dark:border-gray-700
     bg-transparent
@@ -17,6 +17,7 @@ const { href } = Astro.props;
     hover:border-gray-800
     active:bg-gray-700 active:dark:bg-gray-800 
     transition"
+  {...rest}
 >
   <slot />
 </a>

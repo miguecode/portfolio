@@ -1,0 +1,99 @@
+---
+import Close from "../icons/Close.astro";
+import Video from "../icons/Video.astro";
+---
+
+<dialog id="video-modal"
+  class="p-0 rounded-xl bg-white dark:bg-navbar-dark-bg
+   max-w-6xl w-10/12 shadow">
+  <div class="p-4 flex flex-col gap-2">
+    <div class="flex xs:justify-between justify-center items-center pl-1">
+      <div class="flex items-center justify-center gap-2">
+        <Video class="xs:block hidden sm:size-8 size-6 text-slate-700 dark:text-white"></Video>
+        <h3 class="text-slate-700 dark:text-white sm:text-2xl xs:text-xl text-lg font-bold text-center">
+          Video de Demostración
+        </h3>
+      </div>
+      <button
+        id="close-modal"
+        class="hidden xs:flex items-center justify-center gap-2 px-5 py-2
+        hover:bg-gray-100 dark:hover:bg-dark-secondary mb-2
+        rounded-xl text-gray-800  dark:text-white
+        active:bg-gray-200 dark:active:bg-dark-secondary/70
+         transition-colors"
+        aria-label="Cerrar cartel"
+      >
+        <span class="sm:block hidden select-none font-medium">Cerrar</span>
+        <Close class="xs:size-5 size-3" />
+      </button>
+    </div>
+    <div class="aspect-video">
+      <iframe
+        class="w-full h-full rounded-lg"
+        src=""
+        title="Reproductor de video de YouTube"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</dialog>
+
+<style>
+  dialog[open]::backdrop {
+    animation: backdropFadeIn 0.3s ease-out forwards;
+  }
+
+  dialog.closing::backdrop {
+    animation: backdropFadeOut 0.2s ease-in forwards;
+  }
+
+  @keyframes backdropFadeIn {
+    from {
+      background-color: rgb(0 0 0 / 0);
+    }
+    to {
+      background-color: rgb(0 0 0 / 0.6);
+    }
+  }
+
+  @keyframes backdropFadeOut {
+    from {
+      background-color: rgb(0 0 0 / 0.6);
+    }
+    to {
+      background-color: rgb(0 0 0 / 0);
+    }
+  }
+
+  dialog[open] {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  dialog.closing {
+    animation: fadeOut 0.1s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+</style>
