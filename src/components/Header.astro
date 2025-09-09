@@ -165,111 +165,60 @@ const navItems = [
 <!-- Navbar items color change, hamburger menu functions and toggle theme container position -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll<HTMLElement>("section");
+    const sections = document.querySelectorAll("section");
     const navItems =
-      document.querySelectorAll<HTMLAnchorElement>("header nav a");
+      document.querySelectorAll("header nav a");
 
-    // Function to change the color of the navbar items
-    const changeColor = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add(
-                "text-navbar-primary",
-                "dark:text-navbar-secondary"
-              );
-            } else {
-              item.classList.remove(
-                "text-navbar-primary",
-                "dark:text-navbar-secondary"
-              );
-            }
-          });
-        }
-      });
-    };
-
-    // Threshold values
-    let thresholdValue = 0.7;
-    let thresholdContactValue = 1;
-
-    // Create an observer for general sections
-    let generalObserver = new IntersectionObserver(changeColor, {
-      root: null,
-      rootMargin: "0px",
-      threshold: thresholdValue, // x% Visibility required
-    });
-
-    // Create a specific observer for the "Contacto" section
-    let contactoObserver = new IntersectionObserver(changeColor, {
-      root: null,
-      rootMargin: "0px",
-      threshold: thresholdContactValue, // x% Visibility required
-    });
-
-    // Update threshold values ​​depending on resolution
-    function updateThresholdValues() {
-      thresholdValue = 0.7;
-      thresholdContactValue = 1;
-
-      if (window.innerHeight < 820) thresholdValue = 0.4;
-      
-      if (window.innerWidth < 769) thresholdValue = 0.4;
-      
-      if (window.innerWidth < 400) thresholdValue = 0.2;
-      
-      if (window.innerHeight < 500) {
-        thresholdValue = 0.01;
-        thresholdContactValue = 0.4;
-      }
-
-      updateObservers();
-    }
-
-    // Update general and contact observers with new threshold values
-    function updateObservers() {
-      // Disconnect existing observers if they exist
-      if (generalObserver)generalObserver.disconnect();
-      if (contactoObserver) contactoObserver.disconnect();
-
-      // Create new observers with updated threshold values 
-      generalObserver = new IntersectionObserver(changeColor, {
-        root: null,
-        rootMargin: "0px",
-        threshold: thresholdValue,
-      });
-      contactoObserver = new IntersectionObserver(changeColor, {
-        root: null,
-        rootMargin: "0px",
-        threshold: thresholdContactValue,
-      });
-
-      // Attach the appropriate observer to each section
-      sections.forEach((section) => {
-        if (section.id === "contacto") {
-          contactoObserver.observe(section);
+    // Function to add/remove active classes from nav items
+    const activateNavItem = (id: any) => {
+      navItems.forEach((item) => {
+        // Check href attribute which is '#id'
+        if (item.getAttribute("href") === `#${id}`) {
+          item.classList.add("text-navbar-primary", "dark:text-navbar-secondary");
         } else {
-          generalObserver.observe(section);
+          item.classList.remove("text-navbar-primary", "dark:text-navbar-secondary");
         }
       });
-    }
-
-    // Initialize threshold values and observers
-    updateThresholdValues();
-
-    // Listen to the resize event to update the threshold values dynamically
-    window.addEventListener("resize", updateThresholdValues);
-
-    // Optimization function (stop observing when the tab is not visible)
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        generalObserver.disconnect();
-        contactoObserver.disconnect();
-      } else {
-        updateThresholdValues();
-      }
     };
+
+    // Create a single observer to handle all sections
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            activateNavItem(entry.target.id);
+          }
+        });
+      },
+      {
+        // This creates a "trigger line" in the middle of the viewport.
+        // A section is considered "intersecting" only when it crosses this line.
+        // This is much more robust than using thresholds for sections of varying heights.
+        rootMargin: "-50% 0px -50% 0px",
+      }
+    );
+
+    // Observe all sections
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // --- Click Handling for instant feedback ---
+    navItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const id = item.getAttribute("href")?.substring(1);
+        activateNavItem(id);
+      });
+    });
+
+    // Optimization: Stop observing when the tab is not visible
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect();
+      } else {
+        sections.forEach((section) => observer.observe(section));
+      }
+    });
 
     ////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
@@ -308,7 +257,7 @@ const navItems = [
     ////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
     // Change the Theme Toggle Component position in the page
-    const themeToggleComponent: any = document.getElementById(
+    const themeToggleComponent = document.getElementById(
       "theme-toggle-component"
     );
 
@@ -318,12 +267,12 @@ const navItems = [
     const moveThemeToggle = () => {
       if (window.innerWidth >= 768) {
         // Move to desktop navbar
-        if (!desktopMenu?.contains(themeToggleComponent)) {
+        if (!desktopMenu?.contains(themeToggleComponent) && themeToggleComponent) {
           desktopMenu?.appendChild(themeToggleComponent);
         }
       } else {
         // Move to mobile menu
-        if (!menuLinks?.contains(themeToggleComponent)) {
+        if (!menuLinks?.contains(themeToggleComponent) && themeToggleComponent) {
           menuLinks?.appendChild(themeToggleComponent);
         }
       }
