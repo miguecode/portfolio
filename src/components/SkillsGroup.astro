@@ -20,7 +20,7 @@ const skillsArray: Skill[] = Object.values(skills);
   {
     skillsArray.map((skill: Skill) => (
       <span
-        class={`select-none flex flex-col xxs:flex-row flex-wrap xs:flex-nowrap
+        class={`select-none flex flex-col xs:flex-row flex-wrap xs:flex-nowrap
           justify-center items-center
           w-28 xxs:w-36 xs:w-44 py-2 
           font-bold dark:font-semibold text-center
@@ -29,7 +29,7 @@ const skillsArray: Skill[] = Object.values(skills);
           text-sm xs:text-base
           transition-all duration-200 ease-in-out ${skill.class}`}
       >
-        <skill.icon class="w-8 h-10 xxs:mr-2" />
+        <skill.icon class="w-8 h-10 xs:mr-2" />
         {skill.name}
       </span>
     ))

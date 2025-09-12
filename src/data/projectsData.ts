@@ -16,6 +16,7 @@ export interface Project {
   image: string;
   links: Link[];
   tags: any[];
+  featured?: boolean;
 }
 
 // Projects data
@@ -26,7 +27,7 @@ export const projects: Project[] = [
     image: "/projects/vital-avellaneda-mockup.webp",
     links: [
       {
-        name: "Demo",
+        name: "Abrir",
         url: "https://vital-avellaneda.web.app/",
         icon: "Link",
       },
@@ -42,7 +43,8 @@ export const projects: Project[] = [
         icon: "GitHub",
       },
     ],
-    tags: [technologysDataOne.Angular, technologysDataOne.TailwindCSS, technologysDataTwo.Firebase]
+    tags: [technologysDataOne.Angular, technologysDataOne.TailwindCSS, technologysDataTwo.Firebase],
+    featured: true,
   },
   {
     title: "Messi Perfect Shots",
@@ -50,7 +52,7 @@ export const projects: Project[] = [
     image: "/projects/mps-mockup.webp",
     links: [
       {
-        name: "Demo",
+        name: "Abrir",
         url: "https://x.com/MessiPF/",
         icon: "Twitter",
       },
@@ -63,12 +65,12 @@ export const projects: Project[] = [
     tags: [technologysDataThree.Node, technologysDataOne.TypeScript]
   },
   {
-    title: "Playroom MG",
+    title: "Jueguitos JS",
     description: "Sitio web de juegos sencillos. Los usuarios pueden iniciar sesión o ingresar como invitados, enviar mensajes en el chat global y acceder al ranking.",
-    image: "/projects/playroom-project.webp",
+    image: "/projects/playroom-mockup.webp",
     links: [
       {
-        name: "Demo",
+        name: "Abrir",
         url: "https://sala-de-juegos-82d5a.web.app/",
         icon: "Link",
       },
@@ -78,6 +80,6 @@ export const projects: Project[] = [
         icon: "GitHub",
       },
     ],
-    tags: [technologysDataOne.Angular, technologysDataTwo.Firebase]
+    tags: [technologysDataOne.Angular, technologysDataOne.Bootstrap, technologysDataTwo.Firebase]
   },
 ];
