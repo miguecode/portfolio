@@ -22,8 +22,8 @@ Elegí **Astro** por su ligereza y simplicidad frente a frameworks más complejo
 - El portfolio está dividido en 5 secciones:  
 
   1) **Inicio** → Hero con bienvenida, descripción breve y enlaces rápidos (Curriculum, Contacto, LinkedIn y GitHub).  
-  2) **Habilidades** → Listado de skills con iconos, clasificadas en frontend, herramientas y complementos.  
-  3) **Proyectos** → Mis proyectos principales con imagen, descripción, tecnologías y enlaces.  
+  2) **Proyectos** → Mis proyectos principales con imagen, descripción, tecnologías y enlaces.  
+  3) **Habilidades** → Listado de skills con iconos, clasificadas en frontend, herramientas y complementos.  
   4) **Sobre mí** → Breve historia personal y trayectoria académica/profesional.  
   5) **Contacto** → Opciones para copiar mi email o abrir la app de correo, además de enlaces directos a LinkedIn.  
 

@@ -6,8 +6,8 @@ export const metaData = {
   keyWords: "Desarrollo, Frontend, Desarrollador, Web, Programación, Programador, Portfolio, Miguel Ángel Gil, Argentina",
   author: "Miguel Ángel Gil",
   themeColor: "#2C243D",
-  image: "https://miguel-angel-gil.netlify.app/images/portfolio-pic.png",
-  url: "https://miguel-angel-gil.netlify.app",
+  image: "https://miguelangelgil.netlify.app/images/portfolio-pic.png",
+  url: "https://miguelangelgil.netlify.app",
 };
 
 // Personal data
