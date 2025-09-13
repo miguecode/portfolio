@@ -11,7 +11,8 @@ import VideoModal from "./VideoModal.astro";
 import FeaturedBadge from "./FeaturedBadge.astro";
 
 // Data
-import { projects, type Project, type Link as ProjectLink } from "../data/projectsData";
+import { projects, type Project, type Link as ProjectLink, otherProjects, type OtherProject } from "../data/projectsData";
+
 
 // Interfaces
 interface Skill {
@@ -29,95 +30,224 @@ const ICONS: { [key: string]: any } = {
 ---
 
 <div
-  class="section-child flex flex-col mt-6 gap-y-16 lg:gap-y-10 py-5 px-3 container-highlight"
+  class="section-child flex flex-col mt-6 py-5 px-3 container-highlight"
 >
-  {
-    projects.map((project: Project) => (
-      <article
-        class="rounded-xl p-1 flex flex-col self-center group space-x-0 space-y-4
-      w-5/6 lg:w-full lg:flex-row lg:space-x-8 lg:space-y-0"
-      >
-        {/* Image Container */}
-        <div
-          class="w-full lg:w-1/2 flex items-center
-            transition duration-500 ease-in-out shadow-xl overflow-clip 
-            group-hover:-translate-y-1 group-hover:shadow-2xl
-            border rounded-xl
-          border-gray-400 dark:border-gray-800
-          group-hover:border-gray-500 group-hover:dark:border-gray-700"
+  <!-- Segment Buttons -->
+  <div class="flex justify-center w-full mb-10">
+    <div class="flex overflow-hidden sm:w-4/6 w-5/6 rounded-full
+      dark:bg-transparent bg-white/30 border dark:border-gray-700 border-gray-300
+      dark:shadow-lg shadow">
+      <button
+        id="featured-btn"
+        class="segment-button selected w-1/2 py-3 rounded-full transition-colors duration-300
+        text-lg hover:bg-transparent/5 dark:hover:bg-transparent/10 truncate">
+        Destacados
+      </button>
+      <button 
+        id="other-btn"
+        class="segment-button w-1/2 py-3 rounded-full transition-colors duration-300
+        text-lg hover:bg-transparent/5 dark:hover:bg-transparent/10 truncate">
+        Otros
+      </button>
+    </div>
+  </div>
+
+  <!-- Featured Projects -->
+  <div id="featured-projects" class="project-list flex flex-col gap-y-16 lg:gap-y-10">
+    {
+      projects.map((project: Project) => (
+        <article
+          class="rounded-xl p-1 flex flex-col self-center group space-x-0 space-y-4
+        w-5/6 lg:w-full lg:flex-row lg:space-x-8 lg:space-y-0"
         >
-          <img
-            alt={`Imagen del Proyecto ${project.title}`}
-            class="object-cover object-top w-full transition duration-500 
-             h-full md:scale-110 lg:group-hover:scale-105"
-            src={project.image}
-            loading="lazy"
-          />
-        </div>
-
-        {/* Title, description and links */}
-        <div class="flex flex-col justify-between w-full text-center sm:text-left lg:w-1/2 py-0">
-          <div>
-            <div class="flex xs:flex-row flex-col sm:justify-start justify-center items-center gap-x-4">
-              <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
-                {project.title}
-              </h3>
-              {project.featured && <FeaturedBadge />}
-            </div>
-
-            <ul
-              class="flex xs:flex-row flex-col sm:justify-start justify-center sm:items-start  flex-wrap gap-2 mt-2 mb-4"
-            >
-              {project.tags.map((tag: Skill) => (
-                <li>
-                  <span
-                    class={`select-none flex justify-center items-center gap-x-1 py-1 px-3
-                        xxs:text-sm text-xs font-bold dark:font-semibold xs:mx-0 mx-9
-                        border rounded-full border-transparent dark:border-white/10 
-                      dark:bg-black/10 
-                        ${tag.class}`}
-                  >
-                    <tag.icon class="sm:size-4 size-3" />
-                    {tag.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <p class="mt-2 text-gray-700 dark:text-gray-300 text-pretty">
-              {project.description}
-            </p>
+          {/* Image Container */}
+          <div
+            class="w-full lg:w-1/2 flex items-center
+              transition duration-500 ease-in-out shadow-xl overflow-clip 
+              group-hover:-translate-y-1 group-hover:shadow-2xl
+              border rounded-xl
+            border-gray-400 dark:border-gray-800
+            group-hover:border-gray-500 group-hover:dark:border-gray-700"
+          >
+            <img
+              alt={`Imagen del Proyecto ${project.title}`}
+              class="object-cover object-top w-full transition duration-500 
+               h-full md:scale-110 lg:group-hover:scale-105"
+              src={project.image}
+              loading="lazy"
+            />
           </div>
 
-          <footer
-            class="flex flex-wrap justify-center sm:justify-start mt-3 md:mt-6 gap-2 sm:w-auto w-full"
-          >
-            {project.links.map((link: ProjectLink) => {
-              const Icon = ICONS[link.icon];
-              const isVideo = link.action === "open-modal";
+          {/* Title, description and links */}
+          <div class="flex flex-col justify-between w-full text-center sm:text-left lg:w-1/2 py-0">
+            <div>
+              <div class="flex xs:flex-row flex-col sm:justify-start justify-center items-center gap-x-4">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+                  {project.title}
+                </h3>
+                {project.featured && <FeaturedBadge />}
+              </div>
 
-              return (
-                <LinkButton
-                  href={isVideo ? "#" : link.url}
-                  target={isVideo ? "_self" : "_blank"}
-                  data-modal-trigger={isVideo}
-                  data-video-url={isVideo ? link.url : null}
-                >
-                  {Icon && <Icon class="sm:size-5" />}
-                  {link.name}
-                </LinkButton>
-              );
-            })}
-          </footer>
-        </div>
-      </article>
-    ))
-  }
+              <ul
+                class="flex xs:flex-row flex-col sm:justify-start justify-center sm:items-start flex-wrap gap-2 mt-2 mb-4"
+              >
+                {project.tags.map((tag: Skill) => (
+                  <li>
+                    <span
+                      class={`select-none flex justify-center items-center gap-x-1 py-1 px-3
+                          xxs:text-sm text-xs font-bold dark:font-semibold xs:mx-0 mx-9
+                          border rounded-full border-transparent dark:border-white/10 
+                        dark:bg-black/10 
+                          ${tag.class}`}
+                    >
+                      <tag.icon class="sm:size-4 size-3" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p class="mt-2 text-gray-700 dark:text-gray-200 text-pretty">
+                {project.description}
+              </p>
+            </div>
+
+            <footer
+              class="flex flex-wrap justify-center sm:justify-start mt-3 md:mt-6 gap-2 sm:w-auto w-full"
+            >
+              {project.links.map((link: ProjectLink) => {
+                const Icon = ICONS[link.icon];
+                const isVideo = link.action === "open-modal";
+
+                return (
+                  <LinkButton
+                    href={isVideo ? "#" : link.url}
+                    target={isVideo ? "_self" : "_blank"}
+                    data-modal-trigger={isVideo}
+                    data-video-url={isVideo ? link.url : null}
+                  >
+                    {Icon && <Icon class="sm:size-5" />}
+                    {link.name}
+                  </LinkButton>
+                );
+              })}
+            </footer>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+
+  <!-- Other Projects -->
+  <div id="other-projects" class="project-list mx-2 flex-col gap-4 special-hidden">
+    {
+      otherProjects.map((otherProject: OtherProject) => (
+        <article class="rounded-xl px-3 py-2 flex flex-col self-center group
+          w-5/6 lg:w-full border dark:border-gray-700 border-gray-300">
+          <div class="flex md:flex-row items-center flex-col md:gap-4">
+            <h3 class="text-2xl sm:text-start text-center font-semibold text-gray-800 dark:text-gray-200">
+              { otherProject.title }
+            </h3>
+
+            <ul
+              class="flex xs:flex-row flex-col sm:justify-start justify-center sm:items-start flex-wrap gap-2 mt-2 mb-4"
+              >
+                {otherProject.tags.map((tag: Skill) => (
+                  <li>
+                    <span
+                      class={`select-none flex justify-center items-center gap-x-1 py-1 px-3
+                          xxs:text-sm text-xs font-bold dark:font-semibold xs:mx-0 mx-9
+                          border rounded-full border-transparent dark:border-white/10 
+                        dark:bg-black/10 
+                          ${tag.class}`}
+                    >
+                      <tag.icon class="sm:size-4 size-3" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+            </ul>
+          </div>
+
+          <p class="text-gray-700 dark:text-gray-200 text-pretty sm:text-start text-center">
+            { otherProject.description }
+          </p>
+
+          <footer
+              class="flex flex-wrap justify-center sm:justify-start mt-3 mb-1 gap-2 sm:w-auto w-full"
+            >
+              {otherProject.links.map((link: ProjectLink) => {
+                const Icon = ICONS[link.icon];
+                const isVideo = link.action === "open-modal";
+
+                return (
+                  <LinkButton
+                    href={isVideo ? "#" : link.url}
+                    target={isVideo ? "_self" : "_blank"}
+                    data-modal-trigger={isVideo}
+                    data-video-url={isVideo ? link.url : null}
+                  >
+                    {Icon && <Icon class="sm:size-5" />}
+                    {link.name}
+                  </LinkButton>
+                );
+              })}
+            </footer>
+        </article>
+      ))
+    }
+  </div>
 </div>
 
 <VideoModal />
 
+<style>
+  
+  
+  .selected {
+    @apply font-medium border
+    bg-navbar-secondary text-white border-navbar-primary/50
+    dark:bg-navbar-secondary/50 dark:border-none;
+  }
+
+  .project-list {
+    transition: opacity 300ms ease-in-out, max-height 300ms ease-in-out;
+    transform-origin: top;
+    overflow: hidden;
+  }
+
+  .special-hidden {
+    opacity: 0;
+    max-height: 0;
+    pointer-events: none;
+  }
+</style>
+
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    // Segment Buttons Logic
+    const featuredBtn = document.getElementById('featured-btn');
+    const otherBtn = document.getElementById('other-btn');
+    const featuredProjects = document.getElementById('featured-projects');
+    const otherProjects = document.getElementById('other-projects');
+
+    featuredBtn?.addEventListener('click', () => {
+      featuredBtn.classList.add('selected');
+      otherBtn?.classList.remove('selected');
+      featuredProjects?.classList.remove('special-hidden');
+      otherProjects?.classList.add('special-hidden');
+    });
+
+    otherBtn?.addEventListener('click', () => {
+      otherBtn.classList.add('selected');
+      featuredBtn?.classList.remove('selected');
+      otherProjects?.classList.remove('special-hidden');
+      otherProjects?.classList.add('flex');
+      featuredProjects?.classList.add('special-hidden');
+    });
+
+    /////////////////////
+    /////////////////////
+    // Video Modal Logic
     const modal = document.getElementById("video-modal") as HTMLDialogElement;
     const iframe = modal.querySelector("iframe") as HTMLIFrameElement;
     const closeModalButton = document.getElementById("close-modal");
@@ -153,3 +283,4 @@ const ICONS: { [key: string]: any } = {
     });
   });
 </script>
+

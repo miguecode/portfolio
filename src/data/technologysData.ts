@@ -72,7 +72,7 @@ export const technologysDataTwo = {
   },
   SQL: {
     name: "SQL",
-    class: "bg-orange-300/80 text-black dark:text-orange-500",
+    class: "bg-gray-600 text-gray-100 dark:text-gray-100",
     icon: sql,
   },
   Firebase: {

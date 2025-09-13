@@ -19,6 +19,13 @@ export interface Project {
   featured?: boolean;
 }
 
+export interface OtherProject {
+  title: string;
+  description: string;
+  links: Link[];
+  tags: any[];
+}
+
 // Projects data
 export const projects: Project[] = [
   {
@@ -83,3 +90,55 @@ export const projects: Project[] = [
     tags: [technologysDataOne.Angular, technologysDataOne.Bootstrap, technologysDataTwo.Firebase]
   },
 ];
+
+// Other projects data
+export const otherProjects: OtherProject[] = [
+  {
+    title: 'Restaurante QR',
+    description: 'App Android que lleva a cabo el funcionamiento de un restaurante con sistema de usuarios, y generación/lectura de códigos QR. Hecha en equipo simulando un entorno profesional.',
+    links: [
+      {
+        name: "Código",
+        url: "https://github.com/miguecode/restaurante-qr",
+        icon: "GitHub",
+      }
+    ],
+    tags: [technologysDataThree.Ionic, technologysDataOne.Angular, technologysDataTwo.Firebase],
+  },
+  {
+    title: 'Maxikiosco Junior',
+    description: 'Aplicación de escritorio de un kiosco con gestión de productos, estadísticas de venta, administración de usuarios y generación/lectura de archivos CSV.',
+    links: [
+      {
+        name: "Código",
+        url: "https://github.com/miguecode/kiosco-junior-desktop",
+        icon: "GitHub",
+      }
+    ],
+    tags: [technologysDataTwo.SQL],
+  },
+  {
+    title: 'API La Comanda',
+    description: 'API que simula el comportamiento de un restaurante, principalmente el flujo de una comanda. Gestión de entidades y autenticación mediante JSON Web Tokens.',
+    links: [
+      {
+        name: "Código",
+        url: "https://github.com/miguecode/slim-comanda-api",
+        icon: "GitHub",
+      }
+    ],
+    tags: [technologysDataThree.PHP, technologysDataTwo.SQL],
+  },
+  {
+    title: 'Portfolio',
+    description: 'Este mismo sitio web. Hecho con Astro y Tailwind CSS, el portfolio es mi carta de presentación técnica.',
+    links: [
+      {
+        name: "Código",
+        url: "https://github.com/miguecode/portfolio",
+        icon: "GitHub",
+      }
+    ],
+    tags: [technologysDataOne.Astro, technologysDataOne.TailwindCSS],
+  },
+]
