@@ -34,14 +34,14 @@ const ICONS: { [key: string]: any } = {
 >
   <!-- Segment Buttons -->
   <div class="flex justify-center w-full mb-10">
-    <div class="flex overflow-hidden sm:w-4/6 w-5/6 rounded-full
+    <div class="flex sm:w-4/6 w-5/6 rounded-full
       dark:bg-transparent bg-white/30 border dark:border-gray-700 border-gray-300
       dark:shadow-lg shadow">
       <button
         id="featured-btn"
         class="segment-button selected w-1/2 py-3 rounded-full transition-colors duration-300
         text-lg hover:bg-transparent/5 dark:hover:bg-transparent/10 truncate">
-        Destacados
+        Principales
       </button>
       <button 
         id="other-btn"
@@ -53,12 +53,12 @@ const ICONS: { [key: string]: any } = {
   </div>
 
   <!-- Featured Projects -->
-  <div id="featured-projects" class="project-list flex flex-col gap-y-16 lg:gap-y-10">
+  <div id="featured-projects" class="project-list flex flex-col gap-y-11 lg:gap-y-10">
     {
       projects.map((project: Project) => (
         <article
           class="rounded-xl p-1 flex flex-col self-center group space-x-0 space-y-4
-        w-5/6 lg:w-full lg:flex-row lg:space-x-8 lg:space-y-0"
+          w-5/6 lg:w-full lg:flex-row lg:space-x-8 lg:space-y-0"
         >
           {/* Image Container */}
           <div
@@ -141,10 +141,9 @@ const ICONS: { [key: string]: any } = {
   <div id="other-projects" class="project-list mx-2 flex-col gap-4 special-hidden">
     {
       otherProjects.map((otherProject: OtherProject) => (
-        <article class="rounded-xl px-3 py-2 flex flex-col self-center group
+        <article class="rounded-xl p-5 flex flex-col self-center group
           w-5/6 lg:w-full border dark:border-gray-700 border-gray-300">
-          <div class="flex md:flex-row items-center flex-col md:gap-4">
-            <h3 class="text-2xl sm:text-start text-center font-semibold text-gray-800 dark:text-gray-200">
+            <h3 class="text-2xl sm:text-start text-center font-semibold text-gray-800 dark:text-white">
               { otherProject.title }
             </h3>
 
@@ -166,7 +165,6 @@ const ICONS: { [key: string]: any } = {
                   </li>
                 ))}
             </ul>
-          </div>
 
           <p class="text-gray-700 dark:text-gray-200 text-pretty sm:text-start text-center">
             { otherProject.description }
@@ -201,8 +199,6 @@ const ICONS: { [key: string]: any } = {
 <VideoModal />
 
 <style>
-  
-  
   .selected {
     @apply font-medium border
     bg-navbar-secondary text-white border-navbar-primary/50
@@ -224,17 +220,30 @@ const ICONS: { [key: string]: any } = {
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Segment Buttons Logic
+    // Segment Buttons & Tabindex Logic
     const featuredBtn = document.getElementById('featured-btn');
     const otherBtn = document.getElementById('other-btn');
     const featuredProjects = document.getElementById('featured-projects');
     const otherProjects = document.getElementById('other-projects');
+
+    function updateTabIndex(container: any, newIndex: any) {
+        const links = container.querySelectorAll('a');
+        links.forEach((link: any) => {
+            link.setAttribute('tabindex', newIndex);
+        });
+    }
+
+    // Initial state
+    updateTabIndex(otherProjects, '-1');
 
     featuredBtn?.addEventListener('click', () => {
       featuredBtn.classList.add('selected');
       otherBtn?.classList.remove('selected');
       featuredProjects?.classList.remove('special-hidden');
       otherProjects?.classList.add('special-hidden');
+      
+      updateTabIndex(featuredProjects, '0');
+      updateTabIndex(otherProjects, '-1');
     });
 
     otherBtn?.addEventListener('click', () => {
@@ -243,6 +252,9 @@ const ICONS: { [key: string]: any } = {
       otherProjects?.classList.remove('special-hidden');
       otherProjects?.classList.add('flex');
       featuredProjects?.classList.add('special-hidden');
+
+      updateTabIndex(featuredProjects, '-1');
+      updateTabIndex(otherProjects, '0');
     });
 
     /////////////////////

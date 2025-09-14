@@ -37,14 +37,14 @@ const navItems = [
 ---
 
 <header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
+  class="fixed top-0 z-10 flex items-center justify-center md:w-full mx-auto mt-2 right-0"
 >
   <!-- Hamburger Menu -->
   <nav class="md:hidden w-full mr-5">
     <div class="relative flex justify-end">
       <div
         id="hamburger-icon"
-        class="cursor-pointer
+        class="cursor-pointer 
         bg-white dark:bg-navbar-dark-bg
           border rounded-lg border-gray-300 dark:border-gray-700
           shadow-[0_3px_10px_rgb(0,0,0,0.2)]
@@ -100,8 +100,7 @@ const navItems = [
   <nav
     id="desktop-navbar"
     class="hidden md:flex justify-center items-center min-w-fit
-      px-12 gap-4 mt-2 rounded-2xl
-      font-bold
+      px-12 gap-4 mt-2 rounded-full font-bold
     text-gray-600 dark:text-gray-200"
   >
     {
@@ -249,7 +248,11 @@ const navItems = [
 
     // Close the hamburger menu when clicked outside
     document.addEventListener("click", (e) => {
-      if (e.target !== menuLinks) {
+      const target = e.target as HTMLElement;
+      if (
+        !menuLinks?.contains(target) &&
+        !hamburgerIcon?.contains(target)
+      ) {
         hideMenu();
       }
     });

@@ -1,0 +1,69 @@
+---
+// Icons
+import CurriculumIcon from "../icons/Curriculum.astro";
+import LinkedInIcon from "../icons/LinkedIn.astro";
+import GitHubIcon from "../icons/GitHub.astro";
+
+// Data
+const { data } = Astro.props;
+---
+
+<div
+  id="fab-menu"
+  class="fixed bottom-8 right-8 transition-transform duration-300 translate-y-[160%]"
+>
+  <div
+    class="flex px-2 bg-white/80 dark:bg-navbar-dark-bg text-gray-800
+      dark:text-gray-200 rounded-full shadow-lg backdrop-blur-sm"
+  >
+    <a
+      href={data.cvPdf}
+      target="_blank"
+      rel="noopener noreferrer"
+      role="link"
+      class="relative group hover:text-navbar-primary dark:hover:text-navbar-secondary
+        active:text-navbar-secondary dark:active:text-navbar-secondary/90 transition-colors duration-300 p-4"
+    >
+      <CurriculumIcon class="size-7 inline" />
+      <span class="fab-tooltip">Currículum</span>
+    </a>
+    <a
+      href={data.linkedInLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      role="link"
+      class="relative group hover:text-navbar-primary dark:hover:text-navbar-secondary
+        active:text-navbar-secondary dark:active:text-navbar-secondary/90 transition-colors duration-300 p-4"
+    >
+      <LinkedInIcon class="size-7 inline" />
+      <span class="fab-tooltip">LinkedIn</span>
+    </a>
+    <a
+      href={data.githubLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      role="link"
+      class="relative group hover:text-navbar-primary dark:hover:text-navbar-secondary
+      active:text-navbar-secondary dark:active:text-navbar-secondary/90 transition-colors duration-300 p-4"
+    >
+      <GitHubIcon class="size-7 inline" />
+      <span class="fab-tooltip">GitHub</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  #fab-menu.fab-visible {
+    transform: translateX(0);
+  }
+
+  .fab-tooltip {
+    @apply absolute bottom-full left-1/2 -translate-x-1/2 mb-2
+      px-3 py-1 rounded-md
+      bg-gray-800 text-white text-sm font-bold text-center
+      opacity-0 invisible group-hover:opacity-100 group-hover:visible
+      translate-y-1 group-hover:translate-y-0
+      transition-all duration-200;
+    pointer-events: none;
+  }
+</style>

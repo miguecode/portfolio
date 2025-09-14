@@ -131,7 +131,7 @@ export const otherProjects: OtherProject[] = [
   },
   {
     title: 'Portfolio',
-    description: 'Este mismo sitio web. Hecho con Astro y Tailwind CSS, el portfolio es mi carta de presentación técnica.',
+    description: 'Es este mismo sitio web. Hecho con Astro y Tailwind CSS, el portfolio es mi carta de presentación técnica, el cual voy retocando a lo largo del tiempo.',
     links: [
       {
         name: "Código",
