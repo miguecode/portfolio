@@ -11,12 +11,14 @@ import tailwindcss from "../icons/technologys/TailwindCSS.astro";
 import bootstrap from "../icons/technologys/Bootstrap.astro";
 
 // Other technology's icons
-import git from "../icons/technologys/Git.astro";
 import sql from "../icons/technologys/SQL.astro";
 import firebase from "../icons/technologys/Firebase.astro";
 import php from "../icons/technologys/PHP.astro";
 import nodejs from "../icons/technologys/Nodejs.astro";
+import postman from "../icons/technologys/Postman.astro";
+import net from "../icons/technologys/Net.astro";
 import ionic from "../icons/technologys/Ionic.astro";
+import git from "../icons/technologys/Git.astro";
 
 // First group of technology's
 export const technologysDataOne = {
@@ -65,11 +67,6 @@ export const technologysDataOne = {
 
 // Second group of technology's
 export const technologysDataTwo = {
-  Git: {
-    name: "Git",
-    class: "bg-gray-300/40 text-dark dark:text-white",
-    icon: git,
-  },
   SQL: {
     name: "SQL",
     class: "bg-gray-600 text-gray-100 dark:text-gray-100",
@@ -80,10 +77,6 @@ export const technologysDataTwo = {
     class: "bg-yellow-300 text-yellow-900 dark:text-firebase-primary",
     icon: firebase,
   },
-};
-
-// Third group of technology's
-export const technologysDataThree = {
   PHP: {
     name: "PHP",
     class: "bg-php-secondary text-blue-900 dark:text-php-primary",
@@ -94,9 +87,24 @@ export const technologysDataThree = {
     class: "bg-green-400 text-black dark:text-nodejs-primary",
     icon: nodejs,
   },
+  Net: {
+    name: "C#",
+    class: "bg-net-primary/80 text-purple-100 dark:text-net-secondary",
+    icon: net,
+  },
+  Postman: {
+    name: "Postman",
+    class: "bg-gray-300/30 text-postman-primary dark:text-postman-primary",
+    icon: postman,
+  },
   Ionic: {
     name: "Ionic",
-    class: "bg-gray-300/40 dark:text-white",
+    class: "bg-gray-300/30 dark:text-white",
     icon: ionic,
+  },
+  Git: {
+    name: "Git",
+    class: "bg-gray-300/30 text-dark dark:text-white",
+    icon: git,
   },
 };

@@ -1,6 +1,5 @@
 import { technologysDataOne } from "../data/technologysData";
 import { technologysDataTwo } from "../data/technologysData";
-import { technologysDataThree } from "../data/technologysData";
 
 // Interfaces
 export interface Link {
@@ -83,7 +82,7 @@ export const projects: Project[] = [
         icon: "GitHub",
       },
     ],
-    tags: [technologysDataThree.Node, technologysDataOne.TypeScript]
+    tags: [technologysDataTwo.Node, technologysDataOne.TypeScript]
   },
 
   // Jueguitos JS
@@ -112,6 +111,7 @@ export const projects: Project[] = [
 
 // Other projects data
 export const otherProjects: OtherProject[] = [
+  // Restaurante QR
   {
     title: 'Restaurante QR',
     description: 'App Android que lleva a cabo el funcionamiento de un restaurante con sistema de usuarios, y generación/lectura de códigos QR. Hecha en equipo simulando un entorno profesional.',
@@ -122,11 +122,13 @@ export const otherProjects: OtherProject[] = [
         icon: "GitHub",
       }
     ],
-    tags: [technologysDataThree.Ionic, technologysDataOne.Angular, technologysDataTwo.Firebase],
+    tags: [technologysDataTwo.Ionic, technologysDataOne.Angular, technologysDataTwo.Firebase],
   },
+
+  // Maxikiosco Junior
   {
     title: 'Maxikiosco Junior',
-    description: 'Aplicación de escritorio de un kiosco con gestión de productos, estadísticas de venta, administración de usuarios y generación/lectura de archivos CSV.',
+    description: 'Aplicación de escritorio en .NET de un kiosco con gestión de productos, estadísticas de venta, administración de usuarios y generación/lectura de archivos CSV.',
     links: [
       {
         name: "Código",
@@ -134,8 +136,10 @@ export const otherProjects: OtherProject[] = [
         icon: "GitHub",
       }
     ],
-    tags: [technologysDataTwo.SQL],
+    tags: [technologysDataTwo.Net, technologysDataTwo.SQL],
   },
+
+  // API La Comanda
   {
     title: 'API La Comanda',
     description: 'API que simula el comportamiento de un restaurante, principalmente el flujo de una comanda. Gestión de entidades y autenticación mediante JSON Web Tokens.',
@@ -146,8 +150,10 @@ export const otherProjects: OtherProject[] = [
         icon: "GitHub",
       }
     ],
-    tags: [technologysDataThree.PHP, technologysDataTwo.SQL],
+    tags: [technologysDataTwo.PHP, technologysDataTwo.SQL],
   },
+
+  // Portfolio
   {
     title: 'Portfolio',
     description: 'Es este mismo sitio web. Hecho con Astro y Tailwind CSS, el portfolio es mi carta de presentación técnica, el cual voy retocando a lo largo del tiempo.',

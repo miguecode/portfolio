@@ -17,6 +17,7 @@ export default {
         // Purple Theme
         "navbar-primary": "#8927f9",
         "navbar-secondary": "#b968e8",
+        "navbar-third": "#8612C9",
         "navbar-dark-bg": "#212031",
         "dark-secondary": "#191920",
         "soft-pink": "#fae9ff",
@@ -40,6 +41,9 @@ export default {
         "php-secondary": "#ccd3e8",
         "nodejs-primary": "#6da565",
         "ionic-primary": "#3880FF",
+        "postman-primary": "#FF6C37",
+        "net-primary": "#512BD4",
+        "net-secondary": "#8569ea",
       },
     },
   },

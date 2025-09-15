@@ -62,10 +62,11 @@ const ICONS: { [key: string]: any } = {
         >
           {/* Image Container */}
           <div
-            class="w-full lg:w-1/2 flex items-center
-              transition duration-500 ease-in-out shadow overflow-clip 
-              group-hover:-translate-y-1 group-hover:shadow-lg
-              border rounded-xl
+            class="w-full lg:w-1/2 flex items-center border rounded-xl
+              transition duration-500 ease-in-out overflow-clip 
+              group-hover:-translate-y-1 
+              shadow dark:shadow-lg
+              group-hover:shadow-lg dark:group-hover:shadow-2xl
             border-gray-400 dark:border-gray-800
             group-hover:border-gray-500 group-hover:dark:border-gray-700"
           >
@@ -148,7 +149,8 @@ const ICONS: { [key: string]: any } = {
     {
       otherProjects.map((otherProject: OtherProject) => (
         <article class="rounded-xl p-5 flex flex-col self-center group
-          w-5/6 lg:w-full border dark:border-gray-700 border-gray-300">
+          w-5/6 lg:w-full border dark:border-gray-700 border-gray-300
+          hover:dark:border-gray-600 hover:border-gray-400 transition-colors">
             <h3 class="text-2xl sm:text-start text-center font-semibold text-gray-800 dark:text-white">
               { otherProject.title }
             </h3>
@@ -207,7 +209,7 @@ const ICONS: { [key: string]: any } = {
 <style>
   .selected {
     @apply font-medium border
-    bg-navbar-secondary text-white border-navbar-primary/50
+    bg-navbar-third/90 text-purple-100 border-navbar-primary/50
     dark:bg-navbar-secondary/50 dark:border-none;
   }
 
