@@ -58,24 +58,30 @@ const ICONS: { [key: string]: any } = {
       projects.map((project: Project) => (
         <article
           class="rounded-xl p-1 flex flex-col self-center group space-x-0 space-y-4
-          w-5/6 lg:w-full lg:flex-row lg:space-x-8 lg:space-y-0"
+          w-5/6 lg:w-full lg:flex-row lg:space-x-8 lg:space-y-0 pb-4"
         >
           {/* Image Container */}
           <div
             class="w-full lg:w-1/2 flex items-center
-              transition duration-500 ease-in-out shadow-xl overflow-clip 
-              group-hover:-translate-y-1 group-hover:shadow-2xl
+              transition duration-500 ease-in-out shadow overflow-clip 
+              group-hover:-translate-y-1 group-hover:shadow-lg
               border rounded-xl
             border-gray-400 dark:border-gray-800
             group-hover:border-gray-500 group-hover:dark:border-gray-700"
           >
-            <img
-              alt={`Imagen del Proyecto ${project.title}`}
-              class="object-cover object-top w-full transition duration-500 
-               h-full md:scale-110 lg:group-hover:scale-105"
-              src={project.image}
-              loading="lazy"
-            />
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcset={project.image.mobile}
+              />
+              <img
+                alt={`Imagen del Proyecto ${project.title}`}
+                class="object-cover object-top w-full transition duration-500 
+                 h-full md:scale-110 lg:group-hover:scale-105"
+                src={project.image.desktop}
+                loading="lazy"
+              />
+            </picture>
           </div>
 
           {/* Title, description and links */}

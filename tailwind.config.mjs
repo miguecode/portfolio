@@ -7,6 +7,7 @@ export default {
       screens: {
         xxs: "360px",
         xs: "460px",
+        "fab-distance": "1430px",
       },
       colors: {
         // Blue Theme

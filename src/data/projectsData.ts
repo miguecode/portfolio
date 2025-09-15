@@ -10,10 +10,15 @@ export interface Link {
   action?: string; 
 }
 
+interface Image {
+  desktop: string,
+  mobile: string,
+}
+
 export interface Project {
   title: string;
   description: string;
-  image: string;
+  image: Image;
   links: Link[];
   tags: any[];
   featured?: boolean;
@@ -26,12 +31,16 @@ export interface OtherProject {
   tags: any[];
 }
 
-// Projects data
+// Featured Projects data
 export const projects: Project[] = [
+  // Vital Avellaneda
   {
     title: "Vital Avellaneda",
     description: "Plataforma web para gestión de Clínica Médica. Pacientes y especialistas pueden gestionar turnos y mucho más, todo en un entorno moderno y seguro.",
-    image: "/projects/vital-avellaneda-mockup.webp",
+    image: {
+      desktop:"/projects/vital-avellaneda-mockup-big.webp",
+      mobile:"/projects/vital-avellaneda-mockup-small.webp",
+    },
     links: [
       {
         name: "Abrir",
@@ -53,10 +62,15 @@ export const projects: Project[] = [
     tags: [technologysDataOne.Angular, technologysDataOne.TailwindCSS, technologysDataTwo.Firebase],
     featured: true,
   },
+
+  // Messi Perfect Shots
   {
     title: "Messi Perfect Shots",
     description: "Bot de X/Twitter que se dedica a publicar fotos de Lionel Messi diariamente. Fue creado con la API de X/Twitter, y cuenta con +5.000 seguidores.",
-    image: "/projects/mps-mockup.webp",
+    image: {
+      desktop:"/projects/mps-mockup-big.webp",
+      mobile:"/projects/mps-mockup-small.webp",
+    },
     links: [
       {
         name: "Abrir",
@@ -71,10 +85,15 @@ export const projects: Project[] = [
     ],
     tags: [technologysDataThree.Node, technologysDataOne.TypeScript]
   },
+
+  // Jueguitos JS
   {
     title: "Jueguitos JS",
     description: "Sitio web de juegos sencillos. Los usuarios pueden iniciar sesión o ingresar como invitados, enviar mensajes en el chat global y acceder al ranking.",
-    image: "/projects/playroom-mockup.webp",
+    image: {
+      desktop:"/projects/playroom-mockup-big.webp",
+      mobile:"/projects/playroom-mockup-small.webp",
+    },
     links: [
       {
         name: "Abrir",
