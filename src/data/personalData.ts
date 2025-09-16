@@ -18,7 +18,7 @@ export const data = {
   profileImage: "/images/profile-pic.webp",
   badge: "¡Disponible para trabajar!",
   email: "junmigue7@gmail.com",
-  cvPdf: "/pdf/curriculum-miguel-angel-gil.pdf",
+  cvPdf: "/pdf/Miguel_Angel_Gil_CV_Frontend",
   linkedInLink: "https://www.linkedin.com/in/gil-miguel-angel/",
   githubLink: "https://github.com/miguecode/",
 };
