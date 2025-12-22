@@ -14,6 +14,11 @@ const navItems = [
     href: "#inicio",
   },
   {
+    title: "Experiencia",
+    label: "Experiencia",
+    href: "#experiencia",
+  },
+  {
     title: "Proyectos",
     label: "proyectos",
     href: "#proyectos",
@@ -104,12 +109,13 @@ const navItems = [
     text-gray-600 dark:text-gray-200"
   >
     {
-      navItems.map((link) => (
+      navItems.map((link, index) => (
         <a
           class="relative block px-2 py-2 transition
           hover:text-navbar-primary dark:hover:text-navbar-secondary"
           aria-label={link.label}
           href={link.href}
+          style={`animation-delay: ${index * 0.1}s`}
           tabindex="0"
         >
           {link.title}
@@ -190,10 +196,10 @@ const navItems = [
         });
       },
       {
-        // This creates a "trigger line" in the middle of the viewport.
-        // A section is considered "intersecting" only when it crosses this line.
+        // This creates a "trigger zone" in the middle of the viewport.
+        // A section is considered "intersecting" only when it crosses this zone.
         // This is much more robust than using thresholds for sections of varying heights.
-        rootMargin: "-50% 0px -50% 0px",
+        rootMargin: "-45% 0px -70% 0px",
       }
     );
 

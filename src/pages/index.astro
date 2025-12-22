@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Profile from "../components/Profile.astro";
+import Experience from "../components/Experience.astro";
 import Skills from "../components/Skills.astro";
 import Projects from "../components/Projects.astro";
 import About from "../components/About.astro";
@@ -15,6 +16,7 @@ import SkillIcon from "../icons/Skill.astro";
 import CodeIcon from "../icons/Code.astro";
 import UserIcon from "../icons/User.astro";
 import BookIcon from "../icons/Book.astro";
+import ExperienceIcon from "../icons/Experience.astro";
 
 // Data
 import { data } from "../data/personalData.ts";
@@ -22,58 +24,67 @@ import { data } from "../data/personalData.ts";
 
 <Layout>
   <main class="px-4">
-    <!-- SECTION PROFILE -->
+    <!-- --- PROFILE --- -->
     <SectionContainer id="inicio" class="py-28 md:py-44 lg:w-[48rem]">
       <Profile data={data} />
     </SectionContainer>
+
+    <!-- --- EXPERIENCE --- -->
+    <SectionContainer id="experiencia" class="pt-20">
+      <SectionTitle>
+        <ExperienceIcon class="size-8" />
+        Experiencia
+      </SectionTitle>
+      <Experience />
+    </SectionContainer>
+
+    <div class="space-y-4">
+      <!-- --- PROJECTS --- -->
+      <SectionContainer id="proyectos" class="pt-20">
+        <SectionTitle>
+          <CodeIcon class="size-8" />
+          Proyectos
+        </SectionTitle>
+        <Projects />
+      </SectionContainer>
+
+      <!-- --- SKILLS --- -->
+      <SectionContainer id="habilidades" class="pt-20">
+        <SectionTitle>
+          <SkillIcon class="size-8" />
+          Habilidades
+        </SectionTitle>
+        <Skills />
+      </SectionContainer>
+
+      <!-- --- ABOUT ME --- -->
+      <SectionContainer id="sobre-mi" class="pt-20">
+        <SectionTitle>
+          <UserIcon class="size-8" />
+          Sobre mí
+        </SectionTitle>
+        <About />
+      </SectionContainer>
+
+      <!-- --- CONTACT --- -->
+      <SectionContainer id="contacto" class="py-20">
+        <SectionTitle>
+          <BookIcon class="size-8" />
+          Contacto
+        </SectionTitle>
+        <Contact data={data} />
+      </SectionContainer>
+
+      <!-- --- FAB MENU --- -->
+      <FabMenu data={data} />
+    </div>
   </main>
-
-  <div class="space-y-4">
-    <!-- SECTION PROJECTS -->
-    <SectionContainer id="proyectos" class="pt-20">
-      <SectionTitle>
-        <CodeIcon class="size-8" />
-        Proyectos
-      </SectionTitle>
-      <Projects />
-    </SectionContainer>
-
-    <!-- SECTION SKILLS -->
-    <SectionContainer id="habilidades" class="pt-20">
-      <SectionTitle>
-        <SkillIcon class="size-8" />
-        Habilidades
-      </SectionTitle>
-      <Skills />
-    </SectionContainer>
-
-    <!-- SECTION ABOUT ME -->
-    <SectionContainer id="sobre-mi" class="pt-20">
-      <SectionTitle>
-        <UserIcon class="size-8" />
-        Sobre mí
-      </SectionTitle>
-      <About />
-    </SectionContainer>
-
-    <!-- SECTION CONTACT -->
-    <SectionContainer id="contacto" class="py-20">
-      <SectionTitle>
-        <BookIcon class="size-8" />
-        Contacto
-      </SectionTitle>
-      <Contact data={data} />
-    </SectionContainer>
-
-    <!-- FAB MENU -->
-    <FabMenu data={data} />
-  </div>
 </Layout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const heroButtons = document.getElementById('hero-buttons');
-    const fabMenu = document.getElementById('fab-menu');
+  document.addEventListener("DOMContentLoaded", () => {
+    const heroButtons = document.getElementById("hero-buttons");
+    const fabMenu = document.getElementById("fab-menu");
 
     if (!heroButtons || !fabMenu) return;
 
@@ -82,9 +93,9 @@ import { data } from "../data/personalData.ts";
         entries.forEach((entry) => {
           // If hero-buttons is NOT intersecting (is not visible)
           if (!entry.isIntersecting) {
-            fabMenu.classList.add('fab-visible');
+            fabMenu.classList.add("fab-visible");
           } else {
-            fabMenu.classList.remove('fab-visible');
+            fabMenu.classList.remove("fab-visible");
           }
         });
       },

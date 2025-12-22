@@ -1,21 +1,22 @@
 ---
 import Close from "../icons/Close.astro";
-import Video from "../icons/Video.astro";
 ---
 
-<dialog id="video-modal"
+<dialog id="job-details-modal-dialog"
   class="p-0 rounded-xl bg-white dark:bg-navbar-dark-bg
-   max-w-6xl w-10/12 shadow">
+   max-w-4xl w-11/12 shadow">
   <div class="p-4 flex flex-col gap-2">
     <div class="flex xs:justify-between justify-center items-center pl-1">
       <div class="flex items-center justify-center gap-2">
-        <Video class="xs:block hidden sm:size-8 size-6 text-slate-700 dark:text-white"></Video>
-        <h3 class="text-slate-700 dark:text-white sm:text-2xl xs:text-xl text-lg font-bold text-center">
-          Video de Demostración
+        <div id="modal-icon-container" class="size-9 p-1 rounded-lg flex items-center justify-center">
+          <!-- Company Icon -->
+        </div>
+        <h3 id="modal-title" class="text-slate-700 dark:text-white sm:text-2xl xs:text-xl text-lg font-bold text-center">
+          <!-- Title -->
         </h3>
       </div>
       <button
-        id="close-modal"
+        id="close-job-modal"
         class="hidden xs:flex items-center justify-center gap-2 px-5 py-2
         hover:bg-gray-100 dark:hover:bg-dark-secondary mb-2
         rounded-xl text-gray-800  dark:text-white
@@ -27,16 +28,10 @@ import Video from "../icons/Video.astro";
         <Close class="xs:size-5 size-3" />
       </button>
     </div>
-    <div class="aspect-video">
-      <iframe
-        class="w-full h-full rounded-lg"
-        src=""
-        title="Reproductor de video de YouTube"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
-      <!-- <lite-youtube videoid=""></lite-youtube> -->
+    <div id="modal-content-body" class="p-2 max-h-[60vh] overflow-y-auto">
+      <ul id="modal-items-list" class="list-disc list-inside flex flex-col gap-2 text-gray-600 dark:text-gray-300 text-pretty">
+        <!-- Job details -->
+      </ul>
     </div>
   </div>
 </dialog>

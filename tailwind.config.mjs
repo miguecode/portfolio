@@ -21,6 +21,7 @@ export default {
         "navbar-dark-bg": "#212031",
         "dark-secondary": "#191920",
         "soft-pink": "#fae9ff",
+        "dark-purple": "#6D4489",
 
         // Technology's colors
         "html-primary": "#E34F26",

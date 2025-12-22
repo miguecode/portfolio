@@ -9,8 +9,8 @@
     md:flex md:flex-row md:gap-x-4 pb-6 
     text-5xl font-bold
     md:bg-gradient-to-r 
-  md:from-slate-800  md:via-slate-700
-  md:dark:from-white md:dark:via-fuchsia-200
+  md:from-slate-800  md:to-slate-600
+  md:dark:from-white md:dark:via-fuchsia-200 md:dark:to-fuchsia-300
     md:bg-clip-text md:text-transparent;
 }
 
