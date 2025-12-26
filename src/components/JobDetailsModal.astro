@@ -1,25 +1,137 @@
 ---
+// Icons
 import Close from "../icons/Close.astro";
+
+// Data
+import type { Job } from "../data/experienceData";
+
+// Interfaces
+interface Props {
+  id: string;
+  job: Job;
+}
+
+const { id, job } = Astro.props;
+
+const {
+  position,
+  company,
+  description,
+  responsabilitiesAndTasks,
+  skillsAndTools,
+  softSkills,
+  date,
+  mode,
+  language,
+} = job;
+
+const finalResponsibilities = responsabilitiesAndTasks || [];
+const finalSkills = skillsAndTools || [];
+const finalSoftSkills = softSkills || [];
 ---
 
-<dialog id="job-details-modal-dialog"
-  class="p-0 rounded-xl bg-white dark:bg-navbar-dark-bg
-   max-w-4xl w-11/12 shadow">
-  <div class="p-4 flex flex-col gap-2">
-    <div class="flex xs:justify-between justify-center items-center pl-1">
-      <div class="flex items-center justify-center gap-2">
-        <div id="modal-icon-container" class="size-9 p-1 rounded-lg flex items-center justify-center">
-          <!-- Company Icon -->
+<dialog
+  id={id}
+  class="job-details-modal fixed inset-0 z-50 max-h-screen
+    overflow-hidden p-0
+    text-left align-middle transition-all
+    rounded-xl bg-white
+  dark:bg-navbar-dark-bg
+    max-w-4xl w-10/12 shadow"
+>
+  <div class="relative flex h-full max-h-[85vh] flex-col p-6">
+    <!-- Header -->
+    <div class="mb-4 flex items-start justify-between">
+      <div class="flex items-start gap-4">
+        <div
+          class={`size-12 p-1 rounded-lg flex items-center justify-center
+           shadow-md shrink-0 border ${company.borderColorIcon}
+           ${company.darkBorderColorIcon} ${company.bgColorIcon} ${company.darkBgColorIcon}`}
+        >
+          <company.icon class="size-full" />
         </div>
-        <h3 id="modal-title" class="text-slate-700 dark:text-white sm:text-2xl xs:text-xl text-lg font-bold text-center">
-          <!-- Title -->
-        </h3>
+        <div>
+          <h3
+            class="text-2xl font-bold leading-6 text-gray-900 dark:text-white"
+          >
+            Mi experiencia en {company.name}
+          </h3>
+          <!-- Metadata -->
+          <div
+            class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500 dark:text-gray-400"
+          >
+            <!-- Date -->
+            <span class="flex items-center gap-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-event"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                  d="M4 5m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"
+                ></path><path d="M16 3l0 4"></path><path d="M8 3l0 4"
+                ></path><path d="M4 11l16 0"></path><path d="M8 15h2v2h-2z"
+                ></path></svg
+              >
+              {date.start} — {date.end}
+            </span>
+            <span class="hidden xs:inline">•</span>
+            <!-- Mode -->
+            <span class="flex items-center gap-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-briefcase"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                  d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+                ></path><path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"
+                ></path><path d="M12 12l0 .01"></path><path
+                  d="M3 13a20 20 0 0 0 18 0"></path></svg
+              >
+              {mode || "Modalidad no definida"}
+            </span>
+            <!-- <span class="hidden xs:inline">•</span> -->
+            <!-- Ubication -->
+            <!-- <span class="flex items-center gap-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-map-pin"
+                ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
+                  d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path><path
+                  d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"
+                ></path></svg
+              >
+              Empresa en {company.ubication}
+            </span> -->
+          </div>
+        </div>
       </div>
+
       <button
-        id="close-job-modal"
-        class="hidden xs:flex items-center justify-center gap-2 px-5 py-2
+        class="close-modal-btn hidden xs:flex items-center justify-center gap-2 px-5 py-2
         hover:bg-gray-100 dark:hover:bg-dark-secondary mb-2
-        rounded-xl text-gray-800  dark:text-white
+        rounded-xl text-gray-800 dark:text-white
         active:bg-gray-200 dark:active:bg-dark-secondary/70
          transition-colors"
         aria-label="Cerrar cartel"
@@ -28,10 +140,124 @@ import Close from "../icons/Close.astro";
         <Close class="xs:size-5 size-3" />
       </button>
     </div>
-    <div id="modal-content-body" class="p-2 max-h-[60vh] overflow-y-auto">
-      <ul id="modal-items-list" class="list-disc list-inside flex flex-col gap-2 text-gray-600 dark:text-gray-300 text-pretty">
-        <!-- Job details -->
-      </ul>
+
+    <!-- Job Details Card -->
+    <div
+      class="mb-6 flex flex-wrap flex-col justify-center gap-2 rounded-xl border border-gray-100 min-h-28 content-around
+     bg-gray-50 dark:border-white/10 dark:bg-white/5 shadow"
+    >
+      <div class="flex items-center gap-8 justify-between">
+        <span
+          class="text-sm font-medium uppercase text-gray-500 dark:text-gray-400"
+          >Puesto</span
+        >
+        <p class="font-semibold text-gray-900 dark:text-white">{position}</p>
+      </div>
+      <div class="flex items-center gap-8 justify-between">
+        <span
+          class="text-sm font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400"
+          >Empresa</span
+        >
+        <p class="font-semibold text-gray-900 dark:text-white">
+          {company.name}
+        </p>
+      </div>
+      <div class="flex items-center gap-8 justify-between">
+        <p
+          class="text-sm flex flex-col font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400"
+        >
+          Ubicación <span class="text-xs text-gray-400 dark:text-gray-400/80 italic tracking-tight">(de Empresa)</span>
+        </p>
+        <p class="font-semibold text-gray-900 dark:text-white">
+          {company.ubication}
+        </p>
+      </div>
+      <div class="flex items-center gap-8 justify-between">
+        <span
+          class="text-sm font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400"
+          >Duración</span
+        >
+        <p class="font-semibold text-gray-900 dark:text-white">
+          {date.start} — {date.end}
+        </p>
+      </div>
+      <div class="flex items-center gap-8 justify-between">
+        <span
+          class="text-sm font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400"
+          >Modalidad</span
+        >
+        <p class="font-semibold text-gray-900 dark:text-white">{mode}</p>
+      </div>
+      <div class="flex items-center gap-8 justify-between">
+        <span
+          class="text-sm font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400"
+          >Idioma</span
+        >
+        <p class="font-semibold text-gray-900 dark:text-white">{language}</p>
+      </div>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div
+      class="custom-scrollbar flex-1 overflow-y-auto pr-2 overscroll-contain"
+    >
+      <!-- Description -->
+      <h4 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+        Descripción
+      </h4>
+      <p class="text-base text-gray-600 dark:text-gray-300 text-pretty mb-4">
+        {description}
+      </p>
+
+      <!-- Responsibilities -->
+      {
+        finalResponsibilities.length > 0 && (
+          <div class="mb-4">
+            <h4 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+              Responsabilidades y Tareas
+            </h4>
+            <ul class="list-disc space-y-1 pl-5 text-gray-600 dark:text-gray-300">
+              {finalResponsibilities.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+
+      <!-- Skills -->
+      {
+        finalSkills.length > 0 && (
+          <div class="mb-4">
+            <h4 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+              Habilidades y Herramientas
+            </h4>
+            <div class="flex flex-wrap gap-2">
+              {finalSkills.map((skill) => (
+                <span class="bg-gray-100 text-gray-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      <!-- Soft Skills -->
+      {
+        finalSoftSkills.length > 0 && (
+          <div>
+            <h4 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
+              Habilidades blandas
+            </h4>
+            <ul class="list-disc space-y-1 pl-5 text-gray-600 dark:text-gray-300">
+              {finalSoftSkills.map((skill) => (
+                <li>{skill}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
     </div>
   </div>
 </dialog>
@@ -91,5 +317,29 @@ import Close from "../icons/Close.astro";
       opacity: 0;
       transform: scale(0.95);
     }
+  }
+
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #6b6f79;
+    border-radius: 20px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #c1c6cf;
+    border-radius: 20px;
+  }
+
+  :global(.dark) .custom-scrollbar::-webkit-scrollbar-track {
+    background: #4b5563;
+    border-radius: 20px;
+  }
+
+  :global(.dark) .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #93979e;
   }
 </style>

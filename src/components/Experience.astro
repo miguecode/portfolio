@@ -7,39 +7,36 @@ import JobDetailsModal from "./JobDetailsModal.astro";
 
 // Data
 import { experienceData, type Job } from "../data/experienceData";
+---
 
---- 
-
-<div
-  class="section-child flex mt-6 py-5 px-3 container-highlight"
->
+<div class="section-child flex mt-6 py-5 px-3 container-highlight">
   <ol class="relative ml-3 w-full">
     {
       (experienceData as Job[]).map((job, index) => (
         // Job Item
-        <li class="relative flex justify-between mb-2 ms-6 gap-14">
-          <div class="rounded">
+        <li class="relative flex justify-between mb-2 ms-6 gap-8">
+          <div class="rounded w-5/12">
             {/* Experience Timeline */}
-            <div class="absolute -start-[1.475rem] top-2 bottom-0 w-px h-full
-              bg-gradient-to-t from-transparent to-purple-500 dark:to-purple-500">
-            </div>
+            <div
+              class="absolute -start-[1.475rem] top-2 bottom-0 w-0.5 h-full
+              bg-gradient-to-t from-transparent to-navbar-third/90 dark:to-purple-500"
+            ></div>
 
             {/* Experience Timeline Dot */}
-            <div class="absolute -start-[1.95rem] top-2 size-4 bg-gray-200
-              rounded-full border-1 border-white dark:bg-purple-500">
-            </div>
+            <div
+              class="absolute -start-[1.92rem] top-2 size-4 bg-navbar-third/90
+              rounded-full border-1 border-white dark:bg-purple-500"
+            ></div>
 
             {/* Job Icon and Position line */}
             <div class="relative flex items-center gap-3">
               {/* Job Icon */}
-              <div class={`size-9 p-1 rounded-lg flex items-center justify-center 
-                ${job.company.bgColorIcon} ${job.company.darkBgColorIcon}`}>
+              <div
+                class={`size-9 p-1 rounded-lg flex items-center justify-center shadow-md
+                border ${job.company.borderColorIcon} ${job.company.darkBorderColorIcon} 
+                ${job.company.bgColorIcon} ${job.company.darkBgColorIcon}`}
+              >
                 <job.company.icon class="size-full" />
-
-                {/* Plantilla oculta del icono para usarla en el modal */}
-                <div id={`job-icon-${index}`} class="hidden">
-                  <job.company.icon class="size-full" />
-                </div>
               </div>
 
               {/* Job Position */}
@@ -49,114 +46,116 @@ import { experienceData, type Job } from "../data/experienceData";
             </div>
 
             {/* Company Name */}
-            <span class="block mt-1 mb-2 text-xl font-semibold
-              leading-none text-gray-400 dark:text-purple-400 ml-12">
+            <span
+              class="block mt-1 mb-2 text-xl font-semibold
+              leading-none text-navbar-third/90 dark:text-purple-400 ml-12"
+            >
               {job.company.name}
             </span>
 
             {/* Company Description */}
-            <p class="mb-4 text-base font-normal text-gray-500
-            dark:text-purple-200 text-pretty ml-12 -mt-1.5">
+            <p
+              class="mb-4 text-base font-normal text-gray-600
+            dark:text-purple-200 text-pretty ml-12 -mt-1.5"
+            >
               {job.company.description}
             </p>
           </div>
 
-          <div class="flex flex-col pt-1 flex-1 w-full">
+          <div class="flex flex-col pt-1 flex-1 w-7/12">
             <div class="flex justify-end">
               {/* Date Tag */}
-              <span class="flex justify-end bg-blue-100 text-blue-800 text-sm font-medium
-                px-2.5 py-0.5 rounded dark:bg-dark-purple dark:text-purple-200 shadow">
-                {job.date.start + ' — ' + job.date.end}
+              <span
+                class="jetbrains-mono-tag flex justify-end bg-navbar-third/90 text-purple-100 font-medium
+                px-2.5 py-0.5 rounded dark:bg-dark-purple dark:text-purple-200 shadow"
+              >
+                {job.date.start + " — " + job.date.end}
               </span>
             </div>
 
             {/* Job Description */}
-            <p class="mb-2 text-base font-normal text-gray-400
-            dark:text-gray-300 text-pretty pt-2">
+            <p
+              class="mb-2 text-base font-normal text-gray-700
+            dark:text-gray-300 text-pretty pt-2"
+            >
               {job.description}
             </p>
-            <button 
-              class="open-job-modal-trigger w-fit flex p-1 -ml-1 dark:text-purple-400
-              hover:dark:text-purple-300 transition-colors"
-              data-index={index}
+            <button
+              class="select-none open-modal-btn w-fit flex p-1 -ml-1 text-navbar-third/90 hover:text-purple-700
+                dark:text-purple-400 hover:dark:text-purple-300 transition-colors"
+              data-modal-id={`job-modal-${index}`}
               aria-label={`Saber más sobre el puesto en ${job.company.name}`}
             >
-              <span class="font-semibold">
-                Saber más
-              </span>
+              <span class="font-semibold">Saber más</span>
               <MoreIcon />
             </button>
           </div>
         </li>
       ))
     }
-  </ol>    
+  </ol>
 </div>
 
-<JobDetailsModal />
+{/* Renderizamos un modal por cada trabajo, pasando la data via props */}
+{
+  (experienceData as Job[]).map((job, index) => (
+    <JobDetailsModal id={`job-modal-${index}`} job={job} />
+  ))
+}
 
-<script define:vars={{ experienceData }}>
-  document.addEventListener("DOMContentLoaded", () => {
-    const modal = document.getElementById("job-details-modal-dialog");
-    if (!modal) return;
+<script>
+  // Lógica global para cerrar modales con animación
+  document.addEventListener("click", (event) => {
+    const target = event.target as HTMLElement;
+    if (!target) return;
 
-    const openModalButtons = document.querySelectorAll(".open-job-modal-trigger");
-    const closeModalButton = document.getElementById("close-job-modal");
-
-    // Modal content elements
-    const modalTitle = document.getElementById("modal-title");
-    const modalIconContainer = document.getElementById("modal-icon-container");
-    const modalItemsList = document.getElementById("modal-items-list");
-
-    const openModal = (jobIndex) => {
-      const job = experienceData[jobIndex];
-      if (!job || !modalTitle || !modalIconContainer || !modalItemsList) return;
-
-      // Complete modal details
-      modalTitle.textContent = `Detalles en ${job.company.name}`;
-      
-      // Assign colors for icon
-      modalIconContainer.className = `size-9 p-1 rounded-lg flex items-center justify-center ${job.company.bgColorIcon} ${job.company.darkBgColorIcon}`;
-      
-      // Get and set pre-render icon
-      const iconTemplate = document.getElementById(`job-icon-${jobIndex}`);
-      if (iconTemplate) {
-        modalIconContainer.innerHTML = iconTemplate.innerHTML;
-      } else {
-        modalIconContainer.innerHTML = ''; // Clear if not found
+    // 0. Abrir modal
+    const openBtn = target.closest(".open-modal-btn");
+    if (openBtn && openBtn instanceof HTMLElement) {
+      const modalId = openBtn.dataset.modalId;
+      const dialog = document.getElementById(modalId as string) as HTMLDialogElement;
+      if (dialog) {
+        dialog.showModal();
+        const scrollContainer = dialog.querySelector(".custom-scrollbar");
+        if (scrollContainer) {
+          scrollContainer.scrollTop = 0;
+        }
       }
+    }
 
-      // Complete items list
-      modalItemsList.innerHTML = ''; // Clear past details
-      job.items.forEach(itemText => {
-        const li = document.createElement('li');
-        li.textContent = itemText;
-        modalItemsList.appendChild(li);
-      });
+    // 1. Cerrar al hacer click en el botón de cerrar
+    const closeBtn = target.closest(".close-modal-btn");
+    if (closeBtn) {
+      const dialog = closeBtn.closest("dialog");
+      if (dialog) closeDialog(dialog);
+      return;
+    }
 
-      modal.showModal();
-    };
+    // 2. Cerrar al hacer click fuera (backdrop)
+    if (target.tagName === "DIALOG") {
+      const dialog = target as HTMLDialogElement;
+      const rect = dialog.getBoundingClientRect();
+      const isInDialog =
+        rect.top <= event.clientY &&
+        event.clientY <= rect.top + rect.height &&
+        rect.left <= event.clientX &&
+        event.clientX <= rect.left + rect.width;
 
-    const closeModal = () => {
-      modal.classList.add("closing");
-      modal.addEventListener('animationend', () => {
-        modal.classList.remove("closing");
-        modal.close();
-      }, { once: true });
-    };
-
-    openModalButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const jobIndex = button.dataset.index;
-        openModal(jobIndex);
-      });
-    });
-
-    closeModalButton?.addEventListener("click", closeModal);
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeModal();
+      if (!isInDialog) {
+        closeDialog(dialog);
       }
-    });
+    }
   });
+
+  function closeDialog(dialog: HTMLDialogElement) {
+    dialog.classList.add("closing");
+    dialog.addEventListener(
+      "animationend",
+      () => {
+        dialog.classList.remove("closing");
+        dialog.close();
+      },
+      { once: true }
+    );
+  }
 </script>

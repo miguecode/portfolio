@@ -65,7 +65,7 @@ export const projects: Project[] = [
   // Messi Perfect Shots
   {
     title: "Messi Perfect Shots",
-    description: "Bot de X/Twitter que se dedica a publicar fotos de Lionel Messi diariamente. Fue creado con la API de X/Twitter, y cuenta con +5.000 seguidores.",
+    description: "Bot de X/Twitter que se dedica a publicar fotos de Lionel Messi diariamente. Fue creado con la API de X/Twitter, y cuenta con +6.000 seguidores.",
     image: {
       desktop:"/projects/mps-mockup-big.webp",
       mobile:"/projects/mps-mockup-small.webp",
