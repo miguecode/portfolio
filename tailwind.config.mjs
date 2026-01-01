@@ -10,6 +10,10 @@ export default {
         "fab-distance": "1430px",
         "sd-1":"420px",
       },
+      spacing: {
+        "85-p":"85vh",
+        "95-p":"95vh",
+      },
       colors: {
         // Blue Theme
         // "navbar-primary": "#2557fc",
