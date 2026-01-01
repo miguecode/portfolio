@@ -9,6 +9,8 @@ import angular from "../icons/technologys/Angular.astro";
 import astro from "../icons/technologys/AstroIcon.astro";
 import tailwindcss from "../icons/technologys/TailwindCSS.astro";
 import bootstrap from "../icons/technologys/Bootstrap.astro";
+import thingsboard from "../icons/technologys/ThingsBoard.astro";
+import figma from "../icons/technologys/Figma.astro";
 
 // Other technology's icons
 import sql from "../icons/technologys/SQL.astro";
@@ -19,6 +21,10 @@ import postman from "../icons/technologys/Postman.astro";
 import net from "../icons/technologys/Net.astro";
 import ionic from "../icons/technologys/Ionic.astro";
 import git from "../icons/technologys/Git.astro";
+import react from "../icons/technologys/React.astro";
+import jira from "../icons/technologys/Jira.astro";
+import confluence from "../icons/technologys/Confluence.astro";
+import slack from "../icons/technologys/Slack.astro";
 
 // First group of technology's
 export const technologysDataOne = {
@@ -63,6 +69,16 @@ export const technologysDataOne = {
     class: "bg-bootstrap-secondary text-purple-900 dark:text-bootstrap-primary",
     icon: bootstrap,
   },
+  ThingsBoard: {
+    name: "ThingsBoard",
+    class: "bg-blue-100 text-thingsboard-primary dark:text-thingsboard-secondary",
+    icon: thingsboard,
+  },
+  Figma: {
+    name: "Figma",
+    class: "bg-orange-200 text-figma-primary dark:text-figma-primary",
+    icon: figma,
+  },
 };
 
 // Second group of technology's
@@ -104,7 +120,31 @@ export const technologysDataTwo = {
   },
   Git: {
     name: "Git",
-    class: "bg-gray-300/30 text-dark dark:text-white",
+    class: "bg-gray-300/30 text-black dark:text-white",
     icon: git,
+  },
+};
+
+// Other group of technology's (for Experience section or other)
+export const otherTechnologysData = {
+  React: {
+    name: "React",
+    class: "bg-react-third text-react-secondary dark:text-react-primary",
+    icon: react,
+  },
+  Jira: {
+    name: "Jira",
+    class: "bg-jira-secondary text-white dark:text-jira-primary",
+    icon: jira,
+  },
+  Confluence: {
+    name: "Confluence",
+    class: "bg-jira-secondary text-white dark:text-jira-primary",
+    icon: confluence,
+  },
+  Slack: {
+    name: "Slack",
+    class: "bg-slack-primary text-white dark:text-slack-secondary",
+    icon: slack,
   },
 };

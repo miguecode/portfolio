@@ -185,10 +185,3 @@ a:focus-visible {
     opacity: 1;
   }
 }
-
-/* Specific Fonts */
-
-.jetbrains-mono-tag {
-  font-family: 'JetBrains Mono Variable', monospace;
-  font-size: 0.82rem;
-}

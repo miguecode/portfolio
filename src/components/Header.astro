@@ -42,7 +42,7 @@ const navItems = [
 ---
 
 <header
-  class="fixed top-0 z-10 flex items-center justify-center md:w-full mx-auto mt-2 right-0"
+  class="fixed top-0 z-10 flex items-center justify-center md:w-full mx-auto mt-2 right-0 lg:px-0 px-4"
 >
   <!-- Hamburger Menu -->
   <nav class="md:hidden w-full mr-5">
@@ -105,13 +105,13 @@ const navItems = [
   <nav
     id="desktop-navbar"
     class="hidden md:flex justify-center items-center min-w-fit
-      px-12 gap-4 mt-2 rounded-full font-bold
+      lg:px-12 px-8 gap-4 mt-2 rounded-full font-bold lg:mx-0 mx-4
     text-gray-600 dark:text-gray-200"
   >
     {
       navItems.map((link, index) => (
         <a
-          class="relative block px-2 py-2 transition
+          class="relative block px-2 py-2 transition text-center
           hover:text-navbar-primary dark:hover:text-navbar-secondary"
           aria-label={link.label}
           href={link.href}
