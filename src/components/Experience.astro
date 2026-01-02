@@ -134,6 +134,7 @@ import { experienceData, type Job } from "../data/experienceData";
         if (scrollContainer) {
           scrollContainer.scrollTop = 0;
         }
+        (document.activeElement as HTMLElement)?.blur();
       }
     }
 

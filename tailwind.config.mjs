@@ -11,8 +11,8 @@ export default {
         "sd-1":"420px",
       },
       spacing: {
-        "85-p":"85dvh",
-        "95-p":"95dvh",
+        "85-p":"85svh",
+        "95-p":"95svh",
       },
       colors: {
         // Blue Theme

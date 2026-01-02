@@ -61,7 +61,7 @@ const allTechnologys = [
     <!-- Header -->
     <!-- Mobile Header (Back Button) -->
     <button
-      class="close-modal-btn xs:hidden w-full flex items-center justify-between
+      class="close-modal-btn xs:hidden w-full flex items-center justify-between select-none
       bg-gray-200 dark:bg-dark-secondary px-4 py-3 mb-3 rounded-xl gap-2 text-gray-900 dark:text-white
       active:bg-gray-300 dark:active:bg-dark-secondary/80 transition-colors shadow"
       aria-label="Volver"
@@ -169,16 +169,16 @@ const allTechnologys = [
       </button>
     </div>
 
-    <!-- Job Details Card -->
+    <!-- Job Details Card (Desktop) -->
     <div
-      class="mb-6 flex flex-wrap flex-col xs:justify-center justify-between gap-2 rounded-xl
+      class="hidden sm:flex mb-6 flex-wrap flex-col xs:justify-center justify-between gap-2 rounded-xl
        border border-gray-100 lg:max-h-36 xs:content-around lg:p-4 p-3
      bg-white/5 dark:border-white/10 dark:bg-white/5 shadow"
     >
       <div class="flex items-start gap-8 justify-between">
         <span
           class="flex gap-2 align-center items-center xs:text-sm text-xs font-medium
-           uppercase tracking-wider text-gray-500 dark:text-gray-400"
+           uppercase tracking-wider text-gray-500 dark:text-gray-400 text-pretty"
         >
           <span><PositionIcon class="size-5" /></span>
           Puesto
@@ -193,7 +193,7 @@ const allTechnologys = [
           <span><CompanyIcon class="size-5" /></span>
           Empresa
         </span>
-        <p class="font-semibold xs:text-base text-sm text-end text-gray-900 dark:text-white">
+        <p class="font-semibold xs:text-base text-sm text-end text-gray-900 dark:text-white text-pretty">
           {company.name}
         </p>
       </div>
@@ -215,7 +215,7 @@ const allTechnologys = [
             (de Empresa)
           </span>
         </p>
-        <p class="font-semibold xs:text-base text-sm text-end text-gray-900 dark:text-white">
+        <p class="font-semibold xs:text-base text-sm text-end text-gray-900 dark:text-white text-pretty">
           {company.ubication}
         </p>
       </div>
@@ -227,7 +227,7 @@ const allTechnologys = [
           <span><TimelineIcon class="size-6" /></span>
           Duración
         </span>
-        <p class="font-semibold xs:text-base text-sm text-end text-gray-900 dark:text-white">
+        <p class="font-semibold xs:text-base text-sm text-end text-gray-900 dark:text-white text-pretty">
           {date.start} — {date.end}
         </p>
       </div>
@@ -239,7 +239,7 @@ const allTechnologys = [
           <span><ModeIcon class="size-5" /></span>
           Modalidad
         </span>
-        <p class="font-semibold xs:text-base text-sm text-end text-gray-900 dark:text-white">{mode}</p>
+        <p class="font-semibold xs:text-base text-sm text-end text-gray-900 dark:text-white text-pretty">{mode}</p>
       </div>
       <div class="flex items-start gap-8 justify-between">
         <span
@@ -249,7 +249,7 @@ const allTechnologys = [
           <span> <LanguageIcon class="size-5" /></span>
           Idioma
         </span>
-        <p class="font-semibold xs:text-base text-sm text-end text-gray-900 dark:text-white">{language}</p>
+        <p class="font-semibold xs:text-base text-sm text-end text-gray-900 dark:text-white text-pretty">{language}</p>
       </div>
     </div>
 
@@ -257,6 +257,92 @@ const allTechnologys = [
     <div
       class="custom-scrollbar flex-1 overflow-y-auto pr-2 overscroll-contain"
     >
+      <!-- Job Details Card (Mobile) -->
+      <div
+        class="sm:hidden flex mb-2 flex-wrap flex-col justify-center gap-2 rounded-xl
+         border border-gray-100 lg:max-h-36 xs:content-around lg:p-4 p-3
+       bg-white/5 dark:border-white/10 dark:bg-white/5 shadow"
+      >
+        <div class="flex items-start xs:gap-8 gap-2 xs:justify-between justify-start">
+          <span
+            class="flex gap-2 align-center items-center xs:text-sm text-xs font-medium
+             uppercase tracking-wider text-gray-500 dark:text-gray-400"
+          >
+            <span><PositionIcon class="size-5" /></span>
+            <span class="hidden xs:block">Puesto</span>
+          </span>
+          <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">{position}</p>
+        </div>
+        <div class="flex items-start xs:gap-8 gap-2 xs:justify-between justify-start">
+          <span
+            class="flex gap-2 align-center items-center xs:text-sm text-xs font-medium
+             uppercase tracking-wider text-gray-500 dark:text-gray-400"
+          >
+            <span><CompanyIcon class="size-5" /></span>
+            <span class="hidden xs:block">Empresa</span>
+          </span>
+          <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">
+            {company.name}
+          </p>
+        </div>
+        <div class="flex items-start xs:gap-8 gap-2 xs:justify-between justify-start">
+          <p
+            class="relative xs:text-sm text-xs flex gap-1 align-center
+             items-center font-medium uppercase
+             tracking-wider text-gray-500 dark:text-gray-400"
+          >
+            <span class="flex gap-2 align-center items-center">
+              <span><UbicationIcon class="size-5" /></span>
+              <span class="hidden xs:block">Ubicación</span>
+            </span>
+            <span
+              class="hidden xs:block absolute -bottom-3 left-7 text-xs
+              uppercase text-gray-400 dark:text-gray-400/80 italic
+              tracking-tight whitespace-nowrap"
+            >
+              (de Empresa)
+            </span>
+          </p>
+          <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">
+            {company.ubication}
+            <span class="max-xs:flex hidden text-xs italic
+             text-gray-400 dark:text-gray-400/80 tracking-tight">(Ubic. de Empresa)</span>
+          </p>
+        </div>
+        <div class="flex items-start xs:gap-8 gap-2 xs:justify-between justify-start">
+          <span
+            class="flex gap-2 align-center items-center xs:text-sm text-xs font-medium
+             uppercase tracking-wider text-gray-500 dark:text-gray-400"
+          >
+            <span><TimelineIcon class="size-5" /></span>
+            <span class="hidden xs:block">Duración</span>
+          </span>
+          <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">
+            {date.start} — {date.end}
+          </p>
+        </div>
+        <div class="flex items-start xs:gap-8 gap-2 xs:justify-between justify-start">
+          <span
+            class="flex gap-2 align-center items-center xs:text-sm text-xs font-medium
+             uppercase tracking-wider text-gray-500 dark:text-gray-400"
+          >
+            <span><ModeIcon class="size-5" /></span>
+            <span class="hidden xs:block">Modalidad</span>
+          </span>
+          <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">{mode}</p>
+        </div>
+        <div class="flex items-start xs:gap-8 gap-2 xs:justify-between justify-start">
+          <span
+            class="flex gap-2 align-center items-center xs:text-sm text-xs font-medium
+             uppercase tracking-wider text-gray-500 dark:text-gray-400"
+          >
+            <span> <LanguageIcon class="size-5" /></span>
+            <span class="hidden xs:block">Idioma</span>
+          </span>
+          <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">{language}</p>
+        </div>
+      </div>
+
       <!-- Description -->
       <h4 class="mb-2 xs:text-lg text-base font-semibold text-gray-900 dark:text-white">
         Descripción
@@ -327,7 +413,7 @@ const allTechnologys = [
             <h4 class="mb-2 xs:text-lg text-base font-semibold text-gray-900 dark:text-white">
               Otras Aptitudes
             </h4>
-            <ul class="xs:text-base text-sm list-disc space-y-1 pl-5 text-gray-600 dark:text-gray-300">
+            <ul class="xs:text-base text-sm list-disc space-y-1 pl-5 text-gray-600 dark:text-gray-300 text-pretty">
               {finalSoftSkills.map((skill) => (
                 <li>{skill}</li>
               ))}
