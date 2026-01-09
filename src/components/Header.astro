@@ -178,7 +178,7 @@ const navItems = [
     const activateNavItem = (id: any) => {
       navItems.forEach((item) => {
         // Check href attribute which is '#id'
-        if (item.getAttribute("href") === `#${id}`) {
+        if (item.getAttribute("href") === `#${id}` && window.innerWidth >= 768) {
           item.classList.add("text-navbar-primary", "dark:text-navbar-secondary");
         } else {
           item.classList.remove("text-navbar-primary", "dark:text-navbar-secondary");
@@ -206,14 +206,6 @@ const navItems = [
     // Observe all sections
     sections.forEach((section) => {
       observer.observe(section);
-    });
-
-    // --- Click Handling for instant feedback ---
-    navItems.forEach((item) => {
-      item.addEventListener("click", () => {
-        const id = item.getAttribute("href")?.substring(1);
-        activateNavItem(id);
-      });
     });
 
     // Optimization: Stop observing when the tab is not visible
@@ -261,6 +253,17 @@ const navItems = [
       ) {
         hideMenu();
       }
+    });
+
+    // --- Click Handling for instant feedback ---
+    navItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const id = item.getAttribute("href")?.substring(1);
+        activateNavItem(id);
+        if (window.innerWidth < 768) {
+          hideMenu();
+        }
+      });
     });
 
     ////////////////////////////////////////////////////////////////////////
