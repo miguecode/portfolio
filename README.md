@@ -2,7 +2,7 @@
 
 Sitio web personal creado con Astro y Tailwind CSS. Es mi carta de presentación, la cual cuenta más sobre mí, cuáles son mis habilidades, experiencias, proyectos y más.
 
-⭐ **[Enlace directo al Portfolio](https://miguelangelgil.netlify.app/)**
+⭐ **[Enlace directo al Portfolio](https://miguecode.vercel.app/)**
 
 ![Previsualización del Portfolio](./public/images/portfolio-pic.png)
 
