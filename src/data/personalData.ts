@@ -7,8 +7,8 @@ export const metaData = {
     "Desarrollo, Frontend, Desarrollador, Web, Programación, Programador, Portfolio, Miguel Ángel Gil, Argentina",
   author: "Miguel Ángel Gil",
   themeColor: "#2C243D",
-  image: "https://miguelangelgil.netlify.app/images/portfolio-pic.png",
-  url: "https://miguelangelgil.netlify.app",
+  image: "https://miguecode.vercel.app/images/portfolio-pic.png",
+  url: "https://miguecode.vercel.app",
 };
 
 // Personal data
