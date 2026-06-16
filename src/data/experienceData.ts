@@ -18,6 +18,7 @@ export interface Job {
     end: string;
   };
   position: string;
+  positionSub?: string;
   description: string;
   mode: string;
   language: string,
@@ -43,7 +44,8 @@ export const experienceData: Job[] = [
       start: "Noviembre de 2025",
       end: "Presente",
     },
-    position: "Frontend Developer & IoT Platform Specialist",
+    position: "Frontend Developer",
+    positionSub: "IoT & Dashboard Solutions",
     description:
       "Formo parte del equipo de desarrollo de Senzary, una empresa IoT internacional orientada a soluciones industriales y monitoreo de múltiples dispositivos en tiempo real. Trabajo en un entorno remoto y colaborativo participando en el diseño, desarrollo y optimización de dashboards operativos utilizados por clientes importantes como ENI, AES, IAC o P&G.",
     mode: "En remoto — Jornada Completa",
