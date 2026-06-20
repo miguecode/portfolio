@@ -185,8 +185,10 @@ const allTechnologys = [
           <PositionIcon class="size-5" />
           Puesto
         </span>
-        <p class="font-semibold text-sm text-end text-gray-900 dark:text-white whitespace-nowrap">
-          {positionSub ? `${position} | ${positionSub}` : position}
+        <p class="font-semibold text-sm text-end text-gray-900 dark:text-white job-pos-value">
+          <span class="job-pos-part">{position}</span>
+          {positionSub && <span class="job-pos-sep"> | </span>}
+          {positionSub && <span class="job-pos-part">{positionSub}</span>}
         </p>
       </div>
       <div class="flex items-start justify-between gap-2">
@@ -431,6 +433,27 @@ const allTechnologys = [
 </dialog>
 
 <style>
+  /* Position value: inline with | on large screens, stacked vertically on smaller */
+  .job-pos-value {
+    white-space: nowrap;
+  }
+
+  @media (max-width: 1170px) {
+    .job-pos-value {
+      white-space: normal;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .job-pos-part {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .job-pos-sep {
+      display: none;
+    }
+  }
+
   dialog[open]::backdrop {
     animation: backdropFadeIn 0.3s ease-out forwards;
   }
