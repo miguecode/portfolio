@@ -1,10 +1,12 @@
 // Website data
 export const metaData = {
   title: "Miguel Ángel Gil - Desarrollador Frontend",
+  // description:
+  //  "Portfolio de Miguel Ángel Gil, Desarrollador Frontend con formación universitaria en programación y experiencia en tecnologías web modernas.",
   description:
-    "Portfolio de Miguel Ángel Gil, Desarrollador Frontend con formación universitaria en programación y experiencia en tecnologías web modernas.",
+    "Portfolio de Miguel Ángel Gil, Desarrollador Frontend formación universitaria en programación y experiencia en entornos industriales internacionales.",
   keyWords:
-    "Desarrollo, Frontend, Desarrollador, Web, Programación, Programador, Portfolio, Miguel Ángel Gil, Argentina",
+    "Desarrollo, Frontend, Desarrollador, Web, Programación, Programador, Portfolio, Miguel Ángel Gil, Argentina, IoT, Dashboard, ThingsBoard, Visualización de Datos, Angular, React, Next.js, Node",
   author: "Miguel Ángel Gil",
   themeColor: "#2C243D",
   image: "https://miguecode.vercel.app/images/portfolio-pic.png",
@@ -15,7 +17,7 @@ export const metaData = {
 export const data = {
   title: "Hola, soy Miguel",
   subTitle:
-    "<span class='highlight-1'>Desarrollador Frontend</span>. Técnico Universitario en Programación con experiencia en Angular y más tecnologías web.",
+    "<span class='highlight-1'>Desarrollador Frontend</span>. Técnico Universitario en Programación con experiencia en entornos IoT industriales internacionales.",
   profileImage: "/images/profile-pic.webp",
   badge: "¡Disponible para trabajar!",
   email: "junmigue7@gmail.com",
@@ -37,7 +39,6 @@ export const aboutMeData = {
 
   // fourthParagraph:
   //   "Mi objetivo es seguir creciendo como desarrollador, profundizando en <strong class='highlight-2'>productos basados en datos</strong>, <strong class='highlight-2'>experiencia de usuario</strong> y <strong class='highlight-2'>soluciones escalables</strong> que aporten valor real.",
-
   // firstParagraph:
   //   "Me llamo Miguel Ángel Gil, tengo 24 años y vivo en Buenos Aires, Argentina. <strong class='highlight-2'>Empecé en la programación en 2021</strong>, cuando me inscribí en la Tecnicatura Universitaria en Programación en la Universidad Tecnológica Nacional. Con el tiempo, decidí enfocarme al <strong class='highlight-2'>desarrollo Frontend</strong> y es en lo que me especializo actualmente.",
   // secondParagraph:
