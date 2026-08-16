@@ -55,6 +55,11 @@ export const technologysDataOne = {
     class: "bg-red-300/30 text-angular-primary dark:text-angular-primary",
     icon: angular,
   },
+  React: {
+    name: "React",
+    class: "bg-react-third text-react-secondary dark:text-react-primary",
+    icon: react,
+  },
   Nextjs: {
     name: "Next.js",
     class: "bg-gray-300/30 text-black dark:text-white",
@@ -133,11 +138,6 @@ export const technologysDataTwo = {
 
 // Other group of technology's (for Experience section or other)
 export const otherTechnologysData = {
-  React: {
-    name: "React",
-    class: "bg-react-third text-react-secondary dark:text-react-primary",
-    icon: react,
-  },
   Jira: {
     name: "Jira",
     class: "bg-jira-secondary text-white dark:text-jira-primary",
