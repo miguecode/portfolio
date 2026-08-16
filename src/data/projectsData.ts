@@ -228,7 +228,7 @@ export const projects: Record<"es" | "en", Project[]> = {
     // miguedocs
     {
       title: "miguedocs",
-      description: "Docs-style website made with Fumadocs, acting as my library of programming notes created over time.",
+      description: "Docs-style website made with Fumadocs (Next.js), it works as my programming notes personal library created over time.",
       image: {
         desktop:"/projects/miguedocs-mockup-big.webp",
         mobile:"/projects/miguedocs-mockup-small.webp",
@@ -250,7 +250,7 @@ export const projects: Record<"es" | "en", Project[]> = {
     // Jueguitos JS
     {
       title: "Jueguitos JS",
-      description: "Simple games website. Users can log in or enter as guests, send messages in the global chat and access the ranking.",
+      description: "Simple games website. Users can log in or enter as guests, send messages in the global chat and access the different rankings.",
       image: {
         desktop:"/projects/playroom-mockup-big.webp",
         mobile:"/projects/playroom-mockup-small.webp",

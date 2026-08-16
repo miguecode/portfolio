@@ -79,9 +79,9 @@ export const experienceData: Record<"es" | "en", Job[]> = {
         "Vercel"
       ],
       softSkills: [
-        "Trabajo y comunicación con equipo internacional (remoto y en inglés)",
-        "Proactividad, responsabilidad y compromiso en entornos de alta exigencia",
-        "Documentación y seguimiento diario de tareas realizadas",
+        "Trabajo y comunicación con equipo internacional (remoto y en inglés).",
+        "Proactividad, responsabilidad y compromiso en entornos de alta exigencia.",
+        "Documentación y seguimiento diario de tareas realizadas.",
       ],
     }
   ],
@@ -104,7 +104,7 @@ export const experienceData: Record<"es" | "en", Job[]> = {
       position: "Frontend Developer",
       positionSub: "IoT & Dashboard Solutions",
       description:
-        "I am part of the development team at Senzary, an international IoT company focused on industrial solutions and real-time monitoring of multiple devices. I work in a remote and collaborative environment participating in the design, development, and optimization of operational dashboards used by major clients such as ENI, AES, IAC or P&G.",
+        "I am part of the development team at Senzary, an international IoT company focused on industrial software solutions and real-time monitoring of multiple devices. I work in a remote and collaborative environment participating in the design, development, and optimization of operational dashboards used by major clients such as ENI, AES, IAC or P&G.",
       mode: "Remote — Full Time",
       language: "English",
       responsabilitiesAndTasks: [
@@ -135,9 +135,9 @@ export const experienceData: Record<"es" | "en", Job[]> = {
         "Vercel"
       ],
       softSkills: [
-        "Work and communication with an international team (remote and in English)",
-        "Proactivity, responsibility and commitment in high-demand environments",
-        "Daily documentation and tracking of completed tasks",
+        "Work and communication with an international team (remote and in English).",
+        "Proactivity, responsibility and commitment in high-demand environments.",
+        "Daily documentation and tracking of completed tasks.",
       ],
     }
   ]
