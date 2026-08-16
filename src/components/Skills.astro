@@ -7,6 +7,9 @@ import {
 
 // Component
 import SkillsGroup from "./SkillsGroup.astro";
+
+const lang = Astro.currentLocale || 'es';
+const backendTitle = lang === 'en' ? 'Backend & Tools' : 'Backend y Complementos';
 ---
 
 <div
@@ -14,5 +17,5 @@ import SkillsGroup from "./SkillsGroup.astro";
   gap-y-6 py-5 px-3 mt-6 mx-auto"
 >
   <SkillsGroup skills={technologysDataOne} title="Frontend" />
-  <SkillsGroup skills={technologysDataTwo} title="Backend y Complementos" />
+  <SkillsGroup skills={technologysDataTwo} title={backendTitle} />
 </div>

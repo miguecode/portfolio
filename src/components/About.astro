@@ -1,6 +1,9 @@
 ---
 // Data
 import { aboutMeData } from "../data/personalData";
+
+const lang = (Astro.currentLocale || 'es') as "es" | "en";
+const data = aboutMeData[lang];
 ---
 
 <article
@@ -10,13 +13,13 @@ import { aboutMeData } from "../data/personalData";
   text-gray-700 dark:text-gray-300"
 >
   <div class="text-pretty text-gray-950 dark:text-gray-100 order-2 md:order-1 sm:text-start text-center">
-    <p class="mb-6" set:html={aboutMeData.firstParagraph} />
-    <p class="mb-6" set:html={aboutMeData.secondParagraph} />
-    <p set:html={aboutMeData.thirdParagraph} />
-    <!-- <p set:html={aboutMeData.fourthParagraph} /> -->
+    <p class="mb-6" set:html={data.firstParagraph} />
+    <p class="mb-6" set:html={data.secondParagraph} />
+    <p set:html={data.thirdParagraph} />
+    <!-- <p set:html={data.fourthParagraph} /> -->
   </div>
   <img
-    src={aboutMeData.image}
+    src={data.image}
     class="object-cover w-44 md:w-48 h-full rounded-full order-1 md:order-2"
     alt="Foto de Miguel"
     loading="lazy"

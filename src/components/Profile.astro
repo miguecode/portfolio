@@ -9,6 +9,10 @@ import CurriculumIcon from "../icons/Curriculum.astro";
 
 // Data
 const { data } = Astro.props;
+const lang = Astro.currentLocale || 'es';
+const cvLabel = lang === 'en' ? 'Resume' : 'Currículum';
+const contactLabel = lang === 'en' ? 'Contact' : 'Contacto';
+
 ---
 
 <div class="section-child">
@@ -50,11 +54,11 @@ const { data } = Astro.props;
           role="link"
         >
           <CurriculumIcon class="size-7 inline" />
-          Currículum
+          {cvLabel}
         </SocialLink>
         <SocialLink href="/#contacto">
           <BookIcon class="size-7 inline" />
-          Contacto
+          {contactLabel}
         </SocialLink>
       </div>
       <div class="buttons-second flex flex-wrap justify-center gap-4">

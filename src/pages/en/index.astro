@@ -1,25 +1,25 @@
 ---
 // Components
-import Layout from "../layouts/Layout.astro";
-import SectionContainer from "../components/SectionContainer.astro";
-import SectionTitle from "../components/SectionTitle.astro";
-import Profile from "../components/Profile.astro";
-import Experience from "../components/Experience.astro";
-import Skills from "../components/Skills.astro";
-import Projects from "../components/Projects.astro";
-import About from "../components/About.astro";
-import Contact from "../components/Contact.astro";
-import FabMenu from "../components/FabMenu.astro";
+import Layout from "../../layouts/Layout.astro";
+import SectionContainer from "../../components/SectionContainer.astro";
+import SectionTitle from "../../components/SectionTitle.astro";
+import Profile from "../../components/Profile.astro";
+import Experience from "../../components/Experience.astro";
+import Skills from "../../components/Skills.astro";
+import Projects from "../../components/Projects.astro";
+import About from "../../components/About.astro";
+import Contact from "../../components/Contact.astro";
+import FabMenu from "../../components/FabMenu.astro";
 
 // Icons
-import SkillIcon from "../icons/Skill.astro";
-import CodeIcon from "../icons/Code.astro";
-import UserIcon from "../icons/User.astro";
-import BookIcon from "../icons/Book.astro";
-import ExperienceIcon from "../icons/Experience.astro";
+import SkillIcon from "../../icons/Skill.astro";
+import CodeIcon from "../../icons/Code.astro";
+import UserIcon from "../../icons/User.astro";
+import BookIcon from "../../icons/Book.astro";
+import ExperienceIcon from "../../icons/Experience.astro";
 
 // Data
-import { data } from "../data/personalData";
+import { data } from "../../data/personalData";
 const lang = (Astro.currentLocale || 'es') as "es" | "en";
 const profileData = data[lang];
 
@@ -45,12 +45,12 @@ const t = translations[lang];
 <Layout>
   <main class="px-4">
     <!-- --- PROFILE --- -->
-    <SectionContainer id="inicio" class="py-28 md:py-44 lg:w-[48rem]">
+    <SectionContainer id="home" class="py-28 md:py-44 lg:w-[48rem]">
       <Profile data={profileData} />
     </SectionContainer>
 
     <!-- --- EXPERIENCE --- -->
-    <SectionContainer id="experiencia" class="pt-20">
+    <SectionContainer id="experience" class="pt-20">
       <SectionTitle>
         <ExperienceIcon class="size-8" />
         {t.experiencia}
@@ -60,7 +60,7 @@ const t = translations[lang];
 
     <div class="space-y-4">
       <!-- --- PROJECTS --- -->
-      <SectionContainer id="proyectos" class="pt-20">
+      <SectionContainer id="projects" class="pt-20">
         <SectionTitle>
           <CodeIcon class="size-8" />
           {t.proyectos}
@@ -69,7 +69,7 @@ const t = translations[lang];
       </SectionContainer>
 
       <!-- --- SKILLS --- -->
-      <SectionContainer id="habilidades" class="pt-20">
+      <SectionContainer id="skills" class="pt-20">
         <SectionTitle>
           <SkillIcon class="size-8" />
           {t.habilidades}
@@ -78,7 +78,7 @@ const t = translations[lang];
       </SectionContainer>
 
       <!-- --- ABOUT ME --- -->
-      <SectionContainer id="sobre-mi" class="pt-20">
+      <SectionContainer id="about" class="pt-20">
         <SectionTitle>
           <UserIcon class="size-8" />
           {t.sobre_mi}
@@ -87,7 +87,7 @@ const t = translations[lang];
       </SectionContainer>
 
       <!-- --- CONTACT --- -->
-      <SectionContainer id="contacto" class="py-20">
+      <SectionContainer id="contact" class="py-20">
         <SectionTitle>
           <BookIcon class="size-8" />
           {t.contacto}

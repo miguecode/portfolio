@@ -4,6 +4,43 @@ import ArrowIcon from "../icons/Arrow.astro";
 
 // Current Year
 const currentYear = new Date().getFullYear();
+const lang = Astro.currentLocale || 'es';
+
+const labels = {
+  es: {
+    backToHome: "Volver a Inicio",
+    madeBy: "Hecho por",
+    experience: "Experiencia",
+    skills: "Habilidades",
+    projects: "Proyectos",
+    about: "Sobre mí",
+  },
+  en: {
+    backToHome: "Back to Home",
+    madeBy: "Made by",
+    experience: "Experience",
+    skills: "Skills",
+    projects: "Projects",
+    about: "About",
+  }
+}[lang as "es" | "en"];
+
+const links = {
+  es: {
+    home: "/#inicio",
+    experience: "/#experiencia",
+    skills: "/#habilidades",
+    projects: "/#proyectos",
+    about: "/#sobre-mi",
+  },
+  en: {
+    home: "/en/#home",
+    experience: "/en/#experience",
+    skills: "/en/#skills",
+    projects: "/en/#projects",
+    about: "/en/#about",
+  }
+}[lang as "es" | "en"];
 ---
 
 <footer
@@ -12,39 +49,51 @@ const currentYear = new Date().getFullYear();
     opacity-90
     font-bold dark:font-semibold"
 >
-  <a
-    href="/#inicio"
+  <button
+    id="back-to-top-btn"
     class="flex flex-col justify-center items-center gap-y-1 mb-4 p-1
     text-gray-900 dark:text-purple-200
     hover:text-purple-700 dark:hover:text-purple-400
-      transition"
+      transition cursor-pointer"
   >
     <ArrowIcon />
-    Volver a Inicio
-  </a>
+    {labels.backToHome}
+  </button>
+
+  <script is:inline>
+    document.getElementById('back-to-top-btn')?.addEventListener('click', function() {
+      // Find the first section/top anchor on the page
+      const topEl = document.getElementById('inicio') || document.getElementById('home');
+      if (topEl) {
+        topEl.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  </script>
   <div
     class="flex flex-col items-center gap-3 sm:flex-row sm:justify-between
       w-full mx-auto py-4 mb-5 mt-9
     text-gray-700/90 dark:text-zinc-100/90"
   >
     <span class="text-sm text-center sm:text-start order-2 sm:order-1"
-      >© {currentYear}. Hecho por Miguel Ángel Gil.
+      >© {currentYear}. {labels.madeBy} Miguel Ángel Gil.
     </span>
     <ul
       class="flex flex-wrap justify-center gap-x-4 mt-3 sm:mt-0 text-sm
         order-1 sm:order-2"
     >
       <li>
-        <a href="/#experiencia" class="hover:underline p-1">Experiencia</a>
+        <a href={links.experience} class="hover:underline p-1">{labels.experience}</a>
       </li>
       <li>
-        <a href="/#habilidades" class="hover:underline p-1">Habilidades</a>
+        <a href={links.skills} class="hover:underline p-1">{labels.skills}</a>
       </li>
       <li>
-        <a href="/#proyectos" class="hover:underline p-1">Proyectos</a>
+        <a href={links.projects} class="hover:underline p-1">{labels.projects}</a>
       </li>
       <li>
-        <a href="/#sobre-mi" class="hover:underline p-1">Sobre mí</a>
+        <a href={links.about} class="hover:underline p-1">{labels.about}</a>
       </li>
     </ul>
   </div>

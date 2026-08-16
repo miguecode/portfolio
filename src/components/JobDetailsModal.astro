@@ -46,6 +46,44 @@ const allTechnologys = [
   ...Object.values(technologysDataTwo),
   ...Object.values(otherTechnologysData),
 ];
+
+const lang = Astro.currentLocale || 'es';
+const labels = {
+  es: {
+    myExperience: "Mi experiencia en",
+    close: "Cerrar",
+    position: "Puesto",
+    duration: "Duración",
+    company: "Empresa",
+    mode: "Modalidad",
+    location: "Ubicación",
+    locationCompany: "(de Empresa)",
+    locationCompanyMobile: "(Ubic. de Empresa)",
+    language: "Idioma",
+    description: "Descripción",
+    responsibilities: "Responsabilidades y Tareas",
+    technologies: "Tecnologías y Herramientas",
+    softSkills: "Otras Aptitudes",
+    modeNotDefined: "Modalidad no definida",
+  },
+  en: {
+    myExperience: "My experience at",
+    close: "Close",
+    position: "Position",
+    duration: "Duration",
+    company: "Company",
+    mode: "Mode",
+    location: "Location",
+    locationCompany: "(from Company)",
+    locationCompanyMobile: "(Company Loc.)",
+    language: "Language",
+    description: "Description",
+    responsibilities: "Responsibilities and Tasks",
+    technologies: "Technologies and Tools",
+    softSkills: "Other Skills",
+    modeNotDefined: "Mode not defined",
+  },
+}[lang as "es" | "en"];
 ---
 
 <dialog
@@ -94,7 +132,7 @@ const allTechnologys = [
         <h3
           class="sm:text-lg text-base font-bold leading-6 text-gray-900 dark:text-white text-right text-pretty"
         >
-          Mi experiencia en {company.name}
+          {labels.myExperience} {company.name}
         </h3>
       </div>
     </button>
@@ -113,7 +151,7 @@ const allTechnologys = [
           <h3
             class="xs:text-2xl text-xl font-bold leading-6 text-gray-900 dark:text-white text-pretty"
           >
-            Mi experiencia en {company.name}
+            {labels.myExperience} {company.name}
           </h3>
           <!-- Metadata -->
           <div
@@ -130,7 +168,7 @@ const allTechnologys = [
             <!-- Mode -->
             <span class="flex items-center gap-1">
               <span><ModeIcon class="size-5" /></span>
-              {mode || "Modalidad no definida"}
+              {mode || labels.modeNotDefined}
             </span>
             <!-- <span class="hidden xs:inline">•</span> -->
             <!-- Ubication -->
@@ -165,7 +203,7 @@ const allTechnologys = [
         transition-colors ml-4"
         aria-label="Cerrar cartel"
       >
-        <span class="sm:block hidden select-none font-medium">Cerrar</span>
+        <span class="sm:block hidden select-none font-medium">{labels.close}</span>
         <CloseIcon class="size-6" />
       </button>
     </div>
@@ -183,7 +221,7 @@ const allTechnologys = [
            uppercase tracking-wider text-gray-500 dark:text-gray-400 shrink-0"
         >
           <PositionIcon class="size-5" />
-          Puesto
+          {labels.position}
         </span>
         <p class="font-semibold text-sm text-end text-gray-900 dark:text-white text-pretty job-pos-value">
           <span class="job-pos-part">{position}</span>
@@ -197,7 +235,7 @@ const allTechnologys = [
            uppercase tracking-wider text-gray-500 dark:text-gray-400 shrink-0"
         >
           <TimelineIcon class="size-5" />
-          Duración
+          {labels.duration}
         </span>
         <p class="font-semibold text-sm text-end text-gray-900 dark:text-white text-pretty">
           {date.start} — {date.end}
@@ -209,7 +247,7 @@ const allTechnologys = [
            uppercase tracking-wider text-gray-500 dark:text-gray-400 shrink-0"
         >
           <CompanyIcon class="size-5" />
-          Empresa
+          {labels.company}
         </span>
         <p class="font-semibold text-sm text-end text-gray-900 dark:text-white text-pretty">
           {company.name}
@@ -221,7 +259,7 @@ const allTechnologys = [
            uppercase tracking-wider text-gray-500 dark:text-gray-400 shrink-0"
         >
           <ModeIcon class="size-5" />
-          Modalidad
+          {labels.mode}
         </span>
         <p class="font-semibold text-sm text-end text-gray-900 dark:text-white text-pretty">{mode}</p>
       </div>
@@ -232,14 +270,14 @@ const allTechnologys = [
         >
           <span class="flex gap-2 items-center">
             <UbicationIcon class="size-5" />
-            Ubicación
+            {labels.location}
           </span>
           <span
             class="absolute -bottom-3 left-7 text-xs
             uppercase text-gray-400 dark:text-gray-400/80 italic
             tracking-tight whitespace-nowrap"
           >
-            (de Empresa)
+            {labels.locationCompany}
           </span>
         </p>
         <p class="font-semibold text-sm text-end text-gray-900 dark:text-white text-pretty">
@@ -252,7 +290,7 @@ const allTechnologys = [
            uppercase tracking-wider text-gray-500 dark:text-gray-400 shrink-0"
         >
           <LanguageIcon class="size-5" />
-          Idioma
+          {labels.language}
         </span>
         <p class="font-semibold text-sm text-end text-gray-900 dark:text-white text-pretty">{language}</p>
       </div>
@@ -274,7 +312,7 @@ const allTechnologys = [
              uppercase tracking-wider text-gray-500 dark:text-gray-400"
           >
             <span><PositionIcon class="size-5" /></span>
-            <span class="hidden xs:block">Puesto</span>
+            <span class="hidden xs:block">{labels.position}</span>
           </span>
           <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white">
             {positionSub ? `${position} | ${positionSub}` : position}
@@ -286,7 +324,7 @@ const allTechnologys = [
              uppercase tracking-wider text-gray-500 dark:text-gray-400"
           >
             <span><CompanyIcon class="size-5" /></span>
-            <span class="hidden xs:block">Empresa</span>
+            <span class="hidden xs:block">{labels.company}</span>
           </span>
           <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">
             {company.name}
@@ -300,20 +338,20 @@ const allTechnologys = [
           >
             <span class="flex gap-2 align-center items-center">
               <span><UbicationIcon class="size-5" /></span>
-              <span class="hidden xs:block">Ubicación</span>
+              <span class="hidden xs:block">{labels.location}</span>
             </span>
             <span
               class="hidden xs:block absolute -bottom-3 left-7 text-xs
               uppercase text-gray-400 dark:text-gray-400/80 italic
               tracking-tight whitespace-nowrap"
             >
-              (de Empresa)
+              {labels.locationCompany}
             </span>
           </p>
           <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">
             {company.ubication}
             <span class="max-xs:flex hidden text-xs italic
-             text-gray-400 dark:text-gray-400/80 tracking-tight">(Ubic. de Empresa)</span>
+             text-gray-400 dark:text-gray-400/80 tracking-tight">{labels.locationCompanyMobile}</span>
           </p>
         </div>
         <div class="flex items-start xs:gap-8 gap-2 xs:justify-between justify-start">
@@ -322,7 +360,7 @@ const allTechnologys = [
              uppercase tracking-wider text-gray-500 dark:text-gray-400"
           >
             <span><TimelineIcon class="size-5" /></span>
-            <span class="hidden xs:block">Duración</span>
+            <span class="hidden xs:block">{labels.duration}</span>
           </span>
           <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">
             {date.start} — {date.end}
@@ -334,7 +372,7 @@ const allTechnologys = [
              uppercase tracking-wider text-gray-500 dark:text-gray-400"
           >
             <span><ModeIcon class="size-5" /></span>
-            <span class="hidden xs:block">Modalidad</span>
+            <span class="hidden xs:block">{labels.mode}</span>
           </span>
           <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">{mode}</p>
         </div>
@@ -344,7 +382,7 @@ const allTechnologys = [
              uppercase tracking-wider text-gray-500 dark:text-gray-400"
           >
             <span> <LanguageIcon class="size-5" /></span>
-            <span class="hidden xs:block">Idioma</span>
+            <span class="hidden xs:block">{labels.language}</span>
           </span>
           <p class="font-semibold xs:text-base text-sm xs:text-end text-gray-900 dark:text-white text-pretty">{language}</p>
         </div>
@@ -352,7 +390,7 @@ const allTechnologys = [
 
       <!-- Description -->
       <h4 class="mb-2 xs:text-lg text-base font-semibold text-gray-900 dark:text-white">
-        Descripción
+        {labels.description}
       </h4>
       <p class="xs:text-base text-sm text-gray-600 dark:text-gray-300 text-pretty mb-4">
         {description}
@@ -363,7 +401,7 @@ const allTechnologys = [
         finalResponsibilities.length > 0 && (
           <div class="mb-4">
             <h4 class="mb-2 xs:text-lg text-base font-semibold text-gray-900 dark:text-white">
-              Responsabilidades y Tareas
+              {labels.responsibilities}
             </h4>
             <ul class="xs:text-base text-sm list-disc space-y-1 pl-5 text-gray-600 dark:text-gray-300">
               {finalResponsibilities.map((item) => (
@@ -379,7 +417,7 @@ const allTechnologys = [
         finalSkills.length > 0 && (
           <div class="mb-4">
             <h4 class="mb-2 xs:text-lg text-base font-semibold text-gray-900 dark:text-white">
-              Tecnologías y Herramientas
+              {labels.technologies}
             </h4>
             <div class="flex flex-wrap gap-2 px-2">
               {finalSkills.map((skillName) => {
@@ -418,7 +456,7 @@ const allTechnologys = [
         finalSoftSkills.length > 0 && (
           <div>
             <h4 class="mb-2 xs:text-lg text-base font-semibold text-gray-900 dark:text-white">
-              Otras Aptitudes
+              {labels.softSkills}
             </h4>
             <ul class="xs:text-base text-sm list-disc space-y-1 pl-5 text-gray-600 dark:text-gray-300 text-pretty">
               {finalSoftSkills.map((skill) => (

@@ -1,44 +1,35 @@
 ---
 // Component
 import ThemeToggle from "./ThemeToggle.astro";
+import LanguageToggle from "./LanguageToggle.astro";
 
 // Icon
 import HamburgerIcon from "../icons/Hamburger.astro";
 import CloseIcon from "../icons/Close.astro";
 
+const lang = Astro.currentLocale || 'es';
+
 // Navbar items
-const navItems = [
-  {
-    title: "Inicio",
-    label: "inicio",
-    href: "#inicio",
-  },
-  {
-    title: "Experiencia",
-    label: "Experiencia",
-    href: "#experiencia",
-  },
-  {
-    title: "Proyectos",
-    label: "proyectos",
-    href: "#proyectos",
-  },
-  {
-    title: "Habilidades",
-    label: "habilidades",
-    href: "#habilidades",
-  },
-  {
-    title: "Sobre mí",
-    label: "sobre-mi",
-    href: "#sobre-mi",
-  },
-  {
-    title: "Contacto",
-    label: "contacto",
-    href: "#contacto",
-  },
-];
+const navItems = {
+  es: [
+    { title: "Inicio", label: "inicio", href: "#inicio" },
+    { title: "Experiencia", label: "Experiencia", href: "#experiencia" },
+    { title: "Proyectos", label: "proyectos", href: "#proyectos" },
+    { title: "Habilidades", label: "habilidades", href: "#habilidades" },
+    { title: "Sobre mí", label: "sobre-mi", href: "#sobre-mi" },
+    { title: "Contacto", label: "contacto", href: "#contacto" },
+  ],
+  en: [
+    { title: "Home", label: "home", href: "#home" },
+    { title: "Experience", label: "Experience", href: "#experience" },
+    { title: "Projects", label: "projects", href: "#projects" },
+    { title: "Skills", label: "skills", href: "#skills" },
+    { title: "About", label: "about", href: "#about" },
+    { title: "Contact", label: "contact", href: "#contact" },
+  ]
+};
+
+const itemsToRender = (navItems)[lang as "es" | "en"];
 ---
 
 <header
@@ -82,7 +73,7 @@ const navItems = [
         <CloseIcon class="size-8" />
       </div>
       {
-        navItems.map((link) => (
+        itemsToRender.map((link) => (
           <a
             class="px-8 py-2 
               rounded-lg
@@ -97,7 +88,7 @@ const navItems = [
           </a>
         ))
       }
-      <!-- <ThemeToggle /> (Can be moved to this place) -->
+      <!-- Controls will be moved here in mobile view -->
     </div>
   </nav>
 
@@ -109,7 +100,7 @@ const navItems = [
     text-gray-600 dark:text-gray-200"
   >
     {
-      navItems.map((link, index) => (
+      itemsToRender.map((link, index) => (
         <a
           class="relative block px-2 py-2 transition text-center
           hover:text-navbar-primary dark:hover:text-navbar-secondary"
@@ -122,18 +113,19 @@ const navItems = [
         </a>
       ))
     }
-    <div class="theme-toggle">
+    
+    <!-- We group toggles to move them together -->
+    <div id="navbar-controls" class="flex items-center gap-2">
       <ThemeToggle />
+      <LanguageToggle />
     </div>
   </nav>
 </header>
 
 <style>
   /* Navbar animation */
-
   #desktop-navbar {
     @apply bg-white/90 dark:bg-navbar-dark-bg;
-
     animation: nav-shadown 2s linear both;
     animation-timeline: scroll(root block);
     animation-range: 0 100px;
@@ -149,7 +141,6 @@ const navItems = [
   }
 
   /* Hamburger Menu Links Animation */
-
   #menu-links {
     animation: scale-up-center .1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
@@ -159,7 +150,6 @@ const navItems = [
       transform: scale(0.99);
       opacity: 0;
     }
-
     to {
       transform: scale(1);
       opacity: 1;
@@ -167,18 +157,18 @@ const navItems = [
   }
 </style>
 
-<!-- Navbar items color change, hamburger menu functions and toggle theme container position -->
+<!-- Navbar items color change, hamburger menu functions and controls container position -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section");
-    const navItems =
-      document.querySelectorAll("header nav a");
+    const navItems = document.querySelectorAll("header nav a");
 
     // Function to add/remove active classes from nav items
     const activateNavItem = (id: any) => {
       navItems.forEach((item) => {
-        // Check href attribute which is '#id'
-        if (item.getAttribute("href") === `#${id}` && window.innerWidth >= 768) {
+        // Check if href is an anchor link like '#id'
+        const href = item.getAttribute("href");
+        if ((href === `#${id}` || href?.endsWith(`#${id}`)) && window.innerWidth >= 768) {
           item.classList.add("text-navbar-primary", "dark:text-navbar-secondary");
         } else {
           item.classList.remove("text-navbar-primary", "dark:text-navbar-secondary");
@@ -196,17 +186,12 @@ const navItems = [
         });
       },
       {
-        // This creates a "trigger zone" in the middle of the viewport.
-        // A section is considered "intersecting" only when it crosses this zone.
-        // This is much more robust than using thresholds for sections of varying heights.
         rootMargin: "-45% 0px -70% 0px",
       }
     );
 
     // Observe all sections
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    sections.forEach((section) => observer.observe(section));
 
     // Optimization: Stop observing when the tab is not visible
     document.addEventListener("visibilitychange", () => {
@@ -217,7 +202,6 @@ const navItems = [
       }
     });
 
-    ////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
     // Open or close the Hamburger Menu (Mobile Navbar)
     const hamburgerIcon = document.getElementById("hamburger-icon");
@@ -235,22 +219,16 @@ const navItems = [
       menuLinks?.classList.add("hidden");
     };
 
-    // Show the hamburger menu when clicked the icon
     hamburgerIcon?.addEventListener("click", (e) => {
       e.stopPropagation();
       showMenu();
     });
 
-    // Close the hamburger menu when clicked the close icon
     closeIcon?.addEventListener("click", hideMenu);
 
-    // Close the hamburger menu when clicked outside
     document.addEventListener("click", (e) => {
       const target = e.target as HTMLElement;
-      if (
-        !menuLinks?.contains(target) &&
-        !hamburgerIcon?.contains(target)
-      ) {
+      if (!menuLinks?.contains(target) && !hamburgerIcon?.contains(target)) {
         hideMenu();
       }
     });
@@ -258,7 +236,10 @@ const navItems = [
     // --- Click Handling for instant feedback ---
     navItems.forEach((item) => {
       item.addEventListener("click", () => {
-        const id = item.getAttribute("href")?.substring(1);
+        let id = item.getAttribute("href") ?? "";
+        if (id.includes("#")) {
+          id = id.split("#")[1];
+        }
         activateNavItem(id);
         if (window.innerWidth < 768) {
           hideMenu();
@@ -267,33 +248,28 @@ const navItems = [
     });
 
     ////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////
-    // Change the Theme Toggle Component position in the page
-    const themeToggleComponent = document.getElementById(
-      "theme-toggle-component"
-    );
-
+    // Change the Controls Container position in the page (Theme & Language)
+    const navbarControls = document.getElementById("navbar-controls");
     const desktopMenu = document.getElementById("desktop-navbar");
 
-    // Function to move ThemeToggle based on screen width
-    const moveThemeToggle = () => {
+    const moveControls = () => {
       if (window.innerWidth >= 768) {
         // Move to desktop navbar
-        if (!desktopMenu?.contains(themeToggleComponent) && themeToggleComponent) {
-          desktopMenu?.appendChild(themeToggleComponent);
+        if (!desktopMenu?.contains(navbarControls) && navbarControls) {
+          desktopMenu?.appendChild(navbarControls);
         }
       } else {
         // Move to mobile menu
-        if (!menuLinks?.contains(themeToggleComponent) && themeToggleComponent) {
-          menuLinks?.appendChild(themeToggleComponent);
+        if (!menuLinks?.contains(navbarControls) && navbarControls) {
+          navbarControls.classList.add("pb-4", "pt-2");
+          menuLinks?.appendChild(navbarControls);
+        } else if (navbarControls) {
+          navbarControls.classList.remove("pb-4", "pt-2");
         }
       }
     };
 
-    // Initial placement
-    moveThemeToggle();
-
-    // Adjust on window resize
-    window.addEventListener("resize", moveThemeToggle);
+    moveControls();
+    window.addEventListener("resize", moveControls);
   });
 </script>

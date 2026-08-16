@@ -7,12 +7,16 @@ import JobDetailsModal from "./JobDetailsModal.astro";
 
 // Data
 import { experienceData, type Job } from "../data/experienceData";
+
+const lang = (Astro.currentLocale || 'es') as "es" | "en";
+const data = experienceData[lang];
+const saberMas = lang === 'en' ? 'Learn more' : 'Saber más';
 ---
 
 <div class="section-child flex mt-6 py-5 px-3 container-highlight">
   <ol class="relative ml-3 w-full">
     {
-      (experienceData as Job[]).map((job, index) => (
+      (data as Job[]).map((job, index) => (
         // Job Item
         <li class="relative flex md:flex-row flex-col justify-between mb-2 ms-6 md:gap-8">
           <div class="rounded md:w-5/12
@@ -99,7 +103,7 @@ import { experienceData, type Job } from "../data/experienceData";
               data-modal-id={`job-modal-${index}`}
               aria-label={`Saber más sobre el puesto en ${job.company.name}`}
             >
-              <span class="font-semibold">Saber más</span>
+              <span class="font-semibold">{saberMas}</span>
               <MoreIcon />
             </button>
           </div>
@@ -111,7 +115,7 @@ import { experienceData, type Job } from "../data/experienceData";
 
 {/* Render a modal for each job, passing data via props */}
 {
-  (experienceData as Job[]).map((job, index) => (
+  (data as Job[]).map((job, index) => (
     <JobDetailsModal id={`job-modal-${index}`} job={job} />
   ))
 }

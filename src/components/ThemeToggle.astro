@@ -5,17 +5,18 @@ import MoonIcon from "../icons/Moon.astro";
 import SystemIcon from "../icons/System.astro";
 
 // Themes
+const lang = Astro.currentLocale || "es";
 const themes = [
-  { id: "light", label: "Claro", icon: SunIcon },
-  { id: "dark", label: "Oscuro", icon: MoonIcon },
-  { id: "system", label: "Sistema", icon: SystemIcon },
+  { id: "light", label: lang === "en" ? "Light" : "Claro", icon: SunIcon },
+  { id: "dark", label: lang === "en" ? "Dark" : "Oscuro", icon: MoonIcon },
+  { id: "system", label: lang === "en" ? "System" : "Sistema", icon: SystemIcon },
 ];
 ---
 
 <div id="theme-toggle-component" class="relative ml-1 mr-1">
   <button
     id="theme-toggle-btn"
-    class="border-none flex hover:scale-125 transition p-2"
+    class="border-none flex hover:scale-125 hover:text-navbar-primary dark:hover:text-navbar-secondary transition p-2"
     aria-label="Cambiar el tema (Claro, Oscuro o Sistema)"
   >
     <SunIcon id="light" class="theme-toggle-icon size-5 transition-all" />

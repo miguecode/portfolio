@@ -10,6 +10,9 @@ import CopyButton from "./CopyButton.astro";
 
 // Props
 const { email, linkedInLink } = Astro.props.data;
+const lang = Astro.currentLocale || 'es';
+const mailLabel = lang === 'en' ? 'Open Mail' : 'Abrir Correo';
+const linkedinLabel = lang === 'en' ? 'Open LinkedIn' : 'Abrir LinkedIn';
 ---
 
 <div class="section-child flex flex-col mt-6 container-highlight">
@@ -26,7 +29,7 @@ const { email, linkedInLink } = Astro.props.data;
 
     <CopyButton />
 
-    <ContactButton href={`mailto:${email}`} textButton="Abrir Correo">
+    <ContactButton href={`mailto:${email}`} textButton={mailLabel}>
       <OpenMailIcon class="size-4" />
     </ContactButton>
   </div>
@@ -45,7 +48,7 @@ const { email, linkedInLink } = Astro.props.data;
       rel="noopener noreferrer"
       role="link"
       href={linkedInLink}
-      textButton="Abrir LinkedIn"
+      textButton={linkedinLabel}
     >
       <OpenMailIcon class="size-4" />
     </ContactButton>

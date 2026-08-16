@@ -1,6 +1,10 @@
 ---
 import Close from "../icons/Close.astro";
 import Video from "../icons/Video.astro";
+
+const lang = Astro.currentLocale || 'es';
+const title = lang === 'en' ? 'Demonstration Video' : 'Video de Demostración';
+const closeLabel = lang === 'en' ? 'Close' : 'Cerrar';
 ---
 
 <dialog id="video-modal"
@@ -14,7 +18,7 @@ import Video from "../icons/Video.astro";
       <div class="flex items-center justify-center gap-2">
         <Video class="xs:block hidden sm:size-8 size-6 text-slate-700 dark:text-white"></Video>
         <h3 class="text-slate-700 dark:text-white sm:text-2xl xs:text-xl text-lg font-bold text-center">
-          Video de Demostración
+          {title}
         </h3>
       </div>
       <button
@@ -26,7 +30,7 @@ import Video from "../icons/Video.astro";
          transition-colors"
         aria-label="Cerrar cartel"
       >
-        <span class="sm:block hidden select-none font-medium">Cerrar</span>
+        <span class="sm:block hidden select-none font-medium">{closeLabel}</span>
         <Close class="xs:size-5 size-3" />
       </button>
     </div>

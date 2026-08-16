@@ -6,6 +6,8 @@ import GitHubIcon from "../icons/GitHub.astro";
 
 // Data
 const { data } = Astro.props;
+const lang = Astro.currentLocale || 'es';
+const cvLabel = lang === 'en' ? 'Resume' : 'Currículum';
 ---
 
 <div
@@ -21,12 +23,12 @@ const { data } = Astro.props;
       target="_blank"
       rel="noopener noreferrer"
       role="link"
-      aria-label="Currículum"
+      aria-label={cvLabel}
       class="relative group hover:text-navbar-primary dark:hover:text-navbar-secondary
         active:text-navbar-secondary dark:active:text-navbar-secondary/90 transition-colors duration-300 fab-distance:p-4 p-2"
     >
       <CurriculumIcon class="size-7 inline" />
-      <span class="fab-tooltip">Currículum</span>
+      <span class="fab-tooltip">{cvLabel}</span>
     </a>
     <a
       href={data.linkedInLink}
