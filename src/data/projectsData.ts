@@ -65,7 +65,7 @@ export const projects: Project[] = [
   // Prodeazo
   {
     title: "Prodeazo",
-    description: "Plataforma web de predicciones de fútbol creada para la Copa Mundial 2026. Los usuarios pueden registrarse, crear grupos y competir en el ranking global.",
+    description: "Plataforma web de predicciones de fútbol creada para el Mundial 2026. Los usuarios pueden registrarse, crear grupos y competir en el ranking global.",
     image: {
       desktop:"/projects/prodeazo-mockup-big.webp",
       mobile:"/projects/prodeazo-mockup-small.webp",
