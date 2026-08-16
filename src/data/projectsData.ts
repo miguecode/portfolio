@@ -62,6 +62,29 @@ export const projects: Project[] = [
     featured: true,
   },
 
+  // Prodeazo
+  {
+    title: "Prodeazo",
+    description: "Plataforma web de predicciones de fútbol creada para la Copa Mundial 2026. Los usuarios pueden registrarse, crear grupos y competir en el ranking global.",
+    image: {
+      desktop:"/projects/prodeazo-mockup-big.webp",
+      mobile:"/projects/prodeazo-mockup-small.webp",
+    },
+    links: [
+      {
+        name: "Abrir",
+        url: "https://prodeazo.vercel.app/",
+        icon: "Link",
+      },
+      {
+        name: "Código",
+        url: "https://github.com/ProdeazoApp/ProdeazoApp",
+        icon: "GitHub",
+      },
+    ],
+    tags: [technologysDataOne.Nextjs, technologysDataOne.TypeScript, technologysDataOne.TailwindCSS],
+  },
+
   // Messi Perfect Shots
   {
     title: "Messi Perfect Shots",
@@ -83,6 +106,29 @@ export const projects: Project[] = [
       },
     ],
     tags: [technologysDataTwo.Node, technologysDataOne.TypeScript]
+  },
+
+  // miguedocs
+  {
+    title: "miguedocs",
+    description: "Sitio web estilo Docs hecho con Fumadocs, funciona como mi biblioteca de apuntes de programación creados a lo largo del tiempo.",
+    image: {
+      desktop:"/projects/miguedocs-mockup-big.webp",
+      mobile:"/projects/miguedocs-mockup-small.webp",
+    },
+    links: [
+      {
+        name: "Abrir",
+        url: "https://miguedocs.vercel.app/",
+        icon: "Link",
+      },
+      {
+        name: "Código",
+        url: "https://github.com/miguecode/miguedocs/",
+        icon: "GitHub",
+      },
+    ],
+    tags: [technologysDataOne.Nextjs, technologysDataOne.TypeScript, technologysDataOne.TailwindCSS]
   },
 
   // Jueguitos JS

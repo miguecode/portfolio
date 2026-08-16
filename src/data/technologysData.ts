@@ -21,6 +21,7 @@ import postman from "../icons/technologys/Postman.astro";
 import net from "../icons/technologys/Net.astro";
 import ionic from "../icons/technologys/Ionic.astro";
 import git from "../icons/technologys/Git.astro";
+import nextjs from "../icons/technologys/Nextjs.astro";
 import react from "../icons/technologys/React.astro";
 import jira from "../icons/technologys/Jira.astro";
 import confluence from "../icons/technologys/Confluence.astro";
@@ -53,6 +54,11 @@ export const technologysDataOne = {
     name: "Angular",
     class: "bg-red-300/30 text-angular-primary dark:text-angular-primary",
     icon: angular,
+  },
+  Nextjs: {
+    name: "Next.js",
+    class: "bg-gray-300/30 text-black dark:text-white",
+    icon: nextjs,
   },
   Astro: {
     name: "Astro",
